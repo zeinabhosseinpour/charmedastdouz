@@ -25,6 +25,7 @@ const SizeFilter = (props) => {
   // const [ischecked, setIsChecked] = useState();
   const [listChecked, setListChecked] = useState([]);
   const [valueChecked, setValueChecked] = useState();
+  const [params, setParams] = useSearchParams();
 
   // const result = child3.map((c3) => c3.attributes);
   // console.log("resultparam:", result);
@@ -47,7 +48,7 @@ const SizeFilter = (props) => {
   // console.log("r1:", r1);
 
   const { productId, slug } = useParams();
-  const plainOptions = size[slug].map((s) => ({
+  const plainOptions = size[slug]?.map((s) => ({
     label: s,
     value: s,
   }));
@@ -77,12 +78,12 @@ const SizeFilter = (props) => {
     props.handleonclick(checkedValues);
   };
   const onChangex = (checkedValues) => {
+    console.log("checkedValues  :", checkedValues);
     // props.setsizechecked([...checkedValues, checkedValues]);
-    props.setsizechecked(checkedValues);
+    // props.setsizechecked(checkedValues);
     // props.setsearchparams({ size: checkedValues });
-
-    props.handleonclick();
-    console.log("searchparamszie:", props.searchparams);
+    // props.handleonclick();
+    // console.log("searchparamszie:", props.searchparams);
   };
 
   const onChange = (checkedValues) => {

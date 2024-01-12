@@ -48,7 +48,6 @@ const [minPrice,setMinPrice]=useState();
 const [maxPrice,setMaxPrice]=useState();
 const [listchecked,setListChecked]=useState();
    const [searchParams, setSearchParams] = useSearchParams();
-   console.log("searchparamsindexfilter:",searchParams);
 
    useEffect(()=> {
     const params=new URLSearchParams();
@@ -76,13 +75,8 @@ const [listchecked,setListChecked]=useState();
   console.log("searchparampropshandle:",props.searchParams);
    }
 
-  console.log("sizechecked:",sizeChecked);
-  console.log("materialchecked:",materialChecked);
-  console.log("searchparamprops:",props.searchParams);
-
    const { productid, slug } = useParams();
   
-  console.log("collaps:","salam");
 
 
   const onChangec = (checkedValues) => {
@@ -378,7 +372,6 @@ const [listchecked,setListChecked]=useState();
 
   // variable
   const c3 = child3.filter((p) => p.id.toString() === productid);
-  console.log("c3.material:", c3.material, c3,productid,slug);
 
   return (
     <section>

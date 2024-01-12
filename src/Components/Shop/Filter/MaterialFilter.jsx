@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 //data
 import {
@@ -26,6 +26,8 @@ const MaterialFilter = (props) => {
   const { token } = useToken();
   const { productid, slug } = useParams();
 
+  const [params, setParams] = useSearchParams();
+
   const plainOptions = material.map((s) => ({
     label: s.material,
     value: s.material,
@@ -36,14 +38,14 @@ const MaterialFilter = (props) => {
   //     value: c3.title,
   //   }));
   const onChangec = (checkedValues) => {
-    console.log("checked = ", checkedValues);
+    console.log("material = ", checkedValues);
   };
   const handleCheckboxChange = (checkedValues) => {
     props.handleonclick(checkedValues);
   };
   const onChange = (checkedValues) => {
-    props.setmaterialchecked(checkedValues);
-    props.handleonclick();
+    // props.setmaterialchecked(checkedValues);
+    // props.handleonclick();
 
     // setIsChecked(ischecked);
     // props.setsearchparams((prev) => ({ ...prev, material: checkedValues }));
@@ -58,7 +60,15 @@ const MaterialFilter = (props) => {
 
     // props.handleonclick(checkedValues);
     // props.setmaterialchecked(checkedValues);
-    console.log("matcheckedvalues: ", checkedValues);
+    const keys = params.keys();
+
+    const prevParams = {};
+
+    for (var key of keys) {
+      prevParams[key] = params.getAll(key);
+    }
+
+    setParams({ ...prevParams, material: checkedValues });
     // console.log(" props.setsearchparams:", props.setsearchparams);
     // props.setListChecked(checkedValues);
   };

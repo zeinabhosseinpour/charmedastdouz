@@ -6,6 +6,7 @@ import { Collapse, Switch, ConfigProvider, Checkbox, Flex } from "antd";
 
 // style
 import classes from "./style.module.css";
+import { useSearchParams } from "react-router-dom";
 
 //data
 import {
@@ -20,12 +21,20 @@ import {
 
 const CategoryFilter = () => {
   //state
+  const [params, setParams] = useSearchParams();
 
   const { productid, slug } = useParams();
 
-  console.log("collaps:", "salam");
   const onChangec = (checkedValues) => {
-    console.log("checked = ", checkedValues);
+    const keys = params.keys();
+
+    const prevParams = {};
+
+    for (var key of keys) {
+      prevParams[key] = params.getAll(key);
+    }
+
+    setParams({ ...prevParams, category: checkedValues });
   };
   // const plainOptions=['چرم گاوی ','چرم هورس گاوی','چرم بزی'];
 
@@ -34,7 +43,6 @@ const CategoryFilter = () => {
     label: c3.title,
     value: c3.title,
   }));
-  console.log("plainoption:", plainOptions);
   const options = [
     {
       label: "Apple",

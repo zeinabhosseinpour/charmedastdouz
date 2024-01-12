@@ -14,7 +14,6 @@ import classes from "./style.module.css";
 const Shop = () => {
   const [searchParams, setSearchParams] = useSearchParams({});
   const { productId, slug } = useParams();
-  console.log("shop");
   return (
     <div>
       <Header />
