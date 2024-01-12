@@ -1,0 +1,121 @@
+:root {
+
+  --color-button-primary: #ef4056;
+
+  --color-text-button-primary:#fff;
+  --color-text-button-primary-100:rgb(0, 0, 0);
+
+  --color-text-primary: rgb(74, 95, 115);
+  --color-text-primary-100:rgb(170, 171, 186);
+  --color-text-primary-200:#fff;
+
+  --color-text-secondary:rgb(35, 37, 78);
+  --color-text-secondary-100:#212529;
+  --color-text-secondary-200: rgb(33, 37, 41);
+  --color-text-secondary-300: rgba(0, 0, 0, 0.87);
+  --color-text-secondary-400:rgb(119, 119, 119);
+
+  --color-text-neutral: rgb(239, 64, 86);
+  --color-text-neutral-100: #ef394e;
+  --color-text-neutral-200:#ef4056;
+  --color-text-neutral-300:#eb3a3a;
+
+  --color-border-primary:rgb(228, 228, 228);
+  --color-border-primary-100: #EDEDEE;
+
+  --color-border-secondory:#e0e0e2;
+  --color-border-secondory-100: #d5d5d5;
+  --color-border-secondory-200:#c5c7cb;
+  --color-border-secondory-300: rgba(0, 0, 0, 0.12);
+  --color-border-secondory-400:rgb(229, 231, 235);
+  --color-border-secondory-500: hsl(0, 0%, 100%);
+
+  --color-border-neutral:#eb3a3a;
+
+  --color-icon-primary: rgb(239, 57, 78);
+  /* --color-icon-secondary: #ef394e;   */
+
+  --color-icon-neutral:gray;
+
+  --bgcolor:rgb(245, 245, 245);
+  --bgcolor-100:rgb(211, 47, 47);
+  --bgcolor-200: #f1f8ff;
+  --bgcolor-300:#ff4d4f;
+  --bgcolor-400:rgb(240, 240, 241);
+  --bgcolor-500:#fff;
+  --bgcolor-600:#eb3a3a;
+
+  --color-hover-primary: #eb3a3a; 
+  --color-hover-primary-100: #ef394e;
+  --color-hover-secondary:#f4f5f7;
+
+
+  --bgcolor-footer: rgb(229, 231, 235);
+  --bgcolor-aboutfooter: rgba(24, 28, 50, 0.12);
+
+  --color-linkfooter: #777;
+  --color-linkfooter-100: #eb3a3a; 
+  /* color: rgb(119, 119, 119)  */
+
+
+
+
+
+
+
+
+
+
+
+    --color-body:rgb(243, 244, 246);
+  
+    /* --color-visit-details : rgb(59, 130, 246); */
+    /* --color-login:rgb(59, 130, 246); */
+    --bgcolor-login: rgba(59, 130, 246, 0.1);
+    /* --color-sabad: #4A6DFF; */
+    --bgcolor-sbad: rgba(74, 109, 255, 0.1);
+    --bgcolor-lmenu: #f1f8ff;
+    --color-lmenu:rgb(118, 119, 144);
+    --bgcolor-rmenu: #fff;
+    --color-rmenu: rgb(8, 10, 56);
+    --color-footer: #eb3a3a;
+    /* --bgcolor-footer: rgb(229, 231, 235); */
+   
+    --bgcolor-searchbar: #fff;
+    /* --color-producttitle:rgb(37 99 235); */
+    
+    
+    /* --bgcolor-visit-btn: rgb(74, 109, 255); */
+    /* --color-visit-btn: rgb(255, 255, 255); */
+    /* --bgcolor-visit-btn-hover : rgb(76, 110, 255); */
+   
+   
+   
+   
+
+
+
+    /* background-color: rgb(245, 245, 245) cart */
+    /* background-color: #f1f8ff; rgb(241, 248, 255) nav menu */
+    /* background-color: #f4f5f7;  background-color: rgb(244, 245, 247)hever nav menu link */
+
+
+    /* background-color: rgb(240, 240, 241) ant search bg */
+    /* background-color: rgb(211, 47, 47)  off % , login page ghanun
+
+    --color-footer: #eb3a3a;    color: rgb(235, 58, 58) filter hazf, phone ,ordering, login hover , switch ant, 
+    border rang mahsul input, navbar category right , footer link
+
+
+    color: #ef394e; color: rgb(239, 57, 78) menu nav hover , + - icon cart , price kol cart badg
+
+
+
+    --color-button-primary: #ef4056; : rgb(239, 64, 86) check colaps, badg sabad empty, btn , modal ant add btn, price off cart font
+    --color-button-text:
+
+    background: #ff4d4f; aant badg  count */
+                
+    
+
+}

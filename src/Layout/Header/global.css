@@ -1,0 +1,20 @@
+.anticon {
+    color: rgb(66, 71, 80);
+    font-size: 18px;
+}
+
+
+:where(.css-dev-only-do-not-override-lhk095).ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item,
+:where(.css-dev-only-do-not-override-lhk095).ant-dropdown-menu-submenu .ant-dropdown-menu .ant-dropdown-menu-item,
+:where(.css-dev-only-do-not-override-lhk095).ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-submenu-title,
+:where(.css-dev-only-do-not-override-lhk095).ant-dropdown-menu-submenu .ant-dropdown-menu .ant-dropdown-menu-submenu-title {
+ 
+   cursor:auto;
+ 
+}
+:where(.css-dev-only-do-not-override-ppfibc).ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-item,
+:where(.css-dev-only-do-not-override-ppfibc).ant-dropdown-menu-submenu .ant-dropdown-menu .ant-dropdown-menu-item,
+:where(.css-dev-only-do-not-override-ppfibc).ant-dropdown .ant-dropdown-menu .ant-dropdown-menu-submenu-title,
+:where(.css-dev-only-do-not-override-ppfibc).ant-dropdown-menu-submenu .ant-dropdown-menu .ant-dropdown-menu-submenu-title {
+    cursor: auto;
+}

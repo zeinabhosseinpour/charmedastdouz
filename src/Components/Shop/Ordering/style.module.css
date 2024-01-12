@@ -1,0 +1,100 @@
+@media screen and (max-width:640px) {
+    .main-header {
+      visibility: hidden;
+      display: none;
+      
+    }
+    .sort {
+       visibility: hidden;
+    }
+    }
+    @media screen and (max-width:768px) {
+      
+    }
+    @media screen and (max-width:992px) {
+     
+    
+    }
+    @media screen and (max-width:1024px) {
+     
+    }
+    @media screen and (min-width:1280px) {
+        
+    }
+     @media screen and (min-width:1536px) {
+            
+        }
+  
+
+
+.sort {
+    color: brown;
+}
+
+.sort-section {
+
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: space-between; */
+    align-items: center;
+    /* background-color: aqsua; */
+    text-decoration: none;
+    list-style: none;
+   
+    gap:7px ;
+}
+
+
+.sort-icon {
+    width:5px;
+    height: 5px;
+}
+.sort-header {
+    display: flex;
+    gap: 3px;
+    font-weight: bold;
+    color: #000;
+    /* margin-right: 5px; */
+}
+
+
+
+.sort-byitem {
+   /* display: block; */
+    cursor: pointer;
+    border-radius: 15px;
+    color: rgb(74, 95, 115);
+
+    padding: 3px 10px;
+    /* font-size: 14px; */
+    
+}
+/* .sort-is_active :active {
+    background-color: green;
+} */
+/* li:hover {
+    background-color: #ece9e9;
+    border-radius: 5px;
+} */
+.sort-byitem :hover {
+    background-color: #ece9e9;
+    border-radius: 5px;
+    
+    
+
+}
+
+/* .sort-byitem :focus {
+    background-color: red;
+} */
+
+.sort-is_active {
+    background-color: rgb(254, 243, 243);
+    color: rgb(235, 58, 58);
+    /* color: rgb(239, 57, 78); */
+    /* cursor: pointer; */
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 3px 10px;
+}
+

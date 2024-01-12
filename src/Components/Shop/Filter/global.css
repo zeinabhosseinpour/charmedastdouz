@@ -1,0 +1,47 @@
+._category-header_tf3vs_111 {
+   
+    align-items: start;
+   
+  }
+
+  :where(.css-dev-only-do-not-override-kmmaf).ant-checkbox .ant-checkbox-inner {
+
+    border-radius: 0px;
+  }
+
+  :where(.css-dev-only-do-not-override-kmmaf).ant-checkbox-checked .ant-checkbox-inner {
+    background-color:#ef4056;
+    border-color:#ef4056;
+  }
+
+  :where(.css-dev-only-do-not-override-kmmaf).ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-checked:not(.ant-checkbox-disabled) .ant-checkbox-inner {
+    background-color:#ef4056;
+    /* border-color:#ef4056; */
+  }
+  :where(.css-dev-only-do-not-override-kmmaf).ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-inner,
+:where(.css-dev-only-do-not-override-kmmaf).ant-checkbox:not(.ant-checkbox-disabled):hover .ant-checkbox-inner {
+  border-color:#ef4056;
+}
+
+/* background-color: #91caff; */
+
+:where(.css-dev-only-do-not-override-kmmaf).ant-slider .ant-slider-handle::after {
+  /* content:"";
+  position:absolute;
+  inset-block-start:0;
+  inset-inline-start:0;
+  width:10px;
+  height:10px; */
+  background-color:#ef4056;
+  box-shadow:0 0 0 2px #ef4056;
+  /* border-radius:50%;
+  cursor:pointer;
+  transition:inset-inline-start 0.2s,inset-block-start 0.2s,width 0.2s,height 0.2s,box-shadow 0.2s; */
+}
+
+:where(.css-dev-only-do-not-override-kmmaf).ant-slider .ant-slider-handle:hover::after,
+:where(.css-dev-only-do-not-override-kmmaf).ant-slider .ant-slider-handle:active::after,
+:where(.css-dev-only-do-not-override-kmmaf).ant-slider .ant-slider-handle:focus::after {
+  box-shadow:0 0 0 4px #ef4056;
+  
+}

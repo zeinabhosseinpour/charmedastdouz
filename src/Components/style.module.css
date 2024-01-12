@@ -1,0 +1,16 @@
+.icon-count {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+  border: 1px solid #e0e0e2;
+  border-radius: 8px;
+  padding: 10px;
+  
+
+}
+.icon {
+    color:rgb(239, 57, 78);
+    cursor: pointer;
+
+}
