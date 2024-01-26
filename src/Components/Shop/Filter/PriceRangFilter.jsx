@@ -6,11 +6,13 @@ import classes from "./style.module.css";
 // package
 import { Slider, InputNumber, ConfigProvider } from "antd";
 import { BsHandbag } from "react-icons/bs";
+import useSearchParamsFilter from "../../../Hooks/useSearchParamsFilter";
 
 const PriceRangFilter = (props) => {
   const [inputMinValue, setInputMinValue] = useState(50000);
 
   const [inputMaxValue, setInputMaxValue] = useState(12000000);
+  const updateSearchParams = useSearchParamsFilter();
 
   const onChangeComplete = (value) => {
     console.log("onChangeComplete: ", value);
@@ -22,18 +24,23 @@ const PriceRangFilter = (props) => {
     setInputMaxValue(newValue[1]);
   };
   console.log("inputvalumin:", inputMinValue);
-  const handlePriceReng = () => {
-    // props.setrangeprice(inputMinValue, inputMaxValue);
-    props.setminprice(inputMinValue);
-    props.setmaxprice(inputMaxValue);
-    props.handleonclick();
-  };
-
   const formattedValue = (value) => {
     const valueFormat = new Intl.NumberFormat("fa-IR");
     const x = valueFormat?.format(value);
     console.log("intl:", x);
     return x;
+  };
+  const handlePriceReng = () => {
+    // props.setrangeprice(inputMinValue, inputMaxValue);
+
+    // props.setminprice(inputMinValue);
+    // props.setmaxprice(inputMaxValue);
+    // props.handleonclick();
+
+    updateSearchParams({
+      minPrice: formattedValue(inputMinValue),
+      maxPrice: formattedValue(inputMaxValue),
+    });
   };
 
   // useEffect(()={

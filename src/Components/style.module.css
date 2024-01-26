@@ -14,3 +14,54 @@
     cursor: pointer;
 
 }
+
+@media screen and (max-width:320px) {
+  
+ 
+}
+@media screen and (max-width:480px) {
+  
+  /* .icon-count {
+display: none;
+border: none;
+background-color: green;
+  } */
+}
+
+@media screen and (max-width:576px) {
+ 
+}
+@media screen and (max-width:640px) {
+ 
+  
+   
+   
+  }
+  @media screen and (max-width:768px) {
+   
+  }
+  @media screen and (max-width:992px) {
+    
+  }
+  @media screen and (max-width:1024px) {
+   
+   
+  }
+  @media screen and (min-width:1280px) {
+      
+  }
+   @media screen and (min-width:1536px) {
+          
+      }
+   
+   
+   
+    
+   
+      
+
+  
+ 
+
+
+  

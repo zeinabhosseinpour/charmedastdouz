@@ -19,15 +19,18 @@ import classes from "./style.module.css";
 
 // package
 import { Pagination } from "antd";
+import { keys, values } from "lodash";
 
 const Products = (props) => {
   // variables
   const plist = productslist;
-  // const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   // states
   const { productid, slug } = useParams();
   console.log("plist:", plist);
+  console.log("slug11:", slug);
+  console.log("propsslug11:", props.Slug);
   const [productsList, setProductsList] = useState([]);
   // const [isLoading, setIsLoading] = useState(true);
   const [filterItems, setFilterItems] = useState({});
@@ -44,55 +47,56 @@ const Products = (props) => {
     }
   }
 
-  const product = useMemo(
-    () => getProductById(plist, productid),
-    [getProductById, plist, productid]
-  );
-  console.log(product.child, "productm");
+  // const product = useMemo(
+  //   () => getProductById(plist, productid),
+  //   [getProductById, plist, productid]
+  // );
+  // console.log(product.child, "productm");
 
   const resultProduct = () => {
     const result = child3.filter(
       (item) =>
         item.category === slug || item.parent1 === slug || item.parent === slug
     );
+    console.log("slugresultfree:", slug);
     console.log("resultfreefilter:", result);
     setProductsList(result);
   };
-  const result = child3
-    .filter(
-      (item) =>
-        item.category === slug || item.parent1 === slug || item.parent === slug
-    )
-    .filter(
-      (i) =>
-        i.material === props.searchparams.get("material") ||
-        i.attributes.filter(
-          (a) => a.color === props.searchparams.get("color")
-        ) ||
-        i.attributes.map((a) =>
-          a.sizelist.filter((s) => s.size === props.searchparams.get("size"))
-        )
-    );
-  // / console.log("resultout:", result);
-  const result2 = child3
-    .filter(
-      (item) =>
-        item.category === slug &&
-        // ||
-        // item.parent1 === slug ||
-        // (item.parent === slug
-        item.material === props.searchparams.get("material")
-    )
-    // .filter((i) => i.attributes.color === props.searchparams.get("color"));
-    .map((i) =>
-      i.attributes
-        .filter((a) => a.color === props.searchparams.get("color"))
-        .map((s) =>
-          s.sizelist.filter(
-            (item) => item.size === props.searchparams.get("size")
-          )
-        )
-    );
+  // const result = child3
+  //   .filter(
+  //     (item) =>
+  //       item.category === slug || item.parent1 === slug || item.parent === slug
+  //   )
+  //   .filter(
+  //     (i) =>
+  //       i.material === props.searchparams.get("material") ||
+  //       i.attributes.filter(
+  //         (a) => a.color === props.searchparams.get("color")
+  //       ) ||
+  //       i.attributes.map((a) =>
+  //         a.sizelist.filter((s) => s.size === props.searchparams.get("size"))
+  //       )
+  //   );
+  // // / console.log("resultout:", result);
+  // const result2 = child3
+  //   .filter(
+  //     (item) =>
+  //       item.category === slug &&
+  //       // ||
+  //       // item.parent1 === slug ||
+  //       // (item.parent === slug
+  //       item.material === props.searchparams.get("material")
+  //   )
+  //   // .filter((i) => i.attributes.color === props.searchparams.get("color"));
+  //   .map((i) =>
+  //     i.attributes
+  //       .filter((a) => a.color === props.searchparams.get("color"))
+  //       .map((s) =>
+  //         s.sizelist.filter(
+  //           (item) => item.size === props.searchparams.get("size")
+  //         )
+  //       )
+  // );
   // .map((s) => s.sizelist.filter((item) => item.id === 11112));
 
   // console.log("resultout2:", result2);
@@ -123,97 +127,119 @@ const Products = (props) => {
     //   );
     const r1 = child3.filter((item) => item.category === slug);
     console.log("r1:", r1);
-    const r2 = r1.filter(
-      (i) =>
-        i.material === props.searchparams.get("material") &&
-        i.attributes.filter((a) => a.color === props.searchparams.get("color"))
-      // ||
-      // i.attributes.map((a) =>
-      // a.sizelist.filter((s) => s.size === props.searchparams.get("size"))
-      // )
-    );
-    console.log("r2:", r2);
-    const result = child3
-      .filter(
-        (item) => {
-          console.log("item.id:", item.id);
-          return item.category === slug;
-        }
-        //  ||
-        // item.parent1 === slug ||
-        // item.parent === slug
-      )
-      .filter(
-        (i) =>
-          i.material === props.searchparams.get("material") &&
-          i.attributes.filter(
-            (a) => a.color === props.searchparams.get("color")
-          ) &&
-          i.attributes.map((a) =>
-            a.sizelist.filter((s) => s.size === props.searchparams.get("size"))
-          )
-      );
-    console.log("resultfilter:", result);
+    // const r2 = r1.filter(
+    //   (i) =>
+    //     i.material === props.searchparams.get("material") &&
+    //     i.attributes.filter((a) => a.color === props.searchparams.get("color"))
+    //   // ||
+    //   // i.attributes.map((a) =>
+    //   // a.sizelist.filter((s) => s.size === props.searchparams.get("size"))
+    //   // )
+    // );
+    // console.log("r2:", r2);
+    // const result = child3
+    //   .filter(
+    //     (item) => {
+    //       console.log("item.id:", item.id);
+    //       return item.category === slug;
+    //     }
+    //     //  ||
+    //     // item.parent1 === slug ||
+    //     // item.parent === slug
+    //   )
+    //   .filter(
+    //     (i) =>;2
+    //       i.material === props.searchparams.get("material") &&
+    //       i.attributes.filter(
+    //         (a) => a.color === props.searchparams.get("color")
+    //       ) &&
+    //       i.attributes.map((a) =>
+    //         a.sizelist.filter((s) => s.size === props.searchparams.get("size"))
+    //       )
+    //   );
+    // console.log("resultfilter:", result);
+    // const result3 = child3
+    //   .filter((item) => item.category === slug)
+    //   .filter((i) => {
+    //     if (props.searchparams.get("material")) {
+    //       i.material === props.searchparams.get("material");
+    //     }
+    //     if (props.searchparams.get("color")) {
+    //       i.attributes.filter(
+    //         (a) => a.color === props.searchparams.get("color")
+    //       );
+    //     }
+    //     if (props.searchparams.get("size")) {
+    //       i.attributes.map((a) =>
+    //         a.sizelist.filter((s) => s.size === props.searchparams.get("size"))
+    //       );
+    //     }
+    //   });
     const result3 = child3
       .filter((item) => item.category === slug)
       .filter((i) => {
-        if (props.searchparams.get("material")) {
-          i.material === props.searchparams.get("material");
-        }
-        if (props.searchparams.get("color")) {
-          i.attributes.filter(
-            (a) => a.color === props.searchparams.get("color")
-          );
-        }
-        if (props.searchparams.get("size")) {
+        // if (searchParams.get("material")) {
+        i.material === searchParams.get("material") &&
+          // }
+          // if (searchParams.get("color")) {
+          i.attributes.filter((a) => a.color === searchParams.get("color")) &&
+          // }
+          // if (searchParams.get("size")) {
           i.attributes.map((a) =>
-            a.sizelist.filter((s) => s.size === props.searchparams.get("size"))
+            a.sizelist.filter((s) => s.size === searchParams.get("size"))
           );
-        }
+        // }
       });
     console.log("result3:", result3);
     if (result3.length) {
-      setProductsList(result);
+      setProductsList(result3);
     } else {
       alert("نتیجه ای یافت نشد");
     }
   };
   // console.log("productlist:", productsList);
-  const size = props.searchparams.get("size");
-  // const size = 49;
-  const color = props.searchparams.get("color");
-  // const color = "قرمز";
-  const material = props.searchparams.get("material");
-  console.log("size,color,material:", size, color, material);
-  console.log("filteritem:", filterItems);
-  const filter = {
-    size: [props.searchparams.get("size")],
-    material: props.searchparams.get("material"),
-    color: [props.searchparams.get("color")],
-  };
-  console.log("filterget:", filter);
+  // const size = props.searchparams.get("size");
+  // // const size = 49;
+  // const color = props.searchparams.get("color");
+  // // const color = "قرمز";
+  // const material = props.searchparams.get("material");
+  // console.log("size,color,material:", size, color, material);
+  // console.log("filteritem:", filterItems);
+  // const filter = {
+  //   size: [props.searchparams.get("size")],
+  //   material: props.searchparams.get("material"),
+  //   color: [props.searchparams.get("color")],
+  // };
+  // console.log("filterget:", filter);
+
   useEffect(() => {
-    // setFilterItems((prev) => (prev, { size, color, material }));
-    setFilterItems((prev) => ({
-      ...prev,
-      size: size,
-      material: material,
-      color: color,
-    }));
-    // setFilterItems({
-    //   ...filterItems,
-    //   size: size,
-    //   color: color,
-    //   material: material,
-    // });
-    if (size || color || material) {
+    const keys = searchParams.keys();
+    console.log("keys,:", keys);
+    // const prevSearchParams = {};
+    // let searchParamsAll = "";
+    let searchParamsAll = {};
+    for (var key of keys) {
+      // prevSearchParams[key] = searchParams.getAll(key);
+      searchParamsAll[key] = searchParams.getAll(key);
+    }
+
+    console.log(
+      "serachParamsall:",
+      Object.keys(searchParamsAll).length > 0,
+      searchParamsAll,
+      searchParamsAll.length > 0
+    );
+    if (Object.keys(searchParamsAll).length > 0) {
       console.log("productlistuseeif:", productsList);
       resultFilteredProduct();
     } else {
       console.log("productlistuseels:", productsList);
+      console.log("sluguseeefect:", slug, productid);
+      console.log("slugprops:", props.Slug);
+      // setSearchParams("");
       resultProduct();
     }
-  }, [size, color, material]);
+  }, [searchParams, productid, slug]);
   // useEffect(() => {
   //   if (productsList.length > 0) {
   //     // if (isLoading) {
@@ -335,17 +361,18 @@ const Products = (props) => {
         )}
       </ul> */}
       <div>
-        <span>size: {props.searchparams.get("size")}</span>
+        {/* <span>size: {props.searchparams.get("size")}</span>
         <span>material: {props.searchparams.get("material")}</span>
         <span> color: {props.searchparams.get("color")}</span>
         <span>minprice: {props.searchparams.get("minPrice")}</span>
         <span> maxprice: {props.searchparams.get("maxPrice")}</span>
         <span>
           has selling stock: {props.searchparams.get("has_selling_stock")}
-        </span>
+        </span> */}
       </div>
-
-      <Pagination defaultCurrent={1} pageSize={18} total={180} size="small" />
+      <div className={classes["pagintion-shop"]}>
+        <Pagination defaultCurrent={1} pageSize={18} total={180} size="small" />
+      </div>
 
       <div className={`${classes["product-shop"]} ${classes["grid--3--cols"]}`}>
         {/* {productFilter
@@ -355,32 +382,33 @@ const Products = (props) => {
               p.color === props.searchparams.get("color") ||
               p.material === props.searchparams.get("material")
           ) */}
-        {props.searchparams.get("material") &&
-          props.searchparams.get("size") &&
-          props.searchparams.get("color") &&
-          child3
-            .filter(
-              (item) =>
-                item.category === slug ||
-                item.parent1 === slug ||
-                (item.parent === slug &&
-                  item.material === props.searchparams.get("material"))
-            )
-            .filter(
-              (i) => i.attributes.color === props.searchparams.get("color")
-            )
-            .filter(
-              (s) =>
-                (s.size === s.size.toString()) ===
-                props.searchparams.get("size")
-            )
-
-            .map((item) => (
-              <div key={item.id}>
-                {item.id}
-                {item.title}
-              </div>
-            ))}
+        {
+          // props.searchparams.get("material") &&
+          //   props.searchparams.get("size") &&
+          //   props.searchparams.get("color") &&
+          // child3
+          //   .filter(
+          //     (item) =>
+          //       item.category === slug ||
+          //       item.parent1 === slug ||
+          //       (item.parent === slug &&
+          //         item.material === props.searchparams.get("material"))
+          //   )
+          //   .filter(
+          //     (i) => i.attributes.color === props.searchparams.get("color")
+          //   )
+          //   .filter(
+          //     (s) =>
+          //       (s.size === s.size.toString()) ===
+          //       props.searchparams.get("size")
+          //   )
+          //   .map((item) => (
+          //     <div key={item.id}>
+          //       {item.id}
+          //       {item.title}
+          //     </div>
+          //   ))
+        }
 
         {productsList.map((item) => (
           <div key={item.id} className={classes["single-product"]}>
@@ -410,6 +438,7 @@ const Products = (props) => {
               item.parent1 === slug ||
               item.parent === slug
           ) */}
+        {/* .map((c3) => ( */}
         {productsList.map((c3) => (
           <Link
             key={c3.id}
@@ -425,22 +454,23 @@ const Products = (props) => {
                 />
               </div>
               <div className={classes["product-feature"]}>
+                {/* <div className={classes["product-color_section"]}> */}
                 <div className={classes["product-color_section"]}>
-                  <div className={classes["product-color"]}>
-                    {c3.attributes.map((item) => (
-                      <div
-                        style={{
-                          borderRadius: "100%",
-                          backgroundColor: item.colorValue,
-                          width: "20px",
-                          height: "20px",
-                          border: "1px solid gray",
-                        }}
-                        key={item.id}
-                      ></div>
-                    ))}
-                  </div>
+                  {c3.attributes.map((item) => (
+                    <div
+                      className={classes["product-color"]}
+                      style={{
+                        // borderRadius: "100%",
+                        backgroundColor: item.colorValue,
+                        // width: "20px",
+                        // height: "20px",
+                        // border: "1px solid gray",
+                      }}
+                      key={item.id}
+                    ></div>
+                  ))}
                 </div>
+                {/* </div> */}
                 <div key="c3.id" className={classes["product-title"]}>
                   {c3.title}
                 </div>
@@ -451,8 +481,9 @@ const Products = (props) => {
                         <span>{priceIntl(c3.price)}</span>
                         <span>تومان</span>
                       </div>
-
-                      <div className={classes["product-off"]}>{c3.off}%</div>
+                      <div className={classes["product-off_section"]}>
+                        <div className={classes["product-off"]}>{c3.off}%</div>
+                      </div>
                     </div>
                   )}
 

@@ -45,3 +45,24 @@
   box-shadow:0 0 0 4px #ef4056;
   
 }
+
+:where(.css-dev-only-do-not-override-kmmaf) a:hover {
+  color:orchid;
+}
+
+
+:where(.css-dev-only-do-not-override-kmmaf) a:active {
+  color:red;
+}
+:where(.css-dev-only-do-not-override-kmmaf).ant-collapse>.ant-collapse-item >.ant-collapse-header {
+  
+  padding:8px 10px;
+  /* line-height:1.5714285714285714; */
+  
+}
+.ant-collapse-header {
+  padding: 8px 10px;
+}
+.ant-collapse-content-box {
+  padding: 5px;
+}

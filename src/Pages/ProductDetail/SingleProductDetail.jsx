@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 // package
@@ -34,10 +34,7 @@ import ProductDetailTab from "./ProductDetailTab";
 import SwiperSlider from "./SwiperSlider";
 
 const SingleProductDetail = () => {
-  const [countColor, setCountColor] = useState();
   // const [itemColor, setItemColor] = useState();
-  const [activeSize, setActiveSize] = useState();
-  const [sizelist, setSizeList] = useState([]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [inputColor, setInputColor] = useState();
@@ -57,14 +54,29 @@ const SingleProductDetail = () => {
   const handleDetails = () => {};
   const { productid, slug } = useParams();
   const item = child3.find((item) => item.id.toString() === productid);
+  const arryeSize = item.attributes[0].sizelist[0].size;
+  console.log(" arryeSizeproductdetail:", arryeSize);
+  const [activeSize, setActiveSize] = useState();
+  console.log("activesize:", activeSize);
+  const colorCount = item.attributes[0].colorcount;
+  const [countColor, setCountColor] = useState();
+  console.log("colorcount:", colorCount);
+  const listSize = item.attributes[0].sizelist.map((s) => ({
+    id: s.id,
+    size: s.size,
+  }));
+  const sizeActive = listSize[0].size;
+  console.log("sizeactive:", sizeActive);
+  const [sizelist, setSizeList] = useState([]);
 
   const arrayecolorid = item.attributes[0].id;
+
   console.log("arrayecolorid:", arrayecolorid);
-  const arrayecolor = item.attributes[0].color;
-  console.log("arrayecolor:", arrayecolor);
-  const [activeColor, setActiveColor] = useState(arrayecolor);
-  const colorItem = item.attributes.find((i) => i.color === activeColor);
-  console.log("coloritem:", colorItem, colorItem.img);
+  const arrayeColor = item.attributes[0].color;
+  console.log("arrayecolor:", arrayeColor);
+  const [activeColor, setActiveColor] = useState();
+  // const colorItem = item.attributes.find((i) => i.color === activeColor);
+  // console.log("coloritem:", colorItem, colorItem.img);
 
   const handleColorClick = (id, color, count, sizelist) => {
     setActiveColor(color);
@@ -92,6 +104,22 @@ const SingleProductDetail = () => {
   const cartItem = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    const item = child3.find((item) => item.id.toString() === productid);
+    const arrayeColor = item.attributes[0].color;
+    const colorCount = item.attributes[0].colorcount;
+    const listSize = item.attributes[0].sizelist.map((s) => ({
+      id: s.id,
+      size: s.size,
+    }));
+    const arryeSize = item.attributes[0].sizelist[0].size;
+    setActiveColor(arrayeColor);
+    setCountColor(colorCount);
+    setSizeList(listSize);
+    // setActiveSize(arryeSize);
+    setInputColor(true);
+    // setInputSize(true);
+  }, []);
   console.log("activecolor", activeColor);
 
   const handleBtn = () => {
@@ -109,6 +137,8 @@ const SingleProductDetail = () => {
     //   price: item.price,
     //   quantity,
     // };
+    const colorItem = item.attributes.find((i) => i.color === activeColor);
+
     console.log("color:", activeColor);
     console.log("quantity:", quantity);
     console.log("activesize:", activeSize);
@@ -126,6 +156,8 @@ const SingleProductDetail = () => {
           productImg: colorItem.img,
         })
       );
+      setActiveSize("");
+      setInputSize(false);
     } else {
       alert("لطفا رنگ و سایز محصول را انتخاب نمایید");
     }
@@ -391,6 +423,7 @@ const SingleProductDetail = () => {
                       </div>
                     )}
                     <div className={classes["priceoff-section"]}>
+                      <span>قیمت محصول: </span>
                       <span>{priceIntl(p.price - p.price * p.off * 0.01)}</span>
                       <span>تومان</span>
                       {/* <span>{getPriceOff(p.price, p.off)}</span> */}
@@ -503,7 +536,6 @@ const SingleProductDetail = () => {
                       </ConfigProvider>
                     </div>
                   </div>
-                  <div></div>
                 </div>
               </div>
             );

@@ -1,25 +1,10 @@
-@media screen and (max-width:640px) {
-    .filter {
-        background-color: #eb3a3a;
-    }
-    }
-    @media screen and (max-width:768px) {
-      
-    }
-    @media screen and (max-width:992px) {
-     
-    
-    }
-    @media screen and (max-width:1024px) {
-     
-    }
-    @media screen and (min-width:1280px) {
-        
-    }
-     @media screen and (min-width:1536px) {
-            
-        }
 
+.filter-mobile {
+   display: none;
+}
+/* .filter-icon {
+display: none;
+} */
 
 .filter {
     background-color: aqua;
@@ -93,3 +78,55 @@
   border: 0;
   cursor: pointer;
 }
+
+
+
+
+
+@media screen and (max-width:320px) {
+  
+ 
+}
+@media screen and (max-width:480px) {
+}
+@media screen and (max-width:576px) {
+ 
+ 
+}
+@media screen and (max-width:640px) {
+   
+   
+    }
+    @media screen and (max-width:768px) {
+        .filter {
+            /* visibility: hidden; */
+            display: none;
+         }
+         .filter-mobile {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: bold;
+            color: #000;
+            cursor: pointer;
+            position: relative;
+         }
+         .filter-icon {
+            width: 20px;
+            height: 20px;
+           
+         }
+    }
+    @media screen and (max-width:992px) {
+     
+    
+    }
+    @media screen and (max-width:1024px) {
+     
+    }
+    @media screen and (min-width:1280px) {
+        
+    }
+     @media screen and (min-width:1536px) {
+            
+        }

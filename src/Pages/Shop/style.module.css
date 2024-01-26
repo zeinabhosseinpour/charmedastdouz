@@ -1,4 +1,8 @@
-.container {
+/* * {
+    margin-bottom: 150px;
+  } */
+
+/* .container {
     width: 100%;
     margin-right: auto;
     margin-left: auto;
@@ -6,7 +10,7 @@
    /* border: 1px solid red; */
    /* background-color: rgb(227, 233, 227); */
    
-}
+/* }  */
 
 
 /* .grid:not(:last-child) {
@@ -18,9 +22,20 @@ margin-bottom: 30px;
     column-gap: 24px;
     row-gap: 24px;
 }
+.grid-mobile {
+    /* display: grid;
+    column-gap: 20px;
+    row-gap: 20px; */
+    display: none;
+}
+.grid--2--rows {
+   display: none;
+
+}
 
 .grid--2--cols {
-    grid-template-columns: 1.5fr 5fr
+    grid-template-columns: 1.5fr 5fr;
+    background-color: blueviolet;
 
 }
 
@@ -51,3 +66,66 @@ background-color: yellow;
     /* background-color: rgb(229, 231, 235) fronthooks; */
 
 }
+
+
+
+@media screen and (max-width:320px) {
+  
+ 
+}
+@media screen and (max-width:480px) {
+}
+@media screen and (max-width:576px) {
+ 
+ 
+}
+@media screen and (max-width:640px) {
+   
+    
+    }
+    @media screen and (max-width:768px) {
+        .grid {
+            display: none;
+        }
+        .grid-mobile {
+            display: grid;
+            column-gap: 20px;
+            row-gap: 20px;
+            background-color: brown;
+        }
+      
+        .grid--2--rows {
+            grid-template-rows: 1fr 15fr;
+            /* grid-template-columns: 1fr; */
+            background-color: green;
+            padding: 0;
+        
+        }
+        .filter-order_mobile {
+            background-color: orange;
+            display: flex;
+            /* justify-content: space-between; */
+            align-items: center;
+            gap: 40px;
+            padding: 10px;
+        }
+        /* .grid--2--cols {
+            grid-template-rows: 1fr 5fr;
+        } */
+        /* .grid--2--cols{
+            display: none;
+        } */
+    }
+    @media screen and (max-width:992px) {
+     
+    
+    }
+    @media screen and (max-width:1024px) {
+     
+    }
+    @media screen and (min-width:1280px) {
+        
+    }
+     @media screen and (min-width:1536px) {
+            
+        }

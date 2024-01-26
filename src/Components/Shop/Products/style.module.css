@@ -1,26 +1,4 @@
-@media screen and (max-width:640px) {
-    .grid--3--cols {
-        grid-template-columns:1fr 1fr;
-    }
-}
-    @media screen and (max-width:768px) {
-        .grid--3--cols {
-            grid-template-columns:1fr 1fr;
-        }
-    }
-    @media screen and (max-width:992px) {
-     
-    
-    }
-    @media screen and (max-width:1024px) {
-     
-    }
-    @media screen and (min-width:1280px) {
-        
-    }
-     @media screen and (min-width:1536px) {
-            
-        }
+
 
 
 .grid {
@@ -38,16 +16,21 @@
 .grid--3--cols {
     grid-template-columns: 1fr 1fr 1fr;
     /* grid-template-rows: 1fr 1fr */
+    background-color: peru;
 
 }
 .product-section {
 display: flex;
 flex-direction: column;
-align-items: end;
+/* align-items: end; */
 gap: 30px;
 padding: 30px 5px;
 }
-
+.pagintion-shop {
+display: flex;
+justify-content: end;
+/* align-items: end; */
+}
 .product-shop {
     display: grid;
     row-gap: 24px;
@@ -58,7 +41,8 @@ padding: 30px 5px;
     }
     
     .single-product {
-    
+    display: flex;
+    flex-direction: column;
         cursor: pointer;
         background-color: rgb(255, 255, 255);
         border-radius: 12px;
@@ -102,12 +86,16 @@ padding: 30px 5px;
     }
     
     .product-color_section {
-        
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
     }
     .product-color {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
+        border-radius: 100%;
+        /* backgroundColor: item.colorValue, */
+        width : 20px;
+        height: 20px;
+        border: 1px solid var(--color-border-secondory);
     }
     
     
@@ -158,13 +146,21 @@ padding: 30px 5px;
     
         display: flex;
         justify-content: space-between;
+        /* flex-grow: 1; */
     
+    }
+    .product-off_section {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        flex-grow: 1;
+        /* flex-shrink: 0; */
     }
     
     .product-off {
     
         /* color: blueviolet; */
-       
+     
             background-color: rgb(211, 47, 47);
             border-radius: 20px;
             color: hsl(0, 0%, 100%);
@@ -214,3 +210,106 @@ padding: 30px 5px;
     .d {
         background-color: tan;
     }
+
+
+    @media screen and (max-width:320px) {
+  
+ 
+    }
+    @media screen and (max-width:480px) {
+     
+    
+    }
+    
+    @media screen and (max-width:576px) {
+     
+     
+    }
+
+    @media screen and (max-width:640px) {
+        .grid--3--cols {
+            grid-template-columns:1fr ;
+            font-size: 9px;
+            background-color: pink;
+        }
+        .single-product{
+            flex-direction: row;
+            /* justify-content: space-between; */
+            /* gap:30px; */
+            flex-shrink: 0;
+            flex-grow: 1;
+            flex-basis: auto;
+        }
+        .product-feature{
+            flex-basis: auto;
+            flex-shrink: 0;
+            flex-grow: 1;
+        }
+        .section-img {
+        width:130px;
+        height: 130px;
+    }
+    .product-color {
+        font-size: 5px;
+        width : 15px;
+        height: 15px;
+    }
+    .product-title {
+        font-size: 9px;
+        font-weight: 700;
+    }
+    .product-price_section {
+        /* flex-grow: 1;
+        flex-shrink: 0; */
+        /* flex-direction: column-reverse; */
+    }
+    .price-and_off {
+        /* flex-direction: row-reverse; */
+        justify-content:space-between;
+        gap: 5px;
+        /* flex-grow: 1; */
+        flex-basis: auto;
+    }
+    .product-off_price {
+        justify-content: flex-end;
+    }
+    }
+        @media  screen and (min-width:641px) and (max-width:768px) {
+            .grid--3--cols {
+                grid-template-columns:1fr 1fr;
+                flex-shrink: 0;
+                font-size: 12px;
+                background-color: red;
+            }
+            .single-product{
+                /* flex-direction: row; */
+                flex-shrink: 0;
+                /* flex-grow: 1; */
+                background-color: yellow;
+
+            }
+            .section-img {
+                width:170px;
+                height: 170px;
+            }
+            .product-color {
+                font-size: 5px;
+                /* width : 10px;
+                height: 10px; */
+            }
+        }
+        @media screen and (max-width:992px) {
+         
+        body {
+            margin-bottom: 70px;
+        }
+        }
+        @media screen and (max-width:1024px) {
+         
+        }
+        @media screen and (min-width:1280px) {
+            
+        }
+         @media screen and (min-width:1536px) {
+                
+            }

@@ -254,3 +254,43 @@ margin-top: 20px;
   /* border: 1px solid #d9d9d9; */
   /* border-radius: 6px; */
 }
+
+@media screen and (max-width:320px) {
+  
+ 
+}
+@media screen and (max-width:480px) {
+ 
+  
+ 
+}
+
+@media screen and (max-width:576px) {
+ 
+   
+}
+@media screen and (max-width:640px) {
+ 
+   
+  }
+  @media screen and (max-width:768px) {
+    
+      
+  }
+  @media screen and (max-width:992px) {
+    .footer {
+        display: none;
+    }
+  }
+  @media screen and (max-width:1024px) {
+    .footer {
+       font-size: 12px;
+    }
+  }
+  @media screen and (min-width:1280px) {
+      
+  }
+   @media screen and (min-width:1536px) {
+          
+      }
+   

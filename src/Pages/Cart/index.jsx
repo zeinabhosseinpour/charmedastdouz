@@ -55,7 +55,7 @@ const Cart = () => {
       const priceOff = (price - price * off * 0.01) * quantity;
       return priceIntl(priceOff);
     } else {
-      console.log("offgetcart:", off);
+      // console.log("offgetcart:", off);
       return priceIntl(price * quantity);
     }
   };
@@ -90,7 +90,7 @@ const Cart = () => {
     let totalPrice = 0;
     if (cartItem.length > 0) {
       cartItem.map((item) => (totalPrice += item.price * item.quantity));
-      console.log("totalprice:", totalPrice);
+      // console.log("totalprice:", totalPrice);
 
       return priceIntl(totalPrice);
     }
@@ -120,7 +120,7 @@ const Cart = () => {
           totalPriceOff += item.price * item.quantity;
         }
       });
-      console.log("totalpriceoff:", totalPriceOff);
+      // console.log("totalpriceoff:", totalPriceOff);
       return priceIntl(totalPriceOff);
     }
   };
@@ -187,62 +187,73 @@ const Cart = () => {
                     />
                   </div>
                   <div className={classes["product-section"]}>
-                    <Link to={`/product-detail/${item.id}/${item.slug}`}>
-                      <img
-                        src={item.imag}
-                        alt="productimg"
-                        className={classes["product-img"]}
-                      />
-                    </Link>
-                    <div className={classes["product-item"]}>
-                      <div className={classes["product-attribute"]}>
-                        <Link
-                          className={classes["product-title"]}
-                          to={`/product-detail/${item.id}/${item.slug}`}
-                        >
-                          <h4>{item.title}</h4>
-                        </Link>
-                        <span>رنگ : {item.color}</span>
-                        <span>
-                          سایز: {item.size}
-                          {console.log("sizecart:", item.size)}
-                        </span>
-                      </div>
+                    <div className={classes["img-feature"]}>
+                      <Link to={`/product-detail/${item.id}/${item.slug}`}>
+                        <img
+                          src={item.imag}
+                          alt="productimg"
+                          className={classes["product-img"]}
+                        />
+                      </Link>
+                      <div className={classes["product-item"]}>
+                        <div className={classes["product-attribute"]}>
+                          <Link
+                            className={classes["product-title"]}
+                            to={`/product-detail/${item.id}/${item.slug}`}
+                          >
+                            <h4>{item.title}</h4>
+                          </Link>
+                          <span>رنگ : {item.color}</span>
+                          <span>
+                            سایز: {item.size}
+                            {console.log("sizecart:", item.size)}
+                          </span>
+                        </div>
+                        {/* 
+                        {item.off && (
+                          <div style={{ backgroundColor: "green" }}>
+                            <div className={classes["off-section"]}>
+                              <span> {item.off} </span>
+                            </div>
 
-                      {item.off && (
-                        <div style={{ backgroundColor: "green" }}>
-                          <div className={classes["off-section"]}>
-                            <span> {item.off} </span>
-                          </div>
-
-                          <div className={classes["price-section"]}>
-                            <div className={classes["product-orginal_price"]}>
-                              <span>{priceIntl(item.price)}</span>
-                              <span> تومان </span>
+                            <div className={classes["price-section"]}>
+                              <div className={classes["product-orginal_price"]}>
+                                <span>{priceIntl(item.price)}</span>
+                                <span> تومان </span>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      )}
+                        )} */}
+                      </div>
                     </div>
-                    <div className={classes["product-off_price"]}>
-                      {/* <span style={{ backgroundColor: "pink" }}>
+                    <div className={classes["icon-price_off"]}>
+                      <div className={classes["product-off_price"]}>
+                        {/* <span style={{ backgroundColor: "pink" }}>
                         تومان {priceIntl(item.price * item.quantity)}
                       </span> */}
-                      {item.off && (
-                        <span>
-                          {priceIntl(
-                            item.price * (item.off * 0.01) * item.quantity
-                          )}
-                          تومان تخفیف
+                        {item.off && (
+                          <div className={classes["price-off"]}>
+                            <div className={classes["price-section"]}>
+                              <div className={classes["product-orginal_price"]}>
+                                <span>{priceIntl(item.price)}</span>
+                                <span> تومان </span>
+                              </div>
+                            </div>
+                            <span>
+                              {priceIntl(
+                                item.price * (item.off * 0.01) * item.quantity
+                              )}
+                              تومان تخفیف
+                            </span>
+                          </div>
+                        )}
+                        <span className={classes["p-offprice"]}>
+                          {getPriceOff(item.price, item.off, item.quantity)}
+                          تومان
                         </span>
-                      )}
-                      <span className={classes["p-offprice"]}>
-                        {getPriceOff(item.price, item.off, item.quantity)}
-                        تومان
-                      </span>
+                      </div>
+                      <ProductQuantity key={item.id} data={item} />
                     </div>
-                    <ProductQuantity key={item.id} data={item} />
-
                     {/* <div className={classes["icon-count"]}>
                       <button
                         // disabled={quantity >= countColor}
@@ -310,6 +321,24 @@ const Cart = () => {
               <span> ثبت سفارش و ادامه خرید</span>
             </Link>
           </div>
+
+          {/* <div
+            id="base_layout_mobile_footer"
+            className={classes["base_layout_mobile_footer"]}
+          > */}
+          <div
+            className={` ${classes["product-totalprice_mobile"]} ${classes["total-priceoff"]} `}
+          >
+            <Link to={`/login`} className={classes["btn-addcart_mobile"]}>
+              <span> ثبت سفارش و ادامه خرید</span>
+            </Link>
+            <span>مبلغ کل قابل پرداخت:</span>
+            <div>
+              <span>{getCartTatalPriceOff()}</span>
+              <span>تومان</span>
+            </div>
+          </div>
+          {/* </div> */}
         </div>
       ) : (
         <div className={classes["shopping-empty"]}>

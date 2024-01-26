@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 //data
 import {
@@ -21,8 +21,10 @@ const { useToken } = theme;
 
 // style
 import classes from "./style.module.css";
+import useSearchParamsFilter from "../../../Hooks/useSearchParamsFilter";
 
 const MaterialFilter = (props) => {
+  const updateSearchParams = useSearchParamsFilter();
   const { token } = useToken();
   const { productid, slug } = useParams();
 
@@ -41,7 +43,27 @@ const MaterialFilter = (props) => {
   const handleCheckboxChange = (checkedValues) => {
     props.handleonclick(checkedValues);
   };
+
+  //   const [params, setParams] = useSearchParams();
+
+  //   const onChange = (checkedValues) => {
+  //     const keys = params.keys();
+
+  //     const prevParams = {};
+
+  //     for (var key of keys) {
+  //       prevParams[key] = params.getAll(key);
+  //     }
+  // console.log("prevparamsmat:",prevParams);
+  //     setParams({ ...prevParams, material: checkedValues });
+  //   };
+  //   console.log("paramsmat:", params);
   const onChange = (checkedValues) => {
+    console.log("cccccccckkkkk:", checkedValues);
+    updateSearchParams({ material: checkedValues });
+  };
+
+  const onChangec2 = (checkedValues) => {
     props.setmaterialchecked(checkedValues);
     props.handleonclick();
 

@@ -2,18 +2,29 @@
 
   --color-button-primary: #ef4056;
 
+  --color-button-secondary:#ef394e;
+  /* --color-button-secondary:rgb(239, 57, 78); */
+
   --color-text-button-primary:#fff;
   --color-text-button-primary-100:rgb(0, 0, 0);
 
   --color-text-primary: rgb(74, 95, 115);
   --color-text-primary-100:rgb(170, 171, 186);
   --color-text-primary-200:#fff;
+  --color-text-primary-300:#4a5f73;
+  --color-text-primary-400:#81858b;
+  --color-text-primary-500:rgb(94, 94, 94);
+  --color-text-primary-600:rgb(118, 119, 144);
+  --color-text-primary-700:rgb(86, 85, 100);
+  --color-text-primary-800:rgb(51, 51, 51);
 
   --color-text-secondary:rgb(35, 37, 78);
   --color-text-secondary-100:#212529;
   --color-text-secondary-200: rgb(33, 37, 41);
   --color-text-secondary-300: rgba(0, 0, 0, 0.87);
   --color-text-secondary-400:rgb(119, 119, 119);
+  --color-text-secondary-500:rgb(8, 10, 56);
+  --color-text-secondary-600: rgb(47, 47, 47);
 
   --color-text-neutral: rgb(239, 64, 86);
   --color-text-neutral-100: #ef394e;
@@ -22,6 +33,9 @@
 
   --color-border-primary:rgb(228, 228, 228);
   --color-border-primary-100: #EDEDEE;
+  --color-border-primary-200:#f2f2f2;
+  --color-border-primary-300:rgba(243, 244, 246, 0.8);
+  --color-border-primary-400: #e5e7eb;
 
   --color-border-secondory:#e0e0e2;
   --color-border-secondory-100: #d5d5d5;
@@ -29,8 +43,15 @@
   --color-border-secondory-300: rgba(0, 0, 0, 0.12);
   --color-border-secondory-400:rgb(229, 231, 235);
   --color-border-secondory-500: hsl(0, 0%, 100%);
+  --color-border-secondory-600:#e4e4e4;
+  --color-border-secondary-700:gray;
 
   --color-border-neutral:#eb3a3a;
+  
+
+
+  --color-boxshadow-primary:rgb(29, 25, 25);
+  --color-boxshadow-primary-100:rgba(0, 0, 0, 0.12);
 
   --color-icon-primary: rgb(239, 57, 78);
   /* --color-icon-secondary: #ef394e;   */
@@ -44,10 +65,23 @@
   --bgcolor-400:rgb(240, 240, 241);
   --bgcolor-500:#fff;
   --bgcolor-600:#eb3a3a;
+  --bgcolor-700:rgb(239, 57, 78);
+  /* --bgcolor-700:#ef394e; */
 
-  --color-hover-primary: #eb3a3a; 
-  --color-hover-primary-100: #ef394e;
+
+  --color-text-hover-primary: #eb3a3a; 
+  --color-text-hover-primary-100: #ef394e;
+  /* --color-text-hover-primary-100: rgb(239, 57, 78); */
+  
+  --color-hover-primary:rgb(22, 119, 255);
+  --color-hover-primary-100: #eb3a3a;
+
   --color-hover-secondary:#f4f5f7;
+ 
+
+  --bgcolor-hover-primary:rgba(241, 242, 244, 0.5);
+  --bgcolor-hover-primary-100:rgb(230, 244, 255);
+  --bgcolor-hover-primary-200:#f4f5f7;
 
 
   --bgcolor-footer: rgb(229, 231, 235);
@@ -55,7 +89,10 @@
 
   --color-linkfooter: #777;
   --color-linkfooter-100: #eb3a3a; 
-  /* color: rgb(119, 119, 119)  */
+  --color-footer: #eb3a3a;   
+   /* color: rgb(235, 58, 58) ; */
+
+  /* color: rgb(119, 119, 119);  */
 
 
 

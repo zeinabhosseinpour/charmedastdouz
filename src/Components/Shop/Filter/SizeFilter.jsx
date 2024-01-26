@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 
 //data
@@ -19,6 +19,7 @@ import { Checkbox } from "antd";
 import classes from "./style.module.css";
 
 import { productFilter } from "../Products/productsList2";
+import useSearchParamsFilter from "../../../Hooks/useSearchParamsFilter";
 
 const SizeFilter = (props) => {
   // const [searchParams, setSearchParams] = useSearchParams();
@@ -52,6 +53,10 @@ const SizeFilter = (props) => {
     value: s,
   }));
 
+  useEffect(() => {
+    const plainOption = [];
+  }, []);
+
   //   const plainOptions = productslist2.map((c3) => ({
   //     label: c3.title,
   //     value: c3.title,
@@ -84,13 +89,34 @@ const SizeFilter = (props) => {
     props.handleonclick();
     console.log("searchparamszie:", props.searchparams);
   };
+  // const [params, setParams] = useSearchParams();
 
+  const onChangeb = (checkedValues) => {
+    //   const keys = params.keys();
+    //   const prevParams = {};
+    //   for (var key of keys) {
+    //     prevParams[key] = params.getAll(key);
+    //   }
+    //   console.log("prevparamssize:", prevParams);
+    //   setParams({ ...prevParams, size: checkedValues });
+  };
+  // console.log("paramssize:", params);
+
+  const updateSearchParams = useSearchParamsFilter();
   const onChange = (checkedValues) => {
+    console.log("sizecheckedvalueshook: ", checkedValues);
+    updateSearchParams({ size: checkedValues });
+  };
+  // console.log("searchparamsfilterhook:", searchparams);
+
+  const onChangec = (checkedValues) => {
     props.setsizechecked(checkedValues);
     props.handleonclick();
     console.log("sizecheckedvalues: ", checkedValues);
     //   // setIsChecked(ischecked);
-    // props.setsearchparams((prev) => ({ ...prev, size: checkedValues }));
+
+    props.setsearchparams((prev) => ({ ...prev, size: checkedValues }));
+
     //   // setListChecked([...listChecked, checkedValues]);
     //   console.log("listcheck:", listChecked);
     //  setSearchParams({ size: checkedValues });
@@ -178,7 +204,7 @@ const SizeFilter = (props) => {
         <Checkbox.Group
           className={classes["category-header"]}
           options={plainOptions}
-          // defaultValue={["Apple"]}
+          defaultValue={[false]}
           // value={searchParams.get("size")}
           // value={searchParams.size}
           onChange={onChange}

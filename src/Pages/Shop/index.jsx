@@ -12,7 +12,7 @@ import Footer from "./../../Layout/Footer/index";
 import classes from "./style.module.css";
 
 const Shop = () => {
-  const [searchParams, setSearchParams] = useSearchParams({});
+  // const [searchParams, setSearchParams] = useSearchParams();
   const { productId, slug } = useParams();
   console.log("shop");
   return (
@@ -24,17 +24,27 @@ const Shop = () => {
         <Filter
           slug={slug}
           productId={productId}
-          searchparams={searchParams}
-          setsearchparams={setSearchParams}
+          // searchparams={searchParams}
+          // setsearchparams={setSearchParams}
         />
         <div>
           <Ordering />
 
           <Products
-            searchparams={searchParams}
-            setsearchparams={setSearchParams}
+            Slug={slug}
+            // searchparams={searchParams}
+            // setsearchparams={setSearchParams}
           />
         </div>
+      </main>
+      <main
+        className={` ${classes.container} ${classes["grid-mobile"]} ${classes["grid--2--rows"]} ${classes.content} `}
+      >
+        <div className={classes["filter-order_mobile"]}>
+          <Filter />
+          <Ordering />
+        </div>
+        <Products style={{ backgroundColor: "mediumspringgreen" }} />
       </main>
 
       <Footer />
