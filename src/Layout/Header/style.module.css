@@ -646,7 +646,7 @@ padding:0 8px;
   border-radius: 20px;
   background-color: white;
   /* min-width: 1000px; */
-  width: 1000px;
+  width: 800px;
   /* padding: 16px 0; */
   z-index: 1;
   /* border: 0 solid #e5e7eb; */
@@ -678,7 +678,7 @@ background-color: var(--bgcolor-500);
 /* dijikala menu */
 /* color: rgb(8, 10, 56); */
 color: var(--color-text-secondary-500);
-width: 30%;
+width: 40%;
 /* height: 100px; */
 overflow:auto;
 padding: 16px 0;
@@ -969,9 +969,9 @@ gap: 10px;
   }
   .footer-mobile_icon {
     color: rgb(156, 163, 175);
-    /* font-size: 20px; */
- width: 24px;
- height: 24px;
+    font-size: 15px;
+ /* width: 24px;
+ height: 24px; */
   }
   .footer-mobile_text {
     font-size: 25px;
@@ -982,9 +982,26 @@ gap: 10px;
       display: flex;
       
     }
+    .nav-menu_dropdown {
+      width: 600px;
+    }
+    .nav-menu_item {
+      font-size: 14px;
+    }
+    .phone {
+      font-size: 12px;
+    }
+    .login {
+      font-size: 12px;
+    }
+    .nav-menu_rightdropdown-link {
+      font-size: 14px;
+    }
   }
-  @media screen and (min-width:1280px) {
-      
+  @media screen and (max-width:1280px) {
+    .login {
+      font-size: 14px;
+    }
   }
    @media screen and (min-width:1536px) {
           

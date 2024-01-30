@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 
 //package
-import { Collapse, Switch, ConfigProvider, Checkbox, Flex } from "antd";
+import { Collapse, Switch, ConfigProvider, Checkbox, Radio, Flex } from "antd";
 
 // style
 import classes from "./style.module.css";
@@ -210,6 +210,9 @@ const CategoryFilter = () => {
                       <Checkbox onChange={onChange} key={c.id}>
                         plist3:{c.title}
                       </Checkbox>
+                      <Radio onChange={onChange} key={c.id}>
+                        radio
+                      </Radio>
                     </Link>
                   }
                 >

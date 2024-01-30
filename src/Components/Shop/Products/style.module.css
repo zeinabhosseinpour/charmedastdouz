@@ -43,8 +43,12 @@ justify-content: end;
     .single-product {
     display: flex;
     flex-direction: column;
+    flex-basis: auto;
+    flex-grow: 1;
+    flex-shrink: 0;
         cursor: pointer;
-        background-color: rgb(255, 255, 255);
+        /* background-color: rgb(255, 255, 255); */
+        background-color: var(--bgcolor-500);
         border-radius: 12px;
         box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(212, 213, 221, 0.4) 0px 1px 2px 0px;
         padding: 16px;
@@ -59,7 +63,8 @@ justify-content: end;
     .product {
         
         border-radius: 12px;
-        background-color:rgb(255, 255, 255);
+        /* background-color:rgb(255, 255, 255); */
+        background-color: var(--bgcolor-500);
         box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(212, 213, 221, 0.4) 0px 1px 2px 0px;
     }
     
@@ -117,19 +122,23 @@ justify-content: end;
         /* color: rgb(94, 129, 209); */
         /* color:  rgb(47, 86, 184); */
         /* color: rgb(0, 192, 115);sabz */
-        color: rgb(63, 66, 100);
+        color: var( --color-text-secondary-800);
+        /* color: rgb(63, 66, 100); */
         /* color: red; */
         
     }
     
     .hr-div {
-        border-color: rgba(0, 0, 0, 0.12);
-        border-bottom-color: rgba(243, 244, 246, 0.8);
+        /* border-color: rgba(0, 0, 0, 0.12); */
+        border-color: var( --color-border-secondory-300);
+        /* border-bottom-color: rgba(243, 244, 246, 0.8); */
+        border-bottom-color:var( --color-border-primary-300)
     
     }
     
     .product-title:hover {
-        color:rgb(37 99 235);
+        /* color:rgb(37 99 235); */
+        color: var(--color-text-hover-primary-200);
        
     }
     
@@ -161,18 +170,21 @@ justify-content: end;
     
         /* color: blueviolet; */
      
-            background-color: rgb(211, 47, 47);
+            /* background-color: rgb(211, 47, 47); */
+            background-color: var( --bgcolor-100);
             border-radius: 20px;
-            color: hsl(0, 0%, 100%);
+            /* color: hsl(0, 0%, 100%); */
+            color: var(--color-text-secondary-900);
             padding-right: 4px;
             padding-left: 4px;
           
     }
     
     .product-orginal_price {
-    
+        /* color: rgb(170, 171, 186); */
+        color: var( --color-text-primary-100);
         /* color: rgb(63, 66, 100); */
-        color: rgb(170, 171, 186);
+       
         /* color: rgb(189, 189, 189); */
         text-decoration: line-through;
     }
@@ -198,8 +210,10 @@ justify-content: end;
     
     .visit-btn {
         /* background-color: rgb(74, 109, 255); */
-        background-color: #eb3a3a;
-        color: rgb(255, 255, 255);
+        background-color:var(--bgcolor-600) ;
+        /* background-color: #eb3a3a; */
+        /* color: rgb(255, 255, 255); */
+        color: var(-color-text-primary-200);
         font-size: 14px;
     }
     
@@ -254,10 +268,10 @@ justify-content: end;
         width : 15px;
         height: 15px;
     }
-    .product-title {
+    /* .product-title {
         font-size: 9px;
         font-weight: 700;
-    }
+    } */
     .product-price_section {
         /* flex-grow: 1;
         flex-shrink: 0; */
@@ -273,8 +287,14 @@ justify-content: end;
     .product-off_price {
         justify-content: flex-end;
     }
+    .product-title {
+        font-size: 9px;
+    }
     }
         @media  screen and (min-width:641px) and (max-width:768px) {
+            .product-section {
+                padding: 0 5px;
+            }
             .grid--3--cols {
                 grid-template-columns:1fr 1fr;
                 flex-shrink: 0;
@@ -297,15 +317,35 @@ justify-content: end;
                 /* width : 10px;
                 height: 10px; */
             }
+            .product-title {
+                font-size: 12px;
+                font-weight: 700;
+
+            }
         }
         @media screen and (max-width:992px) {
          
         body {
             margin-bottom: 70px;
         }
+      
+       
         }
         @media screen and (max-width:1024px) {
-         
+            .grid--3--cols {
+                grid-template-columns:1fr 1fr;
+                flex-shrink: 0;
+                font-size: 12px;
+                background-color: green;
+            }
+            .single-product {
+                font-size: 12px;
+            }
+            .product-title {
+                font-size: 14px;
+                font-weight: 700;
+    
+            }
         }
         @media screen and (min-width:1280px) {
             

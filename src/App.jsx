@@ -6,7 +6,6 @@ import ShoppingLogo from "./Layout/Header/ShoppingLogo";
 // import Login from "./Layout/Header/Login";
 
 // components
-import Login from "./Pages/Login/Login";
 import Home from "./Pages/Home";
 import Shop from "./Pages/Shop";
 import ProductDetail from "./Pages/ProductDetail/index";
@@ -58,6 +57,7 @@ export default App;
 // import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 
 // import img1 from "./assets/image/photo_2019-12-11_16-39-53.jpg";
+import Login from "./Pages/Login/index";
 
 // const App = () => {
 //   const [thumbsSwiper, setThumbsSwiper] = useState(null);

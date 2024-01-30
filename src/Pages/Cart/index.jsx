@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { cartaction } from "../../store/cartSlice";
 
@@ -28,6 +28,16 @@ const Cart = () => {
   const dispatch = useDispatch();
   console.log("cartitemcart", cartItem);
   console.log("cartitemlength:", cartItem.length);
+
+  const location = useLocation();
+
+  console.log("location:", location);
+  console.log(
+    "location.search:",
+    location.search,
+    location.state,
+    location.pathname
+  );
   //handler
   const handleremoveFromCart = (id, color) => {
     dispatch(

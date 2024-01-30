@@ -644,7 +644,7 @@ const child3 = [
         id: 2311,
         color: "قرمز",
         colorValue: "yellow",
-        colorcount: "3",
+        colorcount: null,
         sizelist: [
           { id: 16, size: "120 cm * 10 cm" },
           // { id: 26, size: "110 * 10" },
@@ -656,7 +656,7 @@ const child3 = [
         id: 2312,
         color: "مشکی",
         colorValue: "black",
-        colorcount: "2",
+        colorcount: null,
         sizelist: [{ id: 26, size: "110 cm * 10 cm" }],
         img: p9,
       },
@@ -752,7 +752,7 @@ const child3 = [
       },
       {
         id: 31117,
-        color: "آبی",
+        color: "سفید",
         colorValue: "white",
         colorcount: null,
         sizelist: [

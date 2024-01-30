@@ -24,7 +24,6 @@ import classes from "./style.module.css";
 import useSearchParamsFilter from "../../../Hooks/useSearchParamsFilter";
 
 const MaterialFilter = (props) => {
-  const updateSearchParams = useSearchParamsFilter();
   const { token } = useToken();
   const { productid, slug } = useParams();
 
@@ -58,6 +57,14 @@ const MaterialFilter = (props) => {
   //     setParams({ ...prevParams, material: checkedValues });
   //   };
   //   console.log("paramsmat:", params);
+  const [updateSearchParams, componentParams] =
+    useSearchParamsFilter("material");
+  console.log("componentparamsmaterial:", componentParams);
+
+  // const updateSearchParams = useSearchParamsFilter();
+  // const filterParams = useSearchParams();
+  // const materialParams = filterParams[0].getAll("material");
+
   const onChange = (checkedValues) => {
     console.log("cccccccckkkkk:", checkedValues);
     updateSearchParams({ material: checkedValues });
@@ -111,8 +118,14 @@ const MaterialFilter = (props) => {
         }}
       >
         <Checkbox.Group
+          // value={() => filterComponent(materialParams)}
+          // value={filterComponent}
+          value={componentParams}
+          // value={materialParams}
           className={classes["category-header"]}
           options={plainOptions}
+          // defaultValue={[plainOptions[0].value]}
+          // defaultValue={["چرم گاوی هورس"]}
           // defaultValue={["Apple"]}
           onChange={onChange}
           // onChange={handleCheckboxChange}

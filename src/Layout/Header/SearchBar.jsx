@@ -27,7 +27,7 @@ import _ from "lodash";
 import { useLocalStorage } from "@uidotdev/usehooks";
 
 import { SearchOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Icon from "@ant-design/icons/lib/components/Icon";
 
 // images
@@ -43,6 +43,7 @@ const SearchBar = () => {
   const [inputValue, setInputValue] = useState("");
   const [searchState, setSearchState] = useState([]);
   const [rpList3, setrpList3] = useState({});
+  const navigate = useNavigate();
   console.log("serachState:", searchState);
 
   // variable
@@ -179,6 +180,51 @@ const SearchBar = () => {
     );
     console.log("results:", results);
     setSearchState(results);
+  };
+  const handleIconSearch = () => {
+    console.log(
+      "inputvalueusenavigation:",
+
+      inputValue
+    );
+
+    navigate({
+      pathname: "/product-category/1/کیف_های_چرمی",
+      search: `q=${inputValue}`,
+    });
+    // navigate({ pathname: "/cart", search: `?q=${inputValue}` });
+    // navigate("/cart", { sort: "date", order: "newest" });
+    // navigate({
+    //   pathname: 'listing',
+    //   search: '?foo=bar'
+    // })
+    // navigate("/cart", { state: { message: "Failed to submit form" } });
+    // navigate to /listing?foo=bar
+    // navigate({
+    //   pathname: "listing",
+    //   search: "?foo=bar",
+    // });
+
+    // // also navigate to /listing?foo=bar
+    // navigate({
+    //   pathname: "listing",
+    //   search: {
+    //     foo: "bar",
+    //   },
+    // });
+    // navigate({
+    //   pathname: '/posts',
+    //   search: '?sort=date&order=newest',
+    // });
+    // navigate({
+    //   pathname: '/posts',
+    //   search: `?${createSearchParams(params)}`,
+    // });
+    // navigate("listing", {
+    //   searchParams: {
+    //     foo: "bar",
+    //   },
+    // });
   };
 
   const debounced = debounce(() => searchResult(inputValue), 1000);
@@ -383,9 +429,10 @@ const SearchBar = () => {
         >
           <div className={classes["searchbar-antd"]}>
             <Input
+              value={inputValue}
               prefix={
                 <CiSearch
-                  onClick={handleSearch}
+                  onClick={handleIconSearch}
                   className={classes["icon-search"]}
                   fill="rgb(66, 71, 80)"
                   size="20"

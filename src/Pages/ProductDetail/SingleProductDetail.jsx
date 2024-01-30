@@ -278,7 +278,7 @@ const SingleProductDetail = () => {
                   <div className={classes["product-information"]}>
                     <div className={classes["p-categoty"]}>
                       <div>دسته بندی: {p.category}</div>
-                      <h2>{p.title}</h2>
+                      <h2 className={classes["product-title"]}>{p.title}</h2>
                     </div>
                     <div className={classes["product-attribute"]}>
                       <span> ویژگی های محصول</span>

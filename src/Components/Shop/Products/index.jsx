@@ -1,5 +1,10 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { useParams, Link, useSearchParams } from "react-router-dom";
+import {
+  useParams,
+  Link,
+  useSearchParams,
+  useLocation,
+} from "react-router-dom";
 
 // components
 import productslist from "./productslist";
@@ -25,6 +30,15 @@ const Products = (props) => {
   // variables
   const plist = productslist;
   const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
+
+  console.log("location:", location);
+  console.log(
+    "location.search:",
+    location.search,
+    location.state,
+    location.pathname
+  );
 
   // states
   const { productid, slug } = useParams();
@@ -61,6 +75,15 @@ const Products = (props) => {
     console.log("slugresultfree:", slug);
     console.log("resultfreefilter:", result);
     setProductsList(result);
+    const resultCount = result.map((r) =>
+      r.attributes.filter((a) => a.colorcount !== null)
+    );
+    const uncount = resultCount.map((rc) => rc.length > 0);
+    if (resultCount.map((rc) => rc.length > 0)) {
+      console.log("ifrrrrrrrrrrrrrrrrrrcrr:", resultCount, uncount);
+    } else {
+      console.log("elserrrrrrrrrrrrrrrrrrcrr:", resultCount, uncount);
+    }
   };
   // const result = child3
   //   .filter(

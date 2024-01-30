@@ -102,7 +102,13 @@ const SizeFilter = (props) => {
   };
   // console.log("paramssize:", params);
 
-  const updateSearchParams = useSearchParamsFilter();
+  const [updateSearchParams, componentParams] = useSearchParamsFilter("size");
+  console.log("componetparamssize:", componentParams);
+  // const value = componentParams;
+  // const updateSearchParams = useSearchParamsFilter();
+  // const filterParams = useSearchParams();
+  // const sizeParams = filterParams[0].getAll("size");
+
   const onChange = (checkedValues) => {
     console.log("sizecheckedvalueshook: ", checkedValues);
     updateSearchParams({ size: checkedValues });
@@ -204,7 +210,12 @@ const SizeFilter = (props) => {
         <Checkbox.Group
           className={classes["category-header"]}
           options={plainOptions}
-          defaultValue={[false]}
+          // defaultValue={[false]}
+          // value={() => filterComponent(sizeParams)}
+          // value={() => filterComponent("size")}
+          // value={filterComponent}
+          value={componentParams}
+          // value={sizeParams}
           // value={searchParams.get("size")}
           // value={searchParams.size}
           onChange={onChange}
