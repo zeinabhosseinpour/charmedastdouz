@@ -389,7 +389,9 @@ const child3 = [
   {
     id: 111,
     category: "کیف_های_چرمی",
+    categoryId: 1,
     parent: "کیف_مجلسی_زنانه",
+    parentId: 11,
     // parent: 11,
     title: "کیف مجلسی زنانه کد100",
     slug: "کیف_مجلسی_زنانه_کد_100",
@@ -665,8 +667,11 @@ const child3 = [
   {
     id: 3111,
     category: "کفش_چرمی",
+    categoryId: 3,
     parent1: "کفش_زنانه",
+    parent1Id: 31,
     parent: "صندل_زنانه",
+    parentId: 311,
     title: "صندل زنانه کد600",
     slug: "صندل_زنانه_کد_600",
     size: "38",

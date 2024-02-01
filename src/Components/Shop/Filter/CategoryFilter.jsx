@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 
 //package
@@ -7,9 +7,15 @@ import { Collapse, Switch, ConfigProvider, Checkbox, Radio, Flex } from "antd";
 // style
 import classes from "./style.module.css";
 
+import { MdOutlineExpandMore } from "react-icons/md";
+import { MdKeyboardArrowRight } from "react-icons/md";
+
 //data
 import {
   // import { keys } from 'lodash';
+  cartaction,
+} from "./../../../Store/CartSlice";
+import {
   productslist2,
   child1,
   child2,
@@ -142,8 +148,223 @@ const CategoryFilter = () => {
       ),
     },
   ];
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [activeItem, setActiveItem] = useState();
+  const [expandedItem, setExpandedItem] = useState();
+  const [expandedItem2, setExpandedItem2] = useState();
+  const [ischecked, setIsChecked] = useState(false);
+  console.log("active:", expandedItem, isExpanded, activeItem);
+  const inputRef = useRef(null);
+  const [isInputVisible, setIsInputVisible] = useState(false);
+
+  // useEffect(() => {
+  //   if (ischecked) {
+  //     inputRef.current.checked = true;
+  //   } else {
+  //     inputRef.current.checked = false;
+  //   }
+  // }, [ischecked]);
+
   return (
     <div style={{ maxHeight: "300px", overflow: "auto", width: "400px" }}>
+      {category1.map((p) => (
+        <div
+          // className={`${classes["category-header2"]} ${
+          //   isExpanded ? "expanded" : ""
+          // } `}
+
+          key={p.id}
+          // style={{display:"flex",alignItems:"center"}}
+          style={{ backgroundColor: "green" }}
+        >
+          {/* <input
+            checked={activeItem}
+            key={p.id}
+            type="radio"
+            name="radioid1"
+            // value={c.title}
+          ></input> */}
+          <div
+            style={{
+              backgroundColor: "pink",
+              display: "flex",
+              // justifyContent: "space-between",
+              gap: "20px",
+              alignItems: "center",
+            }}
+          >
+            <label
+              className={
+                activeItem === p.title ? classes.expanded : classes.unexpanded
+              }
+              onClick={() => {
+                // setIsExpanded(!isExpanded);
+                // if (activeItem !== "")
+                setActiveItem(activeItem === p.title ? null : p.title);
+                // else setActiveItem("");
+                // setIsChecked(!ischecked);
+                setIsInputVisible(true);
+              }}
+            >
+              {p.title}
+              {
+                // inputRef &&
+                isInputVisible && (
+                  // activeItem === p.title &&
+                  <input
+                    //   // checked={activeItem}
+                    //   // ref={inputRef}
+                    type="checkbox"
+                    //   name="radioid1"
+                    //   // value={c.title}
+                  ></input>
+                )
+              }
+            </label>
+            <MdKeyboardArrowRight
+              className={
+                expandedItem === p.title
+                  ? classes["icon-category_expanded"]
+                  : classes["icon-category"]
+              }
+              onClick={() => {
+                // setIsExpanded(!isExpanded);
+                // if (activeItem !== "")
+                setExpandedItem(expandedItem === p.title ? null : p.title);
+                // else setActiveItem("");
+              }}
+            />
+          </div>
+          {/* <MdOutlineExpandMore style={{ color: "red" }} /> */}
+
+          {expandedItem === p.title &&
+            // p.hasChild === 0 &&
+            p.child.map((c) => (
+              <div
+                // className={classes["subCategory-list"]}
+
+                style={{ marginRight: "15px", backgroundColor: "yellow" }}
+                key={c.id}
+              >
+                {/* <input
+                  checked={activeItem}
+                  key={c.id}
+                  type="radio"
+                  name="radioid"
+                  // value={c.title}
+                ></input> */}
+
+                <label
+                  className={
+                    activeItem === c.title
+                      ? classes.expanded
+                      : classes.unexpanded
+                  }
+                  onClick={() => {
+                    // setIsExpanded(!isExpanded);
+                    // if (activeItem !== "")
+                    setActiveItem(activeItem === c.title ? null : c.title);
+                    // else setActiveItem("");
+                    setIsInputVisible(true);
+                  }}
+                >
+                  {c.title}
+                  {
+                    // inputRef &&
+                    // isInputVisible &&
+                    activeItem === c.title && (
+                      <input
+                        // checked={activeItem}
+                        // ref={inputRef}
+                        type="checkbox"
+                        name="radioid1"
+                        // value={c.title}
+                      ></input>
+                    )
+                  }
+                </label>
+                {c.hasChild === 1 && (
+                  <MdKeyboardArrowRight
+                    className={
+                      expandedItem2 === c.title
+                        ? classes["icon-category_expanded"]
+                        : classes["icon-category"]
+                    }
+                    onClick={() => {
+                      // setIsExpanded(!isExpanded);
+                      // if (activeItem !== "")
+                      setExpandedItem2(
+                        expandedItem2 === c.title ? null : c.title
+                      );
+                      // else setActiveItem("");
+                    }}
+                  />
+                )}
+                {/* <MdOutlineExpandMore /> */}
+                {expandedItem2 === c.title &&
+                  c.hasChild === 1 &&
+                  c.child.map((c1) => (
+                    <div
+                      style={{ marginRight: "15px", backgroundColor: "blue" }}
+                      key={c1.id}
+                    >
+                      {/* <input
+                        checked={activeItem}
+                        key={c1.id}
+                        type="radio"
+                        name="radioid2"
+                        // value={c.title}
+                      ></input> */}
+                      <label
+                        className={
+                          activeItem === c1.title
+                            ? classes.expanded
+                            : classes.unexpanded
+                        }
+                        onClick={() => {
+                          // setIsExpanded(!isExpanded);
+                          // if (activeItem !== "")
+                          setActiveItem(
+                            activeItem === c1.title ? null : c1.title
+                          );
+                          // else setActiveItem("");
+                          setIsInputVisible(true);
+                        }}
+                      >
+                        {c1.title}
+                        {
+                          // inputRef &&
+                          // isInputVisible &&
+                          activeItem === c1.title && (
+                            <input
+                              // checked={activeItem}
+                              // ref={inputRef}
+                              type="checkbox"
+                              name="radioid1"
+                              // value={c.title}
+                            ></input>
+                          )
+                        }
+                      </label>
+                      {/* {c.hasChild !== 1 && (
+                        <MdKeyboardArrowRight
+                        onClick={() => {
+                          // if (activeItem !== "")
+                          setExpandedItem(
+                            expandedItem === c1.title ? null : c1.title
+                          );
+                        else setActiveItem("");
+                        }}
+                        />
+                      )} */}
+                      {/* <MdOutlineExpandMore /> */}
+                    </div>
+                  ))}
+              </div>
+            ))}
+        </div>
+      ))}
+
       {/* <Collapse
         items={itemsNest}
         defaultActiveKey="1"
@@ -158,23 +379,29 @@ const CategoryFilter = () => {
           onChange={onChange}
           key={p.id}
           bordered={false}
-          expandIconPosition="end"
+          // expandIconPosition="end"
           style={{ backgroundColor: "white" }}
           styles={{ lineHeight: "0.5" }}
           contentBg="red"
         >
           <Collapse.Panel
+            // onClick={() => setIsInputVisible(true)}
             key={p.id}
             // {...p.hasChild ===0 ? showArrow="false" : showArrow="true"}
             header={
               <Link
+                style={{ textDecoration: "none" }}
                 to={`/product-category/${p.id}/${p.slug}`}
                 // onMouseEnter={() => setMenuItemId(menuitem.id)}
               >
-                <Checkbox onChange={onChange}>
+                <span>{p.title}</span>
+                {/* {isInputVisible && (
+                  <Checkbox checked={isInputVisible}></Checkbox>
+                )} */}
+                {/* <Checkbox onChange={onChange}>
                   plist2:{p.title}
                   {p.id}
-                </Checkbox>
+                </Checkbox> */}
               </Link>
             }
           >
@@ -198,21 +425,23 @@ const CategoryFilter = () => {
                 onChange={onChange}
                 key={c.id}
                 bordered={false}
-                expandIconPosition="end"
+                // expandIconPosition="end"
                 style={{ backgroundColor: "white" }}
               >
                 <Collapse.Panel
                   header={
                     <Link
+                      style={{ textDecoration: "none" }}
                       to={`/product-category/${c.id}/${c.slug}`}
                       // onMouseEnter={() => setMenuItemId(menuitem.id)}
                     >
-                      <Checkbox onChange={onChange} key={c.id}>
+                      <span>{c.title}</span>
+                      {/* <Checkbox onChange={onChange} key={c.id}>
                         plist3:{c.title}
                       </Checkbox>
                       <Radio onChange={onChange} key={c.id}>
                         radio
-                      </Radio>
+                      </Radio> */}
                     </Link>
                   }
                 >
@@ -231,12 +460,14 @@ const CategoryFilter = () => {
                           showArrow={false}
                           header={
                             <Link
+                              style={{ textDecoration: "none" }}
                               to={`/product-category/${c1.id}/${c1.slug}`}
                               // onMouseEnter={() => setMenuItemId(menuitem.id)}
                             >
-                              <Checkbox onChange={onChange} key={c1.id}>
+                              <span>{c1.title}</span>
+                              {/* <Checkbox onChange={onChange} key={c1.id}>
                                 plist4:{c1.title}
-                              </Checkbox>
+                              </Checkbox> */}
                             </Link>
                           }
                         ></Collapse.Panel>

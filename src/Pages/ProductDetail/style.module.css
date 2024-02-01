@@ -633,6 +633,13 @@ gap: 30px;
       flex-wrap: wrap;
       background-color: greenyellow;
      }
+    
+    .color-name {
+      font-size: 12px;
+    }
+    .size-item {
+      font-size: 12px;
+    }
      .product-title {
       font-size: 12px;
     }
@@ -660,6 +667,12 @@ gap: 30px;
     }
     .product-details{
       font-size: 12px;
+    }
+    .single-product-detail {
+      font-size: 12px;
+    }
+    .btn-add_cart {
+      font-size: 9px;
     }
    
   }

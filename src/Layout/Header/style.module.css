@@ -272,7 +272,9 @@ transition: all 0.3s ease-in-out;*/
 /* ********************* */
 /* SHOPPING LOGO*/
 /* ********************* */
-
+.dropdown-badge {
+  /* background-color: red; */
+}
 
 .shopping-empty {
   display: flex;
@@ -975,6 +977,12 @@ gap: 10px;
   }
   .footer-mobile_text {
     font-size: 25px;
+  }
+  .dropdown-badge {
+    /* display: none; */
+  }
+  .shopping-empty {
+    display: none;
   }
   }
   @media screen and (max-width:1024px) {

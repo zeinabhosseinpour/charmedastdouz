@@ -10,20 +10,23 @@ import Footer from "./../../Layout/Footer/index";
 
 //style
 import classes from "./style.module.css";
+import Breadcrumbs from "./component/Breadcrumbs";
 
 const Shop = () => {
   // const [searchParams, setSearchParams] = useSearchParams();
-  const { productId, slug } = useParams();
+  const { productid, slug } = useParams();
+  console.log("shoppppproductId:", productid);
   console.log("shop");
   return (
     <div>
       <Header />
+      <Breadcrumbs productid={productid} slug={slug} />
       <main
         className={` ${classes.container} ${classes.grid} ${classes["grid--2--cols"]} ${classes.content} `}
       >
         <Filter
           slug={slug}
-          productId={productId}
+          productId={productid}
           // searchparams={searchParams}
           // setsearchparams={setSearchParams}
         />

@@ -63,7 +63,8 @@ const Header = () => {
               </li>
               <li className={classes["footer-mobile_li"]}>
                 <Link to={`/cart`} className={classes["footer-mobile_link"]}>
-                  <FiShoppingCart className={classes["footer-mobile_icon"]} />
+                  {/* <FiShoppingCart className={classes["footer-mobile_icon"]} /> */}
+                  <ShoppingLogo className={classes["footer-mobile_icon"]} />
                   <span>سبد خرید</span>
                 </Link>
               </li>

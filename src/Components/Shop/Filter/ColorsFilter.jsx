@@ -32,7 +32,7 @@ const ColorsFilter = (props) => {
   console.log("checkvaluescolor:", checkedValues);
   console.log("colorcheckedcolorcomponent1:", colorChecked);
 
-  const updateSearchParams = useSearchParamsFilter();
+  const [updateSearchParams] = useSearchParamsFilter();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handleColorChecked = (colorLabel) => {

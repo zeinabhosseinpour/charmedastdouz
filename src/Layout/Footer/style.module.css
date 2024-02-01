@@ -1,52 +1,6 @@
 @import "../../colorPallet";
 /* @import url(../../colorPallet.css); */
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
- 
 
-
-
-.container {
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 16px;
-   /* border: 1px solid red; */
-   /* background-color: rgb(227, 233, 227); */
-   
-}
-
-@media screen and (min-width:640px) {
-.container {
-    max-width: 640px;
-    
-}
-}
-@media screen and (min-width:768px) {
-    .container {
-        max-width: 768px;
-        
-        
-    }
-}
-@media screen and (min-width:1024px) {
-    .container {
-        max-width: 1024px;
-    }
-}
-@media screen and (min-width:1280px) {
-    .container {
-        max-width: 1280px;
-    }
-}
- @media screen and (min-width:1536px) {
-        .container {
-            max-width: 1536px;
-        }
-    }
 
 
 
@@ -281,30 +235,33 @@ margin-top: 20px;
   }
   @media screen and (max-width:768px) {
     
-      
-  }
-  @media screen and (max-width:992px) {
     .footer {
         display: none;
     }
   }
+  @media screen and (max-width:992px) {
+   
+  }
   @media screen and (max-width:1024px) {
     .footer {
        font-size: 12px;
+       padding: 30px 20px;
     }
     .grid {
         column-gap: 50px;
     }
     .grid--5--cols {
-        grid-template-rows: 2.5fr 1fr 1fr 2fr ;
+        grid-template-columns: none;
+        grid-template-rows: 1fr 1fr 1fr 2fr ;
+        row-gap: 20px;
     }
     .about-p{
         /* font-size: 12px; */
     }
   }
-  @media screen and (min-width:1280px) {
+  @media screen and (max-width:1280px) {
     .grid--5--cols {
-        grid-template-rows: 2.5fr 1fr 1fr 2fr ;
+        /* grid-template-rows: 2.5fr 1fr 1fr 2fr ; */
     }
   }
    @media screen and (min-width:1536px) {

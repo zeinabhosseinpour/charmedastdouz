@@ -328,6 +328,7 @@ const ShoppingLogo = () => {
       >
         <Link to={`/cart`}>
           <Dropdown
+            className={classes["dropdown-badge"]}
             menu={{
               items: cartItem.length > 0 ? items : items1,
             }}

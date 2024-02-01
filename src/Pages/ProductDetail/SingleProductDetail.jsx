@@ -218,11 +218,38 @@ const SingleProductDetail = () => {
   //   const cartTotal = cartItem
   //     .map((item) => item.price * item.quantity)
   //     .reduce((prevValue, currValue) => prevValue + currValue, 0);
+  const product = child3.find((p) => p.id.toString() === productid);
+  const breadcrumbs = [
+    { title: "خانه", url: "/" },
+    {
+      title: product.category,
+      url: `/product-category/${product.categoryId}/${product.category}`,
+    },
+    {
+      title: product.parent1,
+      url: `/product-category/${product.parent1Id}/${product.parent1}`,
+    },
+    {
+      title: product.parent,
+      url: `/product-category/${product.parentId}/${product.parent}`,
+    },
+    { title: product.title, url: `/product-detail/${productid}/${slug}` },
+  ];
 
   return (
     <div className={classes["single-product-detail"]}>
       <div className={classes["breadcrumbs"]}>
         دسته بندی / کفش چرمی / کفش زنانه / صندل زنانه
+        {breadcrumbs.map((crumb, index) => (
+          <li key={index}>
+            <Link
+              style={{ textDecoration: "none", listStyle: "none" }}
+              to={crumb.url}
+            >
+              {crumb.title} /
+            </Link>
+          </li>
+        ))}
       </div>
       <div>
         {child3
