@@ -217,7 +217,7 @@ const Products = (props) => {
     if (result3.length) {
       setProductsList(result3);
     } else {
-      alert("نتیجه ای یافت نشد");
+      // alert("نتیجه ای یافت نشد");
     }
   };
   // console.log("productlist:", productsList);
