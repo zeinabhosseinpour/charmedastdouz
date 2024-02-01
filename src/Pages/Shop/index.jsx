@@ -20,7 +20,7 @@ const Shop = () => {
   return (
     <div>
       <Header />
-      <Breadcrumbs productid={productid} slug={slug} />
+      {/* <Breadcrumbs productid={productid} slug={slug} /> */}
       <main
         className={` ${classes.container} ${classes.grid} ${classes["grid--2--cols"]} ${classes.content} `}
       >

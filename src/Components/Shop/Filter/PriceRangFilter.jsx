@@ -12,7 +12,7 @@ const PriceRangFilter = (props) => {
   const [inputMinValue, setInputMinValue] = useState(50000);
 
   const [inputMaxValue, setInputMaxValue] = useState(12000000);
-  const updateSearchParams = useSearchParamsFilter();
+  const [updateSearchParams, componentParams] = useSearchParamsFilter();
 
   const onChangeComplete = (value) => {
     console.log("onChangeComplete: ", value);
@@ -23,7 +23,6 @@ const PriceRangFilter = (props) => {
     setInputMinValue(newValue[0]);
     setInputMaxValue(newValue[1]);
   };
-  console.log("inputvalumin:", inputMinValue);
   const formattedValue = (value) => {
     const valueFormat = new Intl.NumberFormat("fa-IR");
     const x = valueFormat?.format(value);

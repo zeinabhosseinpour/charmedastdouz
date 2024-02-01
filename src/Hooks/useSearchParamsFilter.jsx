@@ -15,21 +15,13 @@ const useSearchParamsFilter = (filterComponentName) => {
     for (var key of keys) {
       prevSearchParams[key] = searchParams.getAll(key);
     }
-    console.log("prevsearchparamshooks:", prevSearchParams);
+
     setSearchParams({ ...prevSearchParams, ...filterName });
   };
-  console.log("serachhook;", searchParams);
-  // return updateSearchParams;
+  const componentParams = filterComponentName
+    ? filterParams[0].getAll(filterComponentName)
+    : [];
 
-  // return { searchParams, UpdateSearchParams };
-
-  // const filterComponent = (Name) => {
-  const componentParams = filterParams[0].getAll(filterComponentName);
-  // console.log("componentparamshook:", componentParams);
-  //   return componentParams;
-
-  // };
-  // return [updateSearchParams, filterComponent];
   return [updateSearchParams, componentParams];
 };
 
