@@ -9,42 +9,42 @@ import { BsHandbag } from "react-icons/bs";
 import useSearchParamsFilter from "../../../Hooks/useSearchParamsFilter";
 
 const PriceRangFilter = (props) => {
-  const [inputMinValue, setInputMinValue] = useState(50000);
+  const [updateSearchParams, minPrice] = useSearchParamsFilter("minPrice");
+  const [_, maxPrice] = useSearchParamsFilter("maxPrice");
 
-  const [inputMaxValue, setInputMaxValue] = useState(12000000);
-  const [updateSearchParams, componentParams] = useSearchParamsFilter();
+  //  states
+  const [sliderValues, setSliderValues] = useState({
+    min: 0,
+    max: 0,
+  });
 
-  const onChangeComplete = (value) => {
-    console.log("onChangeComplete: ", value);
-  };
+  //  side effect
+  useEffect(() => {
+    if (!minPrice[0] && !maxPrice[0]) {
+      setSliderValues({ min: 0, max: 0 });
+    }
+  }, [minPrice[0], maxPrice[0]]);
 
-  const onChange = (newValue) => {
-    console.log("newvalue:", newValue, newValue[0]);
-    setInputMinValue(newValue[0]);
-    setInputMaxValue(newValue[1]);
-  };
-  const formattedValue = (value) => {
-    const valueFormat = new Intl.NumberFormat("fa-IR");
-    const x = valueFormat?.format(value);
-    console.log("intl:", x);
-    return x;
-  };
-  const handlePriceReng = () => {
-    // props.setrangeprice(inputMinValue, inputMaxValue);
-
-    // props.setminprice(inputMinValue);
-    // props.setmaxprice(inputMaxValue);
-    // props.handleonclick();
-
-    updateSearchParams({
-      minPrice: formattedValue(inputMinValue),
-      maxPrice: formattedValue(inputMaxValue),
+  const onChange = (values) => {
+    setSliderValues({
+      min: values[0],
+      max: values[1],
     });
   };
 
-  // useEffect(()={
+  const formattedValue = (value) => {
+    const valueFormat = new Intl.NumberFormat("fa-IR");
+    const x = valueFormat?.format(value);
+    return x;
+  };
 
-  // },[])
+  const handlePriceReng = () => {
+    updateSearchParams({
+      minPrice: sliderValues.min,
+      maxPrice: sliderValues.max,
+    });
+  };
+
   return (
     <div className={classes["filter-priceRange"]}>
       <ConfigProvider
@@ -61,19 +61,7 @@ const PriceRangFilter = (props) => {
           },
         }}
       ></ConfigProvider>
-      {/* <Slider
-        styles={{ trackBg: "yellow", handleColor: "pink", railBg: "red" }}
-        style={{ rail: "yellow", trackBg: "red", handleColor: "pink" }}
-        range
-        // rail="red"
-        // trackBg="red"
-        // defaultValue={[20, 50]}
-        min={50000}
-        max={10000000}
-        onChange={onChange}
-        // value={typeof inputValue === "number" ? inputValue : 0}
-        step={40000}
-      /> */}
+
       <div style={{ position: "relative" }}>
         <input
           // min={50000}
@@ -95,8 +83,7 @@ const PriceRangFilter = (props) => {
         max={12000000}
         defaultValue={[50000, 12000000]}
         onChange={onChange}
-        onChangeComplete={onChangeComplete}
-        // railStyle={{ backgroundColor: "red" }}
+        //onChangeComplete={onChangeComplete}
         trackStyle={{ backgroundColor: "#ef4056" }}
         styles={{ trackBg: "yellow", handleColor: "pink", railBg: "red" }}
       />
@@ -107,8 +94,8 @@ const PriceRangFilter = (props) => {
             className={classes["inputRange"]}
             id="priceRangeMin"
             type="text"
-            value={formattedValue(inputMinValue)}
-            defaultValue={formattedValue(inputMinValue)}
+            value={formattedValue(sliderValues.min)}
+            //defaultValue={formattedValue(inputMinValue)}
           />
           <span>تومان</span>
         </div>
@@ -119,25 +106,13 @@ const PriceRangFilter = (props) => {
             className={classes["inputRange"]}
             id="priceRangeMax"
             type="text"
-            value={formattedValue(inputMaxValue)}
+            value={formattedValue(sliderValues.max)}
             // defaultValue={formattedValue(inputMaxValue)}
           />
           <span>تومان</span>
         </div>
       </div>
 
-      {/* <InputNumber
-        // min={0}
-        // max={1}
-        style={{
-          margin: "0 16px",
-        }}
-        // step={0.01}
-        value={inputMinValue}
-        onChange={onChange}
-        controls={false}
-        decimalSeparator="0"
-      /> */}
       <button
         onClick={() => handlePriceReng()}
         className={classes["btn-filter_pricerange"]}
