@@ -39,6 +39,8 @@ const Products = (props) => {
     location.state,
     location.pathname
   );
+  const encodeString = encodeURIComponent(location.search);
+  console.log("encodestring:", encodeString);
 
   // states
   const { productid, slug } = useParams();
@@ -198,14 +200,29 @@ const Products = (props) => {
     //       );
     //     }
     //   });
+    // const resultsnavigateQ = child3.filter((p) =>
+    //   p.title.toLowerCase().includes(searchParams.get("q").toLowerCase())
+    // );
+    // console.log("resultnavigationq:", resultsnavigateQ);
+    // setSearchState(results);
     const result3 = child3
-      .filter((item) => item.category === slug)
+      .filter(
+        (item) =>
+          item.category === slug &&
+          // item.title
+          //   .toLowerCase()
+          //   .includes(searchParams.get("q").toLowerCase()) &&
+          item.material === searchParams.get("material")
+      )
+      // .filter((i) => {
+
+      // if (searchParams.get("material")) {
+
+      // i.material === searchParams.get("material") &&
+      // }
+      // if (searchParams.get("color")) {
       .filter((i) => {
-        // if (searchParams.get("material")) {
-        i.material === searchParams.get("material") &&
-          // }
-          // if (searchParams.get("color")) {
-          i.attributes.filter((a) => a.color === searchParams.get("color")) &&
+        i.attributes.filter((a) => a.color === searchParams.get("color")) &&
           // }
           // if (searchParams.get("size")) {
           i.attributes.map((a) =>

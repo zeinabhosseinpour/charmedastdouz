@@ -25,6 +25,7 @@ const App = () => {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route index element={<Home />} />
+          <Route path="/search" element={<Search />} />
           <Route path="/product-category/:productid/:slug" element={<Shop />} />
           <Route
             path="/product-detail/:productid/:slug"
@@ -58,6 +59,7 @@ export default App;
 
 // import img1 from "./assets/image/photo_2019-12-11_16-39-53.jpg";
 import Login from "./Pages/Login/index";
+import Search from "./Pages/Shop/Search";
 
 // const App = () => {
 //   const [thumbsSwiper, setThumbsSwiper] = useState(null);

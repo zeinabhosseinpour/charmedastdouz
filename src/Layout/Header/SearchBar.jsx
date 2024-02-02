@@ -30,6 +30,9 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
 import Icon from "@ant-design/icons/lib/components/Icon";
 
+// component
+import Search from "../../Pages/Shop/Search";
+
 // images
 import p1 from "../../assets/image/photo_2019-12-11_16-39-53.jpg";
 import productimg from "../../assets/image/photo_2019-12-11_16-39-53.jpg";
@@ -189,7 +192,8 @@ const SearchBar = () => {
     );
 
     navigate({
-      pathname: "/product-category/1/کیف_های_چرمی",
+      // pathname: "/product-category/1/کیف_های_چرمی",
+      pathname: "/search",
       search: `q=${inputValue}`,
     });
     // navigate({ pathname: "/cart", search: `?q=${inputValue}` });

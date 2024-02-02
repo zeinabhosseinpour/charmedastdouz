@@ -10,6 +10,8 @@ import classes from "./style.module.css";
 import { MdOutlineExpandMore } from "react-icons/md";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
+import { IoCheckmark } from "react-icons/io5";
+
 //data
 import {
   // import { keys } from 'lodash';
@@ -211,13 +213,14 @@ const CategoryFilter = () => {
                 // inputRef &&
                 isInputVisible && (
                   // activeItem === p.title &&
-                  <input
-                    //   // checked={activeItem}
-                    //   // ref={inputRef}
-                    type="checkbox"
-                    //   name="radioid1"
-                    //   // value={c.title}
-                  ></input>
+                  // <input
+                  //   //   // checked={activeItem}
+                  //   //   // ref={inputRef}
+                  //   type="checkbox"
+                  //   //   name="radioid1"
+                  //   //   // value={c.title}
+                  // ></input>
+                  <IoCheckmark />
                 )
               }
             </label>
@@ -271,15 +274,16 @@ const CategoryFilter = () => {
                   {c.title}
                   {
                     // inputRef &&
-                    // isInputVisible &&
-                    activeItem === c.title && (
-                      <input
-                        // checked={activeItem}
-                        // ref={inputRef}
-                        type="checkbox"
-                        name="radioid1"
-                        // value={c.title}
-                      ></input>
+                    isInputVisible && (
+                      // activeItem === c.title && (
+                      // <input
+                      //   // checked={activeItem}
+                      //   // ref={inputRef}
+                      //   type="checkbox"
+                      //   name="radioid1"
+                      //   // value={c.title}
+                      // ></input>
+                      <IoCheckmark />
                     )
                   }
                 </label>
@@ -334,15 +338,16 @@ const CategoryFilter = () => {
                         {c1.title}
                         {
                           // inputRef &&
-                          // isInputVisible &&
-                          activeItem === c1.title && (
-                            <input
-                              // checked={activeItem}
-                              // ref={inputRef}
-                              type="checkbox"
-                              name="radioid1"
-                              // value={c.title}
-                            ></input>
+                          isInputVisible && (
+                            // activeItem === c1.title && (
+                            //   <input
+                            //     // checked={activeItem}
+                            //     // ref={inputRef}
+                            //     type="checkbox"
+                            //     name="radioid1"
+                            //     // value={c.title}
+                            //   ></input>
+                            <IoCheckmark />
                           )
                         }
                       </label>
