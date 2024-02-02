@@ -20,20 +20,16 @@ const ProductQuantity = (props) => {
   // const cartItem = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
   // const item = cartItem.find((c) => c.id === props.data.id);
-  // console.log("productquantityItem:", item);
   const item1 = child3.find((c3) => c3.id === props.data.id);
   const item2 = item1.attributes.find((i) => i.color === props.data.color);
   const item3 = child3
     .find((c3) => c3.id === props.data.id)
     .attributes.find((i) => i.color === props.data.color);
 
-  console.log("item1:", item1);
-  console.log("item2:", item2);
-  console.log("item3:", item3);
+ 
 
   const handleIncrement = (id, itemQuantity) => {
     // setQuantity(itemQuantity + 1);
-    console.log("quantitycartincre:", itemQuantity);
     dispatch(
       cartaction.incrementQuantity({
         productId: id,

@@ -638,7 +638,6 @@ const Test = () => {
 
   // recursiveFn(productslist, "چرم");
 
-  // console.log("searchResult : ", searchResult);
 
   function recursiveFn2(data, searchId) {
     data.map((item) => {
@@ -656,7 +655,6 @@ const Test = () => {
   }
   recursiveFn2(productslist, 3231);
 
-  console.log("searchResult2 : ", searchResult);
 };
 
 export default Test;
