@@ -16,7 +16,7 @@
 .grid--3--cols {
     grid-template-columns: 1fr 1fr 1fr;
     /* grid-template-rows: 1fr 1fr */
-    background-color: peru;
+    /* background-color: peru; */
 
 }
 .product-section {
@@ -244,7 +244,7 @@ display: flex;
         .grid--3--cols {
             grid-template-columns:1fr ;
             font-size: 9px;
-            background-color: pink;
+            /* background-color: pink; */
         }
         .single-product{
             flex-direction: row;
@@ -330,7 +330,7 @@ display: flex;
         }
         .grid--3--cols {
             grid-template-columns:0.9fr;
-            background-color: pink;
+            /* background-color: pink; */
            font-size: 12px;
         }
         .single-product {
@@ -349,7 +349,7 @@ display: flex;
                 grid-template-columns:1fr 1fr;
                 flex-shrink: 0;
                 font-size: 12px;
-                background-color: green;
+                /* background-color: green; */
             }
             .single-product {
                 font-size: 12px;

@@ -4,6 +4,7 @@ import { useSearchParams } from "react-router-dom";
 const useSearchParamsFilter = (filterComponentName) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const filterParams = useSearchParams();
+  console.log("searchhook:", searchParams);
 
   // const removeAllFilter
 

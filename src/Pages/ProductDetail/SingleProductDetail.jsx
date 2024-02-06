@@ -242,12 +242,23 @@ const SingleProductDetail = () => {
         دسته بندی / کفش چرمی / کفش زنانه / صندل زنانه
         {breadcrumbs.map((crumb, index) => (
           <li key={index}>
-            <Link
+            {/* <Link
               style={{ textDecoration: "none", listStyle: "none" }}
               to={crumb.url}
             >
               {crumb.title} /
-            </Link>
+            </Link> */}
+            {index > 0 && <span>/</span>}
+            {crumb.link ? (
+              <Link
+                style={{ textDecoration: "none", listStyle: "none" }}
+                to={crumb.url}
+              >
+                {crumb.title} /
+              </Link>
+            ) : (
+              <span>{crumb.title}</span>
+            )}
           </li>
         ))}
       </div>

@@ -400,8 +400,8 @@ const Products = (props) => {
             .map((item) => <li key={item.id}>{item.size}</li>)
         )}
       </ul> */}
-      <div>
-        {/* <span>size: {props.searchparams.get("size")}</span>
+      {/* <div> */}
+      {/* <span>size: {props.searchparams.get("size")}</span>
         <span>material: {props.searchparams.get("material")}</span>
         <span> color: {props.searchparams.get("color")}</span>
         <span>minprice: {props.searchparams.get("minPrice")}</span>
@@ -409,48 +409,48 @@ const Products = (props) => {
         <span>
           has selling stock: {props.searchparams.get("has_selling_stock")}
         </span> */}
-      </div>
+      {/* </div>
       <div className={classes["pagintion-shop"]}>
         <Pagination defaultCurrent={1} pageSize={18} total={180} size="small" />
       </div>
 
-      <div className={`${classes["product-shop"]} ${classes["grid--3--cols"]}`}>
-        {/* {productFilter
+      <div className={`${classes["product-shop"]} ${classes["grid--3--cols"]}`}> */}
+      {/* {productFilter
           .filter(
             (p) =>
               p.size.toString() === props.searchparams.get("size") ||
               p.color === props.searchparams.get("color") ||
               p.material === props.searchparams.get("material")
           ) */}
-        {
-          // props.searchparams.get("material") &&
-          //   props.searchparams.get("size") &&
-          //   props.searchparams.get("color") &&
-          // child3
-          //   .filter(
-          //     (item) =>
-          //       item.category === slug ||
-          //       item.parent1 === slug ||
-          //       (item.parent === slug &&
-          //         item.material === props.searchparams.get("material"))
-          //   )
-          //   .filter(
-          //     (i) => i.attributes.color === props.searchparams.get("color")
-          //   )
-          //   .filter(
-          //     (s) =>
-          //       (s.size === s.size.toString()) ===
-          //       props.searchparams.get("size")
-          //   )
-          //   .map((item) => (
-          //     <div key={item.id}>
-          //       {item.id}
-          //       {item.title}
-          //     </div>
-          //   ))
-        }
+      {
+        // props.searchparams.get("material") &&
+        //   props.searchparams.get("size") &&
+        //   props.searchparams.get("color") &&
+        // child3
+        //   .filter(
+        //     (item) =>
+        //       item.category === slug ||
+        //       item.parent1 === slug ||
+        //       (item.parent === slug &&
+        //         item.material === props.searchparams.get("material"))
+        //   )
+        //   .filter(
+        //     (i) => i.attributes.color === props.searchparams.get("color")
+        //   )
+        //   .filter(
+        //     (s) =>
+        //       (s.size === s.size.toString()) ===
+        //       props.searchparams.get("size")
+        //   )
+        //   .map((item) => (
+        //     <div key={item.id}>
+        //       {item.id}
+        //       {item.title}
+        //     </div>
+        //   ))
+      }
 
-        {productsList.map((item) => (
+      {/* {productsList.map((item) => (
           <div key={item.id} className={classes["single-product"]}>
             {item.id}
             {item.category}
@@ -468,7 +468,7 @@ const Products = (props) => {
             ))}
           </div>
         ))}
-      </div>
+      </div> */}
 
       <div className={`${classes["product-shop"]} ${classes["grid--3--cols"]}`}>
         {/* {child3

@@ -23,7 +23,7 @@ const Breadcrumbs = (props) => {
     },
     {
       title: product.parent,
-      url: `/product-category/${product.parentId}/${product.parent}`,
+      // url: `/product-category/${product.parentId}/${product.parent}`,
     },
     // {
     //   title: product.title,
@@ -38,12 +38,17 @@ const Breadcrumbs = (props) => {
           (crumb, index) =>
             product.category === props.productid && (
               <li key={index}>
-                <Link
-                  style={{ textDecoration: "none", listStyle: "none" }}
-                  to={crumb.url}
-                >
-                  {crumb.title} /
-                </Link>
+                {index > 0 && <span>/</span>}
+                {crumb.url ? (
+                  <Link
+                    style={{ textDecoration: "none", listStyle: "none" }}
+                    to={crumb.url}
+                  >
+                    {crumb.title} /
+                  </Link>
+                ) : (
+                  <span>{crumb.title}</span>
+                )}
               </li>
             )
         )}

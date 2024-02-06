@@ -35,7 +35,7 @@ margin-bottom: 30px;
 
 .grid--2--cols {
     grid-template-columns: 1.5fr 5fr;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
 
 }
 
@@ -91,18 +91,18 @@ background-color: yellow;
             display: grid;
             column-gap: 20px;
             /* row-gap: 20px; */
-            background-color: brown;
+            /* background-color: brown; */
         }
       
         .grid--2--rows {
             grid-template-rows: 0fr 15fr;
             /* grid-template-columns: 1fr; */
-            background-color: green;
+            /* background-color: green; */
             padding: 0;
         
         }
         .filter-order_mobile {
-            background-color: orange;
+            /* background-color: orange; */
             display: flex;
             /* justify-content: space-between; */
             align-items: center;

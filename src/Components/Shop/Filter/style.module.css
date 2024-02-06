@@ -7,7 +7,7 @@ display: none;
 } */
 
 .filter {
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 .filter-header {
     display: flex;

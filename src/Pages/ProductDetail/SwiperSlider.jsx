@@ -8,8 +8,9 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
-import "./SwiperSlider.css";
-import classes from "./style.module.css";
+// import "./SwiperSlider.css";
+// import classes from "./style.module.css";
+import classes from "./SwiperSlider.module.css";
 
 // import required modules
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
@@ -146,10 +147,11 @@ const SwiperSlider = ({ colorItemId, productId }) => {
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
         }}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper2"
+        // className="mySwiper2"
+        className={classes.mySwiper2}
       >
         {imageslider[productId].map((item) => (
-          <div style={{ height: "100%" }} key={item.id}>
+          <div style={{ backgroundColor: "red" }} key={item.id}>
             {item[colorItemId]?.map((image) => (
               <SwiperSlide key={image}>
                 <img src={image} />
@@ -179,10 +181,11 @@ const SwiperSlider = ({ colorItemId, productId }) => {
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper"
+        // className="mySwiper"
+        className={classes.mySwiper}
       >
         {imageslider[productId].map((item) => (
-          <div style={{ height: "100%" }} key={item.id}>
+          <div style={{ backgroundColor: "blue" }} key={item.id}>
             {item[colorItemId]?.map((image) => (
               <SwiperSlide key={image}>
                 <img src={image} />

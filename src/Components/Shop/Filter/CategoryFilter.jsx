@@ -155,9 +155,11 @@ const CategoryFilter = () => {
   const [expandedItem, setExpandedItem] = useState();
   const [expandedItem2, setExpandedItem2] = useState();
   const [ischecked, setIsChecked] = useState(false);
-  console.log("active:", expandedItem, isExpanded, activeItem);
+  console.log("activeitem:", activeItem);
+  console.log("expandeditem", expandedItem);
+  console.log("expanded2:", expandedItem2);
   const inputRef = useRef(null);
-  const [isInputVisible, setIsInputVisible] = useState(false);
+  const [isInputVisible, setIsInputVisible] = useState(null);
 
   // useEffect(() => {
   //   if (ischecked) {
@@ -166,7 +168,13 @@ const CategoryFilter = () => {
   //     inputRef.current.checked = false;
   //   }
   // }, [ischecked]);
-
+  useEffect(() => {
+    setActiveItem(slug);
+    // const matchedCategory = category1.find((item) => item.slug === slug);
+    // if (matchedCategory) {
+    //   setActiveItem(matchedCategory);
+    // }
+  }, [slug]);
   return (
     <div style={{ maxHeight: "300px", overflow: "auto", width: "400px" }}>
       {category1.map((p) => (
@@ -195,35 +203,43 @@ const CategoryFilter = () => {
               alignItems: "center",
             }}
           >
-            <label
-              className={
-                activeItem === p.title ? classes.expanded : classes.unexpanded
-              }
-              onClick={() => {
-                // setIsExpanded(!isExpanded);
-                // if (activeItem !== "")
-                setActiveItem(activeItem === p.title ? null : p.title);
-                // else setActiveItem("");
-                // setIsChecked(!ischecked);
-                setIsInputVisible(true);
-              }}
+            <Link
+              style={{ textDecoration: "none" }}
+              to={`/product-category/${p.id}/${p.slug}`}
+              // onMouseEnter={() => setMenuItemId(menuitem.id)}
             >
-              {p.title}
-              {
-                // inputRef &&
-                isInputVisible && (
-                  // activeItem === p.title &&
-                  // <input
-                  //   //   // checked={activeItem}
-                  //   //   // ref={inputRef}
-                  //   type="checkbox"
-                  //   //   name="radioid1"
-                  //   //   // value={c.title}
-                  // ></input>
-                  <IoCheckmark />
-                )
-              }
-            </label>
+              <label
+                className={
+                  activeItem === p.slug ? classes.expanded : classes.unexpanded
+                }
+                onClick={() => {
+                  // setIsExpanded(!isExpanded);
+                  // if (activeItem !== "")
+                  setActiveItem(activeItem === p.title ? null : p.title);
+                  // else setActiveItem("");
+                  // setIsChecked(!ischecked);
+                  // setIsInputVisible(true);
+                  // setIsInputVisible(p.id === isInputVisible ? null : p.id);
+                }}
+              >
+                {p.title}
+                {
+                  // inputRef &&
+                  // isInputVisible && (
+                  // isInputVisible === p.id && (
+                  activeItem === p.slug && (
+                    // <input
+                    //   //   // checked={activeItem}
+                    //   //   // ref={inputRef}
+                    //   type="checkbox"
+                    //   //   name="radioid1"
+                    //   //   // value={c.title}
+                    // ></input>
+                    <IoCheckmark />
+                  )
+                }
+              </label>
+            </Link>
             <MdKeyboardArrowRight
               className={
                 expandedItem === p.title
@@ -256,37 +272,44 @@ const CategoryFilter = () => {
                   name="radioid"
                   // value={c.title}
                 ></input> */}
-
-                <label
-                  className={
-                    activeItem === c.title
-                      ? classes.expanded
-                      : classes.unexpanded
-                  }
-                  onClick={() => {
-                    // setIsExpanded(!isExpanded);
-                    // if (activeItem !== "")
-                    setActiveItem(activeItem === c.title ? null : c.title);
-                    // else setActiveItem("");
-                    setIsInputVisible(true);
-                  }}
+                <Link
+                  style={{ textDecoration: "none" }}
+                  to={`/product-category/${c.id}/${c.slug}`}
+                  // onMouseEnter={() => setMenuItemId(menuitem.id)}
                 >
-                  {c.title}
-                  {
-                    // inputRef &&
-                    isInputVisible && (
-                      // activeItem === c.title && (
-                      // <input
-                      //   // checked={activeItem}
-                      //   // ref={inputRef}
-                      //   type="checkbox"
-                      //   name="radioid1"
-                      //   // value={c.title}
-                      // ></input>
-                      <IoCheckmark />
-                    )
-                  }
-                </label>
+                  <label
+                    className={
+                      activeItem === c.title
+                        ? classes.expanded
+                        : classes.unexpanded
+                    }
+                    onClick={() => {
+                      // setIsExpanded(!isExpanded);
+                      // if (activeItem !== "")
+                      setActiveItem(activeItem === c.title ? null : c.title);
+                      // else setActiveItem("");
+                      // setIsInputVisible(true);
+                      setIsInputVisible(c.id === isInputVisible ? null : c.id);
+                    }}
+                  >
+                    {c.title}
+                    {
+                      // inputRef &&
+                      // isInputVisible && (
+                      // isInputVisible === c.id && (
+                      activeItem === c.title && (
+                        // <input
+                        //   // checked={activeItem}
+                        //   // ref={inputRef}
+                        //   type="checkbox"
+                        //   name="radioid1"
+                        //   // value={c.title}
+                        // ></input>
+                        <IoCheckmark />
+                      )
+                    }
+                  </label>
+                </Link>
                 {c.hasChild === 1 && (
                   <MdKeyboardArrowRight
                     className={
@@ -319,38 +342,55 @@ const CategoryFilter = () => {
                         name="radioid2"
                         // value={c.title}
                       ></input> */}
-                      <label
-                        className={
-                          activeItem === c1.title
-                            ? classes.expanded
-                            : classes.unexpanded
-                        }
-                        onClick={() => {
-                          // setIsExpanded(!isExpanded);
-                          // if (activeItem !== "")
-                          setActiveItem(
-                            activeItem === c1.title ? null : c1.title
-                          );
-                          // else setActiveItem("");
-                          setIsInputVisible(true);
-                        }}
+                      <Link
+                        style={{ textDecoration: "none" }}
+                        to={`/product-category/${c1.id}/${c1.slug}`}
+                        // onMouseEnter={() => setMenuItemId(menuitem.id)}
                       >
-                        {c1.title}
-                        {
-                          // inputRef &&
-                          isInputVisible && (
-                            // activeItem === c1.title && (
-                            //   <input
-                            //     // checked={activeItem}
-                            //     // ref={inputRef}
-                            //     type="checkbox"
-                            //     name="radioid1"
-                            //     // value={c.title}
-                            //   ></input>
-                            <IoCheckmark />
-                          )
-                        }
-                      </label>
+                        <label
+                          className={
+                            activeItem === c1.title
+                              ? classes.expanded
+                              : classes.unexpanded
+                          }
+                          onClick={() => {
+                            // setIsExpanded(!isExpanded);
+                            // if (activeItem !== "")
+                            setActiveItem(
+                              activeItem === c1.title ? null : c1.title
+                            );
+                            // else setActiveItem("");
+                            // setIsInputVisible(true);
+                            setIsInputVisible(
+                              c1.id === isInputVisible ? null : c1.id
+                            );
+                          }}
+                        >
+                          {c1.title}
+                        </label>
+                      </Link>
+                      {
+                        // inputRef &&
+                        // isInputVisible && (
+                        // isInputVisible === c1.id && (
+                        activeItem === c1.title && (
+                          // <input
+                          //   checked={activeItem}
+                          //   // ref={inputRef}
+                          //   type="checkbox"
+                          //   name="radioid1"
+                          //   value={c1.title}
+                          //   key={c1.id}
+                          // />
+                          <IoCheckmark
+                            className={
+                              activeItem === c1.title
+                                ? classes.expanded
+                                : classes.unexpanded
+                            }
+                          />
+                        )
+                      }
                       {/* {c.hasChild !== 1 && (
                         <MdKeyboardArrowRight
                         onClick={() => {

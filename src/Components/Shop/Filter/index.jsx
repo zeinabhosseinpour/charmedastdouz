@@ -32,6 +32,7 @@ import CategoryFilter from "./CategoryFilter";
 import MaterialFilter from "./MaterialFilter";
 import PriceRangFilter from "./PriceRangFilter";
 import useSearchParamsFilter from "../../../Hooks/useSearchParamsFilter";
+import { values } from "lodash";
 
 const Filter = (props) => {
   //state
@@ -45,14 +46,34 @@ const Filter = (props) => {
   const [sizeChecked, setSizeChecked] = useState();
   const [colorChecked, setColorChecked] = useState([]);
   const [rangePrice, setRangePrice] = useState([]);
-  const [checkedStock, setCheckedStock] = useState(1);
+  // const [checkedStock, setCheckedStock] = useState(1);
+  const [checkedValue, setCheckValue] = useState();
+  const [isSwitchOn, setIsSwitchOn] = useState(false);
   const [minPrice, setMinPrice] = useState();
   const [maxPrice, setMaxPrice] = useState();
   const [listchecked, setListChecked] = useState();
   const [searchParams, setSearchParams] = useSearchParams();
-  const updateSearchParams = useSearchParamsFilter();
+  const [updateSearchParams, checkedStock] =
+    useSearchParamsFilter("has_selling_stock");
+  console.log(" updateSearchParamsFilter:", updateSearchParams);
+  console.log("checkstok[0]", checkedStock[0], checkedStock);
+  console.log("searchparams:", searchParams);
   //  console.log("searchparamsindexfilter:",searchParams);
-
+  console.log("isswitchon", isSwitchOn);
+  useEffect(() => {
+    // const switchValue
+    if (checkedStock[0] === "1") {
+      setIsSwitchOn(true);
+    } else {
+      setIsSwitchOn(false);
+    }
+  }, [checkedStock[0]]);
+  // useEffect(() => {
+  //   if (!checkedStock[0]) {
+  //     setCheckValue(false);
+  //   }
+  // }, [checkedStock[0]]);
+  console.log("checkvalue", checkedValue);
   //    useEffect(()=> {
   //     const params=new URLSearchParams();
   //     props.searchparams.set('size',sizeChecked);
@@ -126,11 +147,31 @@ const Filter = (props) => {
   const onChange = (checked) => {
     // console.log("keycolapspanel",key);
     console.log(`switch to ${checked}`);
-    if (checked)
-      // setCheckedStock(1);
-      updateSearchParams({ has_selling_stock: 1 });
+    setIsSwitchOn(checked);
+    // updateSearchParams({ has_selling_stock: checked ? "true" : "false" });
+    if (checked) {
+      updateSearchParams({ has_selling_stock: "1" });
+    }
+    // searchParams.delete("has_selling_stock");
+    else {
+      const params = new URLSearchParams(searchParams);
+      console.log("params:", params);
+      params.delete("has_selling_stock");
+      // updateSearchParams(params.toString());
+      setSearchParams(params.toString());
+    }
+    //  updateSearchParams([""]);
+
+    // if (checked)
+    // setCheckedStock(1);
+    // setCheckValue(checked);
+    // updateSearchParams({ has_selling_stock: checked });
+
+    // updateSearchParams(checked ? { has_selling_stock: ["1"] } : [""]);
+    // updateSearchParams({ has_selling_stock: checkedValue });
     // setCheckedStock(0);
-    else updateSearchParams({ has_selling_stock: 0 });
+    // else updateSearchParams({ has_selling_stock: "0" });
+
     // updateSearchParams({has_selling_stock:checkedStock});
   };
   //   const text = `
@@ -196,7 +237,19 @@ const Filter = (props) => {
                 },
               }}
             >
-              <Switch size="small" onChange={onChange} />
+              <Switch
+                size="small"
+                // checked={checkedStock === 1 ? true : false}
+                // checked={checkedStock[0]}
+                // defaultChecked={checkedStock}
+                // values={checkedStock[0]}
+                // defaultValue={checkedStock[0]}
+                // values={checkedValue}
+                // checked={checkedValue}
+                checked={isSwitchOn}
+                // values={checkedStock[0]}
+                onChange={onChange}
+              />
             </ConfigProvider>
           </div>
         </div>

@@ -21,7 +21,7 @@ const PriceRangFilter = (props) => {
   //  side effect
   useEffect(() => {
     if (!minPrice[0] && !maxPrice[0]) {
-      setSliderValues({ min: 0, max: 0 });
+      setSliderValues({ min: 50000, max: 12000000 });
     }
   }, [minPrice[0], maxPrice[0]]);
 
@@ -62,7 +62,7 @@ const PriceRangFilter = (props) => {
         }}
       ></ConfigProvider>
 
-      <div style={{ position: "relative" }}>
+      {/* <div style={{ position: "relative" }}>
         <input
           // min={50000}
           id="RangeMin"
@@ -75,13 +75,14 @@ const PriceRangFilter = (props) => {
           type="range"
           style={{ zIndex: "50" }}
         />
-      </div>
+      </div> */}
       <Slider
         range
         step={10}
         min={50000}
         max={12000000}
         defaultValue={[50000, 12000000]}
+        value={[sliderValues.min, sliderValues.max]}
         onChange={onChange}
         //onChangeComplete={onChangeComplete}
         trackStyle={{ backgroundColor: "#ef4056" }}
@@ -96,6 +97,7 @@ const PriceRangFilter = (props) => {
             type="text"
             value={formattedValue(sliderValues.min)}
             //defaultValue={formattedValue(inputMinValue)}
+            defaultValue={formattedValue(50000)}
           />
           <span>تومان</span>
         </div>
@@ -108,6 +110,7 @@ const PriceRangFilter = (props) => {
             type="text"
             value={formattedValue(sliderValues.max)}
             // defaultValue={formattedValue(inputMaxValue)}
+            defaultValue={formattedValue(12000000)}
           />
           <span>تومان</span>
         </div>
