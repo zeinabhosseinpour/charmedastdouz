@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 // data
 import productslist from "../../Components/Shop/Products/productslist";
 import { useMemo } from "react";
+import { useParams } from "react-router-dom";
 
 import {
   productslist2,
@@ -48,6 +49,7 @@ const SearchBar = () => {
   const [rpList3, setrpList3] = useState({});
   const navigate = useNavigate();
   console.log("serachState:", searchState);
+  const params = useParams();
 
   // variable
 
@@ -192,8 +194,7 @@ const SearchBar = () => {
     );
 
     navigate({
-      // pathname: "/product-category/1/کیف_های_چرمی",
-      pathname: "/search",
+      pathname: `/search/${params.slug}`,
       search: `q=${inputValue}`,
     });
     // navigate({ pathname: "/cart", search: `?q=${inputValue}` });
