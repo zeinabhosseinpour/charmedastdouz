@@ -174,6 +174,8 @@ const CategoryFilter = () => {
     // if (matchedCategory) {
     //   setActiveItem(matchedCategory);
     // }
+    // setExpandedItem(slug);
+    // setExpandedItem2(slug);
   }, [slug]);
   return (
     <div style={{ maxHeight: "300px", overflow: "auto", width: "400px" }}>
@@ -215,7 +217,7 @@ const CategoryFilter = () => {
                 onClick={() => {
                   // setIsExpanded(!isExpanded);
                   // if (activeItem !== "")
-                  setActiveItem(activeItem === p.title ? null : p.title);
+                  setActiveItem(activeItem === p.slug ? null : p.slug);
                   // else setActiveItem("");
                   // setIsChecked(!ischecked);
                   // setIsInputVisible(true);
@@ -242,21 +244,21 @@ const CategoryFilter = () => {
             </Link>
             <MdKeyboardArrowRight
               className={
-                expandedItem === p.title
+                expandedItem === p.slug
                   ? classes["icon-category_expanded"]
                   : classes["icon-category"]
               }
               onClick={() => {
                 // setIsExpanded(!isExpanded);
                 // if (activeItem !== "")
-                setExpandedItem(expandedItem === p.title ? null : p.title);
+                setExpandedItem(expandedItem === p.slug ? null : p.slug);
                 // else setActiveItem("");
               }}
             />
           </div>
           {/* <MdOutlineExpandMore style={{ color: "red" }} /> */}
 
-          {expandedItem === p.title &&
+          {expandedItem === p.slug &&
             // p.hasChild === 0 &&
             p.child.map((c) => (
               <div
@@ -279,14 +281,14 @@ const CategoryFilter = () => {
                 >
                   <label
                     className={
-                      activeItem === c.title
+                      activeItem === c.slug
                         ? classes.expanded
                         : classes.unexpanded
                     }
                     onClick={() => {
                       // setIsExpanded(!isExpanded);
                       // if (activeItem !== "")
-                      setActiveItem(activeItem === c.title ? null : c.title);
+                      setActiveItem(activeItem === c.slug ? null : c.slug);
                       // else setActiveItem("");
                       // setIsInputVisible(true);
                       setIsInputVisible(c.id === isInputVisible ? null : c.id);
@@ -297,7 +299,7 @@ const CategoryFilter = () => {
                       // inputRef &&
                       // isInputVisible && (
                       // isInputVisible === c.id && (
-                      activeItem === c.title && (
+                      activeItem === c.slug && (
                         // <input
                         //   // checked={activeItem}
                         //   // ref={inputRef}
@@ -313,7 +315,7 @@ const CategoryFilter = () => {
                 {c.hasChild === 1 && (
                   <MdKeyboardArrowRight
                     className={
-                      expandedItem2 === c.title
+                      expandedItem2 === c.slug
                         ? classes["icon-category_expanded"]
                         : classes["icon-category"]
                     }
@@ -321,14 +323,14 @@ const CategoryFilter = () => {
                       // setIsExpanded(!isExpanded);
                       // if (activeItem !== "")
                       setExpandedItem2(
-                        expandedItem2 === c.title ? null : c.title
+                        expandedItem2 === c.slug ? null : c.slug
                       );
                       // else setActiveItem("");
                     }}
                   />
                 )}
                 {/* <MdOutlineExpandMore /> */}
-                {expandedItem2 === c.title &&
+                {expandedItem2 === c.slug &&
                   c.hasChild === 1 &&
                   c.child.map((c1) => (
                     <div
@@ -349,7 +351,7 @@ const CategoryFilter = () => {
                       >
                         <label
                           className={
-                            activeItem === c1.title
+                            activeItem === c1.slug
                               ? classes.expanded
                               : classes.unexpanded
                           }
@@ -357,7 +359,7 @@ const CategoryFilter = () => {
                             // setIsExpanded(!isExpanded);
                             // if (activeItem !== "")
                             setActiveItem(
-                              activeItem === c1.title ? null : c1.title
+                              activeItem === c1.slug ? null : c1.slug
                             );
                             // else setActiveItem("");
                             // setIsInputVisible(true);
@@ -373,7 +375,7 @@ const CategoryFilter = () => {
                         // inputRef &&
                         // isInputVisible && (
                         // isInputVisible === c1.id && (
-                        activeItem === c1.title && (
+                        activeItem === c1.slug && (
                           // <input
                           //   checked={activeItem}
                           //   // ref={inputRef}
@@ -384,7 +386,7 @@ const CategoryFilter = () => {
                           // />
                           <IoCheckmark
                             className={
-                              activeItem === c1.title
+                              activeItem === c1.slug
                                 ? classes.expanded
                                 : classes.unexpanded
                             }
