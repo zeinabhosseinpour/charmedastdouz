@@ -64,7 +64,7 @@ const ShoppingLogo = () => {
       console.log("total:", "ff", total);
       let N = isNaN(total);
       console.log("N:", N);
-      return total;
+      return priceIntl(total);
     } else {
       return 0;
     }
@@ -341,8 +341,18 @@ const ShoppingLogo = () => {
                 "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.3) 0px 4px 8px 0px",
             }}
           >
-            <Badge count={quantityItem()} showZero status="processing" on>
-              <FiShoppingCart size={25} />
+            <Badge
+              count={quantityItem()}
+              showZero
+              status="processing"
+              on
+              // size="small"
+              className={classes["badge-footer"]}
+            >
+              <FiShoppingCart
+                size={25}
+                className={classes["badge-icon_footer"]}
+              />
             </Badge>
           </Dropdown>
         </Link>

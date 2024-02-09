@@ -299,13 +299,13 @@ display: flex;
                 grid-template-columns:1fr 1fr;
                 flex-shrink: 0;
                 font-size: 12px;
-                background-color: red;
+                /* background-color: red; */
             }
             .single-product{
                 /* flex-direction: row; */
                 flex-shrink: 0;
                 /* flex-grow: 1; */
-                background-color: yellow;
+                /* background-color: yellow; */
 
             }
             .section-img {

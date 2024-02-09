@@ -239,9 +239,9 @@ const SingleProductDetail = () => {
   return (
     <div className={classes["single-product-detail"]}>
       <div className={classes["breadcrumbs"]}>
-        دسته بندی / کفش چرمی / کفش زنانه / صندل زنانه
+        {/* دسته بندی / کفش چرمی / کفش زنانه / صندل زنانه */}
         {breadcrumbs.map((crumb, index) => (
-          <li key={index}>
+          <li style={{ textDecoration: "none", listStyle: "none" }} key={index}>
             {/* <Link
               style={{ textDecoration: "none", listStyle: "none" }}
               to={crumb.url}
@@ -249,12 +249,12 @@ const SingleProductDetail = () => {
               {crumb.title} /
             </Link> */}
             {index > 0 && <span>/</span>}
-            {crumb.link ? (
+            {crumb.url ? (
               <Link
                 style={{ textDecoration: "none", listStyle: "none" }}
                 to={crumb.url}
               >
-                {crumb.title} /
+                {crumb.title}
               </Link>
             ) : (
               <span>{crumb.title}</span>
@@ -484,7 +484,7 @@ const SingleProductDetail = () => {
                           />
                         </button>
 
-                        <span>{quantity}</span>
+                        <span>{priceIntl(quantity)}</span>
                         <FaMinus
                           onClick={() =>
                             quantity > 1 ? setQuantity(quantity - 1) : ""

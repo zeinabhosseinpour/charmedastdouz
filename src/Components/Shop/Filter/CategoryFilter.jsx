@@ -160,7 +160,10 @@ const CategoryFilter = () => {
   console.log("expanded2:", expandedItem2);
   const inputRef = useRef(null);
   const [isInputVisible, setIsInputVisible] = useState(null);
-
+  const result = category1.map((p) => ({ id: p.id, childid: p.childId }));
+  // const result = category1.childId.find((p) => p.id === productid);
+  // const r = result.childId.find((r) => r.id === productid);
+  console.log("result:", result);
   // useEffect(() => {
   //   if (ischecked) {
   //     inputRef.current.checked = true;

@@ -7,6 +7,7 @@ import App from "./App.jsx";
 // style
 import "./index.css";
 import "./colorPallet.css";
+import "./fonts/webfonts/Vazirmatn[wght].woff2";
 
 // package
 import { Provider } from "react-redux";

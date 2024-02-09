@@ -34,9 +34,9 @@ const Shop = () => {
           <Ordering />
 
           <Products
-            Slug={slug}
-            // searchparams={searchParams}
-            // setsearchparams={setSearchParams}
+          // Slug={slug}
+          // searchparams={searchParams}
+          // setsearchparams={setSearchParams}
           />
         </div>
       </main>

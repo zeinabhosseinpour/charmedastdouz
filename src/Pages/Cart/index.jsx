@@ -90,7 +90,7 @@ const Cart = () => {
       // console.log("total:", "ff", total);
       // let N = isNaN(total);
       // console.log("N:", N);
-      return totalQuantity;
+      return priceIntl(totalQuantity);
     } else {
       return 0;
     }
@@ -315,7 +315,7 @@ const Cart = () => {
             <div
               className={` ${classes["product-total-section"]} ${classes["total-price"]} `}
             >
-              <span> :هزینه ارسال </span>
+              <span> هزینه ارسال: </span>
               <span> وابسته به نوع ارسال </span>
             </div>
             <div

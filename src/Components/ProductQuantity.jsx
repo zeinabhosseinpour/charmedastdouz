@@ -26,8 +26,10 @@ const ProductQuantity = (props) => {
     .find((c3) => c3.id === props.data.id)
     .attributes.find((i) => i.color === props.data.color);
 
- 
-
+  const priceIntl = (price) => {
+    const priceFormat = new Intl.NumberFormat("fa-IR");
+    return priceFormat?.format(price);
+  };
   const handleIncrement = (id, itemQuantity) => {
     // setQuantity(itemQuantity + 1);
     dispatch(
@@ -70,16 +72,17 @@ const ProductQuantity = (props) => {
     //   />
     // </div>
     <div className={classes["icon-count"]}>
-      <button
+      {/* <button
         disabled={props.data.quantity >= item2.colorcount}
         className={classes["icon-btn"]}
-      >
-        <HiOutlinePlus
-          onClick={() => handleIncrement(props.data.id)}
-          className={classes.icon}
-        />
-      </button>
-      <span> {props.data.quantity}</span>
+      > */}
+      <HiOutlinePlus
+        onClick={() => handleIncrement(props.data.id)}
+        className={classes.icon}
+        disabled={props.data.quantity >= item2.colorcount}
+      />
+      {/* </button> */}
+      <span> {priceIntl(props.data.quantity)}</span>
       <FaMinus
         onClick={() => handleDecrement(props.data.id)}
         className={classes.icon}

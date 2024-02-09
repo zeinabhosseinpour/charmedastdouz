@@ -337,45 +337,45 @@ const SearchBar = () => {
         </div>
       ),
     },
-    ...searchState.map((p) => ({
-      key: p.id,
-      label: (
-        <Link
-          to={`/product-detail/${p.id}/${p.slug}`}
-          className={classes["product-search"]}
-        >
-          <div>
-            <img
-              src={productimg}
-              alt="productimg"
-              className={classes["product-img"]}
-            />
-          </div>
-          <div className={classes["product-item"]}>
-            <div className={classes["product-off-section"]}>
-              <h4 className={classes["product-title"]}>{p.title}</h4>
-              {p.off && (
-                <div className={classes["off-section"]}>
-                  <span> % {p.off} </span>
-                </div>
-              )}
-            </div>
-            <div className={classes["price-section"]}>
-              {p.off && (
-                <div className={classes["product-orginal_price"]}>
-                  <span>{priceIntl(p.price)}</span>
-                  <span>تومان</span>
-                </div>
-              )}
-              <div className={classes["product-off_price"]}>
-                <span>{priceIntl(p.price - p.price * p.off * 0.01)}</span>
-                <span>تومان</span>
-              </div>
-            </div>
-          </div>
-        </Link>
-      ),
-    })),
+    // ...searchState.map((p) => ({
+    //   key: p.id,
+    //   label: (
+    //     <Link
+    //       to={`/product-detail/${p.id}/${p.slug}`}
+    //       className={classes["product-search"]}
+    //     >
+    //       <div>
+    //         <img
+    //           src={productimg}
+    //           alt="productimg"
+    //           className={classes["product-img"]}
+    //         />
+    //       </div>
+    //       <div className={classes["product-item"]}>
+    //         <div className={classes["product-off-section"]}>
+    //           <h4 className={classes["product-title"]}>{p.title}</h4>
+    //           {p.off && (
+    //             <div className={classes["off-section"]}>
+    //               <span> % {p.off} </span>
+    //             </div>
+    //           )}
+    //         </div>
+    //         <div className={classes["price-section"]}>
+    //           {p.off && (
+    //             <div className={classes["product-orginal_price"]}>
+    //               <span>{priceIntl(p.price)}</span>
+    //               <span>تومان</span>
+    //             </div>
+    //           )}
+    //           <div className={classes["product-off_price"]}>
+    //             <span>{priceIntl(p.price - p.price * p.off * 0.01)}</span>
+    //             <span>تومان</span>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </Link>
+    //   ),
+    // })),
     // ...searchState,
 
     {
@@ -392,12 +392,12 @@ const SearchBar = () => {
       label: <span className={classes["latest-search"]}>{latestSearch}</span>,
     },
 
-    { key: "7", label: inputValue },
+    // { key: "7", label: inputValue },
   ];
 
   return (
     <div className={classes["main-searchbar"]}>
-      <button onClick={handleHistory}>history</button>
+      {/* <button onClick={handleHistory}>history</button> */}
       <ConfigProvider
         theme={{
           components: {
