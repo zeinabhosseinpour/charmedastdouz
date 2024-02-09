@@ -37,14 +37,16 @@ const Products = () => {
 
   // variables
 
-  const encodeString = encodeURIComponent(location.search);
-  console.log("encodestring:", encodeString);
+  const params = useSearchParams();
 
   // states
   const { productid, slug } = useParams();
   const [productsList, setProductsList] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
+
+  const encodeString = encodeURIComponent(location.search);
+  console.log("encodestring:", encodeString);
 
   // function
 
@@ -55,6 +57,8 @@ const Products = () => {
   };
 
   const resultProduct = () => {
+    console.log("called product");
+
     const result = child3.filter(
       (item) =>
         item.category === slug || item.parent1 === slug || item.parent === slug
@@ -64,6 +68,7 @@ const Products = () => {
   };
 
   const resultFilteredProduct = () => {
+    console.log("called filter", searchParams);
     const result3 = child3
       .filter(
         (item) =>
@@ -90,14 +95,14 @@ const Products = () => {
   // sideEffect
 
   useEffect(() => {
-    const keys = searchParams.keys();
+    const filtersLength = params[0].size;
 
-    let searchParamsAll = {};
-    for (var key of keys) {
-      searchParamsAll[key] = searchParams.getAll(key);
-    }
+    // let searchParamsAll = {};
+    // for (var key of keys) {
+    //   searchParamsAll[key] = searchParams.getAll(key);
+    // }
 
-    if (Object.keys(searchParamsAll).length > 0) {
+    if (filtersLength > 0) {
       resultFilteredProduct();
     } else {
       resultProduct();
