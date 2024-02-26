@@ -36,19 +36,11 @@ const Products = () => {
   // );
   // console.log(product.child, "product");
 
-  // variables
-
-  const encodeString = encodeURIComponent(location.search);
-  console.log("encodestring:", encodeString);
-
   // states
   const { productid, slug } = useParams();
   const [productsList, setProductsList] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
-
-  const encodeString = encodeURIComponent(location.search);
-  console.log("encodestring:", encodeString);
   // variables
 
   const encodeString = encodeURIComponent(location.search);
@@ -63,8 +55,6 @@ const Products = () => {
   };
 
   const resultProduct = () => {
-    console.log("called product");
-
     const result = child3.filter(
       (item) =>
         item.category === slug || item.parent1 === slug || item.parent === slug
@@ -74,7 +64,6 @@ const Products = () => {
   };
 
   const resultFilteredProduct = () => {
-    console.log("called filter", searchParams);
     const result3 = child3
       .filter(
         (item) =>
@@ -101,14 +90,14 @@ const Products = () => {
   // sideEffect
 
   useEffect(() => {
-    const filtersLength = params[0].size;
+    const keys = searchParams.keys();
 
-    // let searchParamsAll = {};
-    // for (var key of keys) {
-    //   searchParamsAll[key] = searchParams.getAll(key);
-    // }
+    let searchParamsAll = {};
+    for (var key of keys) {
+      searchParamsAll[key] = searchParams.getAll(key);
+    }
 
-    if (filtersLength > 0) {
+    if (Object.keys(searchParamsAll).length > 0) {
       resultFilteredProduct();
     } else {
       resultProduct();
