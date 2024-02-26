@@ -8,6 +8,52 @@ import clothes from "../../../assets/image/icons8-jacket-100.png";
 import charm from "../../../assets/image/icons8-leather-64.png";
 import { BsHandbag } from "react-icons/bs";
 
+const listBreadcrumbs = [
+  {
+    category: "کیف_های_چرمی",
+    categoryId: 1,
+    parent: "کیف_مجلسی_زنانه",
+    parentId: 11,
+  },
+  {
+    category: "کیف_های_چرمی",
+    categoryId: 1,
+    parent: "کیف_دوشی_زنانه",
+    parentId: 11,
+  },
+  {
+    category: "کیف_های_چرمی",
+    categoryId: 1,
+    parent: "کیف_کج_زنانه",
+    parentId: 11,
+  },
+  {
+    category: "کیف_های_چرمی",
+    categoryId: 1,
+    parent: "کیف_پول_کتی",
+    parentId: 11,
+  },
+  {
+    category: "اکسسوری_چرمی",
+    categoryId: 1,
+    parent: "کیف_پول_جیبی_مردانه",
+    parentId: 11,
+  },
+  {
+    category: "کیف_های_چرمی",
+    categoryId: 1,
+    parent: "کوله_پشتی",
+    parentId: 11,
+  },
+  {
+    category: "کفش_چرمی",
+    categoryId: 3,
+    parent1: "کفش_زنانه",
+    parent1Id: 31,
+    parent: "صندل_زنانه",
+    parentId: 311,
+  },
+];
 const productslist = [
   {
     id: 1,
@@ -767,4 +813,4 @@ const productslist = [
   },
 ];
 
-export default productslist;
+export { listBreadcrumbs, productslist };

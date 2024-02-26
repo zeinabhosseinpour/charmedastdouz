@@ -7,7 +7,8 @@ import {
 } from "react-router-dom";
 
 // components
-import productslist from "./productslist";
+
+import { productslist } from "./productslist";
 import { child3 } from "./productsList2";
 
 // style
@@ -35,16 +36,15 @@ const Products = () => {
   // );
   // console.log(product.child, "product");
 
-  // variables
-
-  const encodeString = encodeURIComponent(location.search);
-  console.log("encodestring:", encodeString);
-
   // states
   const { productid, slug } = useParams();
   const [productsList, setProductsList] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation();
+  // variables
+
+  const encodeString = encodeURIComponent(location.search);
+  console.log("encodestring:", encodeString);
 
   // function
 

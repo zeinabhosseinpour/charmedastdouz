@@ -10,15 +10,15 @@
   }
 
   :where(.css-dev-only-do-not-override-kmmaf).ant-checkbox-checked .ant-checkbox-inner {
-    /* background-color:#ef4056; */
-    background-color: var(--color-icon-primary-100);
+    background-color:#ef4056;
+    /* background-color: var(--color-icon-primary-100); */
     /* border-color:#ef4056; */
     border-color: var(--color-border-neutral-100);
   }
 
   :where(.css-dev-only-do-not-override-kmmaf).ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-checked:not(.ant-checkbox-disabled) .ant-checkbox-inner {
-    /* background-color:#ef4056; */
-    background-color: var(  --bgcolor-hover-primary-200);
+    background-color:#ef4056;
+    /* background-color: var(--bgcolor-hover-primary-200); */
     /* border-color:#ef4056; */
   }
   :where(.css-dev-only-do-not-override-kmmaf).ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-inner,
@@ -75,7 +75,7 @@
 
 :where(.css-dev-only-do-not-override-kmmaf).ant-collapse {
  
-  font-size:12px;
+  font-size:14px;
  
 }
 

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 // data
-import productslist from "../../Components/Shop/Products/productslist";
+
+import { productslist } from "../../Components/Shop/Products/productslist";
 import { useMemo } from "react";
 import { useParams } from "react-router-dom";
 
@@ -194,7 +195,8 @@ const SearchBar = () => {
     );
 
     navigate({
-      pathname: `/search/${params.slug}`,
+      // pathname: `/search/${params.slug}`,
+      pathname: `/search`,
       search: `q=${inputValue}`,
     });
     // navigate({ pathname: "/cart", search: `?q=${inputValue}` });

@@ -12,7 +12,7 @@ import { TfiMenu } from "react-icons/tfi";
 import classes from "./style.module.css";
 
 // data
-import productslist from "../../Components/Shop/Products/productslist";
+import { productslist } from "../../Components/Shop/Products/productslist";
 
 // images
 import img1 from "../../assets/image/52.png";

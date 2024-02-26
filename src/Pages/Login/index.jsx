@@ -1,6 +1,7 @@
 import React from "react";
 // style
 import classes from "./style.module.css";
+import "./global.css";
 
 //image
 import logo from "../../assets/image/gradient.png";
@@ -82,15 +83,15 @@ const Login = () => {
         <Form
           className={classes["login-form"]}
           name="mobileNumberForm"
-          labelCol={{
-            span: 8,
-          }}
-          wrapperCol={{
-            span: 16,
-          }}
-          style={{
-            maxWidth: 600,
-          }}
+          // labelCol={{
+          //   span: 8,
+          // }}
+          // wrapperCol={{
+          //   span: 16,
+          // }}
+          // style={{
+          //   maxWidth: 600,
+          // }}
           initialValues={{
             remember: true,
           }}
@@ -99,7 +100,7 @@ const Login = () => {
           autoComplete="off"
         >
           <span>سلام!</span>
-          <div className={classes["login-textfeild"]}>
+          <div>
             <label className={classes["login-label"]}>
               لطفا شماره موبایل یا ایمیل خود را وارد کنید
             </label>
@@ -122,16 +123,30 @@ const Login = () => {
           </Form.Item>
 
           <Form.Item
-            wrapperCol={{
-              offset: 8,
-              span: 16,
-            }}
+          // wrapperCol={{
+          //   offset: 8,
+          //   span: 16,
+          // }}
           >
             <Button type="primary" htmlType="submit">
               ورود
             </Button>
           </Form.Item>
         </Form>
+        <div className={classes.privacy}>
+          <span>
+            <span> ورود شما به معنای پذیرش </span>
+
+            <Link to={`/`} className={classes["site-privacy"]}>
+              شرایط رز چرم
+            </Link>
+            <span> و </span>
+            <Link to={`/privacy`} className={classes["site-privacy"]}>
+              قوانین حریم‌خصوصی
+            </Link>
+            <span> است</span>
+          </span>
+        </div>
       </div>
     </main>
   );

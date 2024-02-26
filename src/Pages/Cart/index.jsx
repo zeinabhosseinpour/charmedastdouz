@@ -287,49 +287,50 @@ const Cart = () => {
               );
             })}
           </div>
+          <div className={classes["section-total"]}>
+            <div className={classes["section-price"]}>
+              <div
+                className={`${classes["product-total-section"]} ${classes["total-price"]} `}
+              >
+                <div>
+                  <span> قیمت </span>
 
-          <div className={classes["section-price"]}>
-            <div
-              className={`${classes["product-total-section"]} ${classes["total-price"]} `}
-            >
-              <div>
-                <span> قیمت </span>
-
-                <span> {getCartTotalQuantity()} </span>
-                <span>محصول </span>
+                  <span> {getCartTotalQuantity()} </span>
+                  <span>محصول </span>
+                </div>
+                <div>
+                  <span>{getCartTatalPrice()}</span>
+                  <span> تومان </span>
+                </div>
               </div>
-              <div>
-                <span>{getCartTatalPrice()}</span>
-                <span> تومان </span>
+              <div
+                className={`${classes["product-total-section"]} ${classes["total-off"]} `}
+              >
+                <span> مبلغ تخفیف محصولات </span>
+                <div>
+                  <span>{getCartTotalOff()}</span>
+                  <span> تومان </span>
+                </div>
               </div>
-            </div>
-            <div
-              className={`${classes["product-total-section"]} ${classes["total-off"]} `}
-            >
-              <span> مبلغ تخفیف محصولات </span>
-              <div>
-                <span>{getCartTotalOff()}</span>
-                <span> تومان </span>
+              <div
+                className={` ${classes["product-total-section"]} ${classes["total-price"]} `}
+              >
+                <span> هزینه ارسال: </span>
+                <span> وابسته به نوع ارسال </span>
               </div>
-            </div>
-            <div
-              className={` ${classes["product-total-section"]} ${classes["total-price"]} `}
-            >
-              <span> هزینه ارسال: </span>
-              <span> وابسته به نوع ارسال </span>
-            </div>
-            <div
-              className={` ${classes["product-total-section"]} ${classes["total-priceoff"]} `}
-            >
-              <span>مبلغ کل قابل پرداخت:</span>
-              <div>
-                <span>{getCartTatalPriceOff()}</span>
-                <span>تومان</span>
+              <div
+                className={` ${classes["product-total-section"]} ${classes["total-priceoff"]} `}
+              >
+                <span>مبلغ کل قابل پرداخت:</span>
+                <div>
+                  <span>{getCartTatalPriceOff()}</span>
+                  <span>تومان</span>
+                </div>
               </div>
+              <Link to={`/login`} className={classes["btn-add_cart"]}>
+                <span> ثبت سفارش و ادامه خرید</span>
+              </Link>
             </div>
-            <Link to={`/login`} className={classes["btn-add_cart"]}>
-              <span> ثبت سفارش و ادامه خرید</span>
-            </Link>
           </div>
 
           {/* <div

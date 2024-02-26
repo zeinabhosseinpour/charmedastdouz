@@ -27,7 +27,9 @@ import {
   material,
   category,
   category1,
+  category2,
 } from "../../../Components/Shop/Products/productsList2";
+import { listBreadcrumbs } from "../Products/productslist";
 
 const CategoryFilter = () => {
   //state
@@ -160,10 +162,24 @@ const CategoryFilter = () => {
   console.log("expanded2:", expandedItem2);
   const inputRef = useRef(null);
   const [isInputVisible, setIsInputVisible] = useState(null);
-  const result = category1.map((p) => ({ id: p.id, childid: p.childId }));
-  // const result = category1.childId.find((p) => p.id === productid);
-  // const r = result.childId.find((r) => r.id === productid);
-  console.log("result:", result);
+  // const result = category1.map((p) => ({ id: p.id, childid: p.childId }));
+  // const result2 = category1.child.find((p) => p.id.toString() === productid);
+  // const result = category1.find((p) => p.id.toString() === productid);
+  // const result2 = category1.map((p) =>
+  //   p.child.find((c) => c.id.toString() === productid)
+  // );
+
+  // // const r = result.childId.find((r) => r.id === productid);
+  // console.log(
+  //   "result:",
+  //   // result,
+  //   productid,
+  //   // result.slug,
+  //   "result2:",
+  //   result2,
+  //   result2.slug,
+  //   result2.category
+  // );
   // useEffect(() => {
   //   if (ischecked) {
   //     inputRef.current.checked = true;
@@ -179,9 +195,71 @@ const CategoryFilter = () => {
     // }
     // setExpandedItem(slug);
     // setExpandedItem2(slug);
-  }, [slug]);
+    let foundCategory = null;
+    const foundObject =
+      //   // category1.map((p) =>
+      //   //   p.child.find((c) => c.slug === slug)
+      //   // );
+      category1.find((item) =>
+        item.child.some((childItem) => childItem.slug === slug)
+      );
+    const foundObject2 =
+      //  category1.find((item) =>
+      //   item.child.map((childItem) =>
+      //     childItem.child.find((c) => c.slug === slug)
+      //   )
+      // );
+      category1?.map((p) => {
+        // p.child?.map((c) => {
+        if (p.hasChild === 1) {
+          p.child?.find(
+            (c) =>
+              // if (c.child) {
+              // return
+              // c.child?.find((item) => item.slug === slug);
+              // }
+              c.child?.some((childItem) => childItem.slug === slug)
+            // }
+          );
+        }
+      });
+    const flattened = foundObject2.flat().filter(Boolean);
+    const foundObject4 = category2?.map((p) =>
+      p.child?.find((c) =>
+        c.child?.some((childItem) => childItem.slug === slug)
+      )
+    );
+    const foundObject3 = listBreadcrumbs.find((item) => item.parent === slug);
+    console.log("foundobject3:", foundObject3);
+    console.log("foundobject2:", foundObject2, flattened);
+    console.log("foundobject:", foundObject);
+    if (foundObject) {
+      // foundCategory = foundObject.category
+      foundCategory = foundObject.slug;
+      console.log("foundcategory:", foundCategory);
+      //   // foundCategory=
+    } else {
+      console.log("category not found");
+    }
+    setExpandedItem(foundCategory);
+    // setExpandedItem2(flattened[0]?.slug);
+    let foundCategory2 = null;
+    if (foundObject3) {
+      // foundCategory2 = foundObject3.slug;
+      foundCategory2 = foundObject3.parent1;
+      console.log("foundcategory2:", foundCategory2);
+      foundCategory = foundObject3.category;
+      console.log("foundcategory:", foundCategory);
+      //   // foundCategory=
+    } else {
+      console.log("category2 not found");
+    }
+    setExpandedItem2(foundCategory2);
+    setExpandedItem(foundCategory);
+  }, [listBreadcrumbs, category1, slug]);
+
   return (
-    <div style={{ maxHeight: "300px", overflow: "auto", width: "400px" }}>
+    <div className={classes["product-category"]}>
       {category1.map((p) => (
         <div
           // className={`${classes["category-header2"]} ${
@@ -190,7 +268,8 @@ const CategoryFilter = () => {
 
           key={p.id}
           // style={{display:"flex",alignItems:"center"}}
-          style={{ backgroundColor: "green" }}
+          // style={{ backgroundColor: "green" }}
+          className={classes[""]}
         >
           {/* <input
             checked={activeItem}
@@ -199,17 +278,9 @@ const CategoryFilter = () => {
             name="radioid1"
             // value={c.title}
           ></input> */}
-          <div
-            style={{
-              backgroundColor: "pink",
-              display: "flex",
-              // justifyContent: "space-between",
-              gap: "20px",
-              alignItems: "center",
-            }}
-          >
+          <div className={classes["cat-item"]}>
             <Link
-              style={{ textDecoration: "none" }}
+              className={classes["cat-item_link"]}
               to={`/product-category/${p.id}/${p.slug}`}
               // onMouseEnter={() => setMenuItemId(menuitem.id)}
             >
@@ -240,7 +311,14 @@ const CategoryFilter = () => {
                     //   //   name="radioid1"
                     //   //   // value={c.title}
                     // ></input>
-                    <IoCheckmark />
+                    <IoCheckmark
+                      className={`${classes["icon-checkmark"]}
+                     ${
+                       activeItem === p.slug
+                         ? classes.expanded
+                         : classes.unexpanded
+                     }`}
+                    />
                   )
                 }
               </label>
@@ -261,142 +339,159 @@ const CategoryFilter = () => {
           </div>
           {/* <MdOutlineExpandMore style={{ color: "red" }} /> */}
 
-          {expandedItem === p.slug &&
+          {expandedItem === p.slug && (
             // p.hasChild === 0 &&
-            p.child.map((c) => (
-              <div
-                // className={classes["subCategory-list"]}
 
-                style={{ marginRight: "15px", backgroundColor: "yellow" }}
-                key={c.id}
-              >
-                {/* <input
+            <div className={classes["list-shown"]}>
+              {p.child.map((c) => (
+                <div
+                  // className={classes["subCategory-list"]}
+
+                  key={c.id}
+                >
+                  {/* <input
                   checked={activeItem}
                   key={c.id}
                   type="radio"
                   name="radioid"
                   // value={c.title}
                 ></input> */}
-                <Link
-                  style={{ textDecoration: "none" }}
-                  to={`/product-category/${c.id}/${c.slug}`}
-                  // onMouseEnter={() => setMenuItemId(menuitem.id)}
-                >
-                  <label
-                    className={
-                      activeItem === c.slug
-                        ? classes.expanded
-                        : classes.unexpanded
-                    }
-                    onClick={() => {
-                      // setIsExpanded(!isExpanded);
-                      // if (activeItem !== "")
-                      setActiveItem(activeItem === c.slug ? null : c.slug);
-                      // else setActiveItem("");
-                      // setIsInputVisible(true);
-                      setIsInputVisible(c.id === isInputVisible ? null : c.id);
-                    }}
+                  <div
+                    className={` ${classes["cat-item"]} ${classes["list-cat_item"]} `}
                   >
-                    {c.title}
-                    {
-                      // inputRef &&
-                      // isInputVisible && (
-                      // isInputVisible === c.id && (
-                      activeItem === c.slug && (
-                        // <input
-                        //   // checked={activeItem}
-                        //   // ref={inputRef}
-                        //   type="checkbox"
-                        //   name="radioid1"
-                        //   // value={c.title}
-                        // ></input>
-                        <IoCheckmark />
-                      )
-                    }
-                  </label>
-                </Link>
-                {c.hasChild === 1 && (
-                  <MdKeyboardArrowRight
-                    className={
-                      expandedItem2 === c.slug
-                        ? classes["icon-category_expanded"]
-                        : classes["icon-category"]
-                    }
-                    onClick={() => {
-                      // setIsExpanded(!isExpanded);
-                      // if (activeItem !== "")
-                      setExpandedItem2(
-                        expandedItem2 === c.slug ? null : c.slug
-                      );
-                      // else setActiveItem("");
-                    }}
-                  />
-                )}
-                {/* <MdOutlineExpandMore /> */}
-                {expandedItem2 === c.slug &&
-                  c.hasChild === 1 &&
-                  c.child.map((c1) => (
-                    <div
-                      style={{ marginRight: "15px", backgroundColor: "blue" }}
-                      key={c1.id}
+                    <Link
+                      className={classes["cat-item_link"]}
+                      to={`/product-category/${c.id}/${c.slug}`}
+                      // onMouseEnter={() => setMenuItemId(menuitem.id)}
                     >
-                      {/* <input
+                      <label
+                        className={
+                          activeItem === c.slug
+                            ? classes.expanded
+                            : classes.unexpanded
+                        }
+                        onClick={() => {
+                          // setIsExpanded(!isExpanded);
+                          // if (activeItem !== "")
+                          setActiveItem(activeItem === c.slug ? null : c.slug);
+                          // else setActiveItem("");
+                          // setIsInputVisible(true);
+                          setIsInputVisible(
+                            c.id === isInputVisible ? null : c.id
+                          );
+                        }}
+                      >
+                        {c.title}
+                        {
+                          // inputRef &&
+                          // isInputVisible && (
+                          // isInputVisible === c.id && (
+                          activeItem === c.slug && (
+                            // <input
+                            //   // checked={activeItem}
+                            //   // ref={inputRef}
+                            //   type="checkbox"
+                            //   name="radioid1"
+                            //   // value={c.title}
+                            // ></input>
+                            <IoCheckmark
+                              className={`${classes["icon-checkmark"]}
+                            ${
+                              activeItem === c.slug
+                                ? classes.expanded
+                                : classes.unexpanded
+                            }`}
+                            />
+                          )
+                        }
+                      </label>
+                    </Link>
+                    {c.hasChild === 1 && (
+                      <MdKeyboardArrowRight
+                        className={
+                          expandedItem2 === c.slug
+                            ? classes["icon-category_expanded"]
+                            : classes["icon-category"]
+                        }
+                        onClick={() => {
+                          // setIsExpanded(!isExpanded);
+                          // if (activeItem !== "")
+                          setExpandedItem2(
+                            expandedItem2 === c.slug ? null : c.slug
+                          );
+                          // else setActiveItem("");
+                        }}
+                      />
+                    )}
+                  </div>
+                  {/* <MdOutlineExpandMore /> */}
+                  {expandedItem2 === c.slug && c.hasChild === 1 && (
+                    <div className={classes["list-shown"]}>
+                      {c.child.map((c1) => (
+                        <div
+                          className={` ${classes["cat-item"]} ${classes["list-cat_subitem"]} `}
+                          key={c1.id}
+                        >
+                          {/* <input
                         checked={activeItem}
                         key={c1.id}
                         type="radio"
                         name="radioid2"
                         // value={c.title}
                       ></input> */}
-                      <Link
-                        style={{ textDecoration: "none" }}
-                        to={`/product-category/${c1.id}/${c1.slug}`}
-                        // onMouseEnter={() => setMenuItemId(menuitem.id)}
-                      >
-                        <label
-                          className={
-                            activeItem === c1.slug
-                              ? classes.expanded
-                              : classes.unexpanded
-                          }
-                          onClick={() => {
-                            // setIsExpanded(!isExpanded);
-                            // if (activeItem !== "")
-                            setActiveItem(
-                              activeItem === c1.slug ? null : c1.slug
-                            );
-                            // else setActiveItem("");
-                            // setIsInputVisible(true);
-                            setIsInputVisible(
-                              c1.id === isInputVisible ? null : c1.id
-                            );
-                          }}
-                        >
-                          {c1.title}
-                        </label>
-                      </Link>
-                      {
-                        // inputRef &&
-                        // isInputVisible && (
-                        // isInputVisible === c1.id && (
-                        activeItem === c1.slug && (
-                          // <input
-                          //   checked={activeItem}
-                          //   // ref={inputRef}
-                          //   type="checkbox"
-                          //   name="radioid1"
-                          //   value={c1.title}
-                          //   key={c1.id}
-                          // />
-                          <IoCheckmark
-                            className={
-                              activeItem === c1.slug
-                                ? classes.expanded
-                                : classes.unexpanded
-                            }
-                          />
-                        )
-                      }
-                      {/* {c.hasChild !== 1 && (
+                          <Link
+                            className={classes["cat-item_link"]}
+                            to={`/product-category/${c1.id}/${c1.slug}`}
+                            // onMouseEnter={() => setMenuItemId(menuitem.id)}
+                          >
+                            <label
+                              className={
+                                activeItem === c1.slug
+                                  ? classes.expanded
+                                  : classes.unexpanded
+                              }
+                              onClick={() => {
+                                // setIsExpanded(!isExpanded);
+                                // if (activeItem !== "")
+                                setActiveItem(
+                                  activeItem === c1.slug ? null : c1.slug
+                                );
+                                // else setActiveItem("");
+                                // setIsInputVisible(true);
+                                setIsInputVisible(
+                                  c1.id === isInputVisible ? null : c1.id
+                                );
+                              }}
+                            >
+                              {c1.title}
+
+                              {
+                                // inputRef &&
+                                // isInputVisible && (
+                                // isInputVisible === c1.id && (
+                                activeItem === c1.slug && (
+                                  // <input
+                                  //   checked={activeItem}
+                                  //   // ref={inputRef}
+                                  //   type="checkbox"
+                                  //   name="radioid1"
+                                  //   value={c1.title}
+                                  //   key={c1.id}
+                                  // />
+                                  <IoCheckmark
+                                    className={`${classes["icon-checkmark"]}
+                     ${
+                       activeItem === c1.slug
+                         ? classes.expanded
+                         : classes.unexpanded
+                     } `}
+                                  />
+                                )
+                              }
+                            </label>
+                          </Link>
+
+                          {/* {c.hasChild !== 1 && (
                         <MdKeyboardArrowRight
                         onClick={() => {
                           // if (activeItem !== "")
@@ -407,184 +502,17 @@ const CategoryFilter = () => {
                         }}
                         />
                       )} */}
-                      {/* <MdOutlineExpandMore /> */}
+                          {/* <MdOutlineExpandMore /> */}
+                        </div>
+                      ))}
                     </div>
-                  ))}
-              </div>
-            ))}
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       ))}
-
-      {/* <Collapse
-        items={itemsNest}
-        defaultActiveKey="1"
-        bordered={false}
-        expandIconPosition="end"
-      />
-
-      <Checkbox onChange={onChange}>Checkbox</Checkbox> */}
-      {category1.map((p) => (
-        <Collapse
-          // defaultActiveKey={["1"]}
-          onChange={onChange}
-          key={p.id}
-          bordered={false}
-          // expandIconPosition="end"
-          style={{ backgroundColor: "white" }}
-          styles={{ lineHeight: "0.5" }}
-          contentBg="red"
-        >
-          <Collapse.Panel
-            // onClick={() => setIsInputVisible(true)}
-            key={p.id}
-            // {...p.hasChild ===0 ? showArrow="false" : showArrow="true"}
-            header={
-              <Link
-                style={{ textDecoration: "none" }}
-                to={`/product-category/${p.id}/${p.slug}`}
-                // onMouseEnter={() => setMenuItemId(menuitem.id)}
-              >
-                <span>{p.title}</span>
-                {/* {isInputVisible && (
-                  <Checkbox checked={isInputVisible}></Checkbox>
-                )} */}
-                {/* <Checkbox onChange={onChange}>
-                  plist2:{p.title}
-                  {p.id}
-                </Checkbox> */}
-              </Link>
-            }
-          >
-            {/* <p>paragraf {p.title}</p> */}
-            {/* <Collapse
-              // defaultActiveKey={["2"]}
-              onChange={onChange}
-              key={p.id}
-              bordered={false}
-              expandIconPosition="end"
-            >
-              <Collapse.Panel
-                header={
-                  <Link
-                    to={`/product-category/${p.id}/${p.slug}`}
-                    // onMouseEnter={() => setMenuItemId(menuitem.id)}
-                  > */}
-            {p.child.map((c) => (
-              <Collapse
-                // defaultActiveKey={["2"]}
-                onChange={onChange}
-                key={c.id}
-                bordered={false}
-                // expandIconPosition="end"
-                style={{ backgroundColor: "white" }}
-              >
-                <Collapse.Panel
-                  header={
-                    <Link
-                      style={{ textDecoration: "none" }}
-                      to={`/product-category/${c.id}/${c.slug}`}
-                      // onMouseEnter={() => setMenuItemId(menuitem.id)}
-                    >
-                      <span>{c.title}</span>
-                      {/* <Checkbox onChange={onChange} key={c.id}>
-                        plist3:{c.title}
-                      </Checkbox>
-                      <Radio onChange={onChange} key={c.id}>
-                        radio
-                      </Radio> */}
-                    </Link>
-                  }
-                >
-                  {c.hasChild === 1 &&
-                    c.child.map((c1) => (
-                      <Collapse
-                        // defaultActiveKey={["2"]}
-                        onChange={onChange}
-                        key={c1.id}
-                        bordered={false}
-                        // expandIconPosition="end"
-                        showArrow={false}
-                        style={{ backgroundColor: "white" }}
-                      >
-                        <Collapse.Panel
-                          showArrow={false}
-                          header={
-                            <Link
-                              style={{ textDecoration: "none" }}
-                              to={`/product-category/${c1.id}/${c1.slug}`}
-                              // onMouseEnter={() => setMenuItemId(menuitem.id)}
-                            >
-                              <span>{c1.title}</span>
-                              {/* <Checkbox onChange={onChange} key={c1.id}>
-                                plist4:{c1.title}
-                              </Checkbox> */}
-                            </Link>
-                          }
-                        ></Collapse.Panel>
-                      </Collapse>
-                    ))}
-                </Collapse.Panel>
-              </Collapse>
-            ))}
-            {/* </Link>
-                }
-                key={p.id}
-              ></Collapse.Panel>
-            </Collapse> */}
-            {/* <Link
-              to={`/product-category/${p.id}/${p.slug}`}
-              // onMouseEnter={() => setMenuItemId(menuitem.id)}
-            >
-              <Checkbox onChange={onChange}>plist2:{p.title}</Checkbox>
-            </Link> */}
-          </Collapse.Panel>
-        </Collapse>
-      ))}
-      {/* {plainOptions2.map((p) => (
-        <Collapse
-          // defaultActiveKey={["1"]"}
-          onChange={() => onChangee(Collapse.header)}
-          key={plainOptions2}
-          bordered={false}
-          expandIconPosition="end"
-        >
-          <Collapse.Panel header={<Checkbox onChange={onChange}>{p}</Checkbox>}> */}
-      {/* <p>paragraf {p.title}</p> */}
-      {/* <Link
-              to={`/product-category/${p.id}/${p.slug}`}
-              // onMouseEnter={() => setMenuItemId(menuitem.id)}
-            >
-              <Checkbox onChange={onChange}>plainoption2:{p}</Checkbox>
-            </Link> */}
-      {/* {category[categoryName].map((c) => (
-              <Collapse
-                // defaultActiveKey={["1"]}
-                onChange={() => onChangee(Collapse.header)}
-                key={c}
-                bordered={false}
-                expandIconPosition="end"
-              >
-                <Collapse.Panel
-                  header={<Checkbox onChange={onChange}>{c}</Checkbox>}
-                ></Collapse.Panel>
-              </Collapse>
-            ))}
-            {c[categoryName].map((c1) => (
-              <Collapse
-                // defaultActiveKey={["1"]}
-                onChange={() => onChangee(Collapse.header)}
-                key={c1}
-                bordered={false}
-                expandIconPosition="end"
-              >
-                <Collapse.Panel
-                  header={<Checkbox onChange={onChange}>{c1}</Checkbox>}
-                ></Collapse.Panel>
-              </Collapse>
-            ))} */}
-      {/* </Collapse.Panel>
-        </Collapse>
-      ))} */}
     </div>
   );
 };
