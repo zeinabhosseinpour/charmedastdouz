@@ -8,6 +8,7 @@ import App from "./App.jsx";
 import "./index.css";
 import "./colorPallet.css";
 import "./fonts/webfonts/Vazirmatn[wght].woff2";
+import './assets/fonts/IRANSans/IRANSans.ttf';
 
 // package
 import { Provider } from "react-redux";
