@@ -1,13 +1,12 @@
-import React from "react";
-
 // style
 import classes from "./style.module.css";
 
 // components
 import Header from "../../Layout/Header";
 import Footer from "../../Layout/Footer";
-import SwiperSlider from "../ProductDetail/SwiperSlider";
 import BanerSlider from "./components/BanerSlider";
+
+//   images
 
 import img1 from "../../assets/image/icons8-shoes-64.png";
 

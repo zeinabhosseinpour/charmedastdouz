@@ -1,6 +1,4 @@
-// background-color: rgb(243, 248, 253)
-
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -13,9 +11,6 @@ import classes from "./style.module.css";
 
 // data
 import { productslist } from "../../Components/Shop/Products/productslist";
-
-// images
-import img1 from "../../assets/image/52.png";
 
 const NavBar = () => {
   // variables
@@ -98,7 +93,7 @@ const NavBar = () => {
               </div>
             </li>
             <li className={classes["nav-menu_item"]}>
-              <Link to="/" className={classes["nav-menu_link"]}>
+              <Link to="/discounts-offers" className={classes["nav-menu_link"]}>
                 تخفیف ها و پیشنهادها
               </Link>
             </li>

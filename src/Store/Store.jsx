@@ -1,4 +1,4 @@
-// import { configureStore } from "@reduxjs/toolkit/dist/configureStore";
+//   package
 import { configureStore } from "@reduxjs/toolkit";
 import cartSlice from "./cartSlice";
 

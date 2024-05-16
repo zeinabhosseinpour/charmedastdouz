@@ -1,37 +1,34 @@
-import React, { useState } from "react";
-
 // style
 import classes from "./style.module.css";
 
-// icon
+// icons
 import { FaMinus } from "react-icons/fa6";
 import { HiOutlinePlus } from "react-icons/hi";
-import { useDispatch, useSelector } from "react-redux";
 
 // package
 import { cartaction } from "../Store/CartSlice";
+import { useDispatch } from "react-redux";
 
 //component
 
 import { child3 } from "./Shop/Products/productsList2";
 
 const ProductQuantity = (props) => {
-  //   const [quantity, setQuantity] = useState(1);
-  // const cartItem = useSelector((state) => state.cart.cart);
+  //  variables
+
   const dispatch = useDispatch();
-  // const item = cartItem.find((c) => c.id === props.data.id);
+
   const item1 = child3.find((c3) => c3.id === props.data.id);
   const item2 = item1.attributes.find((i) => i.color === props.data.color);
-  const item3 = child3
-    .find((c3) => c3.id === props.data.id)
-    .attributes.find((i) => i.color === props.data.color);
 
+  //  function
   const priceIntl = (price) => {
     const priceFormat = new Intl.NumberFormat("fa-IR");
     return priceFormat?.format(price);
   };
-  const handleIncrement = (id, itemQuantity) => {
-    // setQuantity(itemQuantity + 1);
+
+  //  handlers
+  const handleIncrement = (id) => {
     dispatch(
       cartaction.incrementQuantity({
         productId: id,
@@ -40,9 +37,7 @@ const ProductQuantity = (props) => {
     );
   };
 
-  const handleDecrement = (id, itemQuantity) => {
-    // itemQuantity > 1 ? setQuantity(itemQuantity - 1) : "";
-    console.log("quantitycartdec:", itemQuantity);
+  const handleDecrement = (id) => {
     dispatch(
       cartaction.decrementQuantity({
         productId: id,
@@ -51,51 +46,24 @@ const ProductQuantity = (props) => {
     );
   };
   return (
-    // <div className={classes["icon-count"]}>
-    //   <button disabled={quantity >= countColor} className={classes["icon-btn"]}>
-    //     <HiOutlinePlus
-    //       // disabled={quantity > countColor}
-    //       onClick={
-    //         () =>
-    //           // quantity < countColor &&
-    //           setQuantity(quantity + 1)
-    //         // : ""
-    //       }
-    //       className={classes.icon}
-    //     />
-    //   </button>
-
-    //   <span>{quantity}</span>
-    //   <FaMinus
-    //     onClick={() => (quantity > 1 ? setQuantity(quantity - 1) : "")}
-    //     className={classes.icon}
-    //   />
-    // </div>
     <div className={classes["icon-count"]}>
-      {/* <button
+      <button
         disabled={props.data.quantity >= item2.colorcount}
         className={classes["icon-btn"]}
-      > */}
-      <HiOutlinePlus
-        onClick={() => handleIncrement(props.data.id)}
-        className={classes.icon}
-        disabled={props.data.quantity >= item2.colorcount}
-      />
-      {/* </button> */}
+      >
+        <HiOutlinePlus
+          onClick={() => handleIncrement(props.data.id)}
+          className={classes.icon}
+          disabled={props.data.quantity >= item2.colorcount}
+        />
+      </button>
+
       <span> {priceIntl(props.data.quantity)}</span>
       <FaMinus
         onClick={() => handleDecrement(props.data.id)}
         className={classes.icon}
       />
     </div>
-    //     <div className={classes["icon-count"]}>
-    //     <HiOutlinePlus onClick={handleIncrement} className={classes.icon} />
-    //     <span className={classes["product-quantity"]}>
-
-    //       {props.data.quantity}
-    //     </span>
-    //     <FaMinus onClick={handleDecrement} className={classes.icon} />
-    //   </div>
   );
 };
 

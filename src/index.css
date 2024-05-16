@@ -73,11 +73,10 @@
   
 @font-face {
     font-family: 'Vazirmatn';
-    /* src: url('fonts/webfonts/Vazirmatn[wght].woff2') format('woff2 supports variations'),
-         url('fonts/webfonts/Vazirmatn[wght].woff2') format('woff2-variations'); */
+   
          src: url('./fonts/webfonts/Vazirmatn[wght].woff2') format('woff2 supports variations'),
          url('./fonts/webfonts/Vazirmatn[wght].woff2') format('woff2-variations') ;
-         /* src: url(../fonts/IRANSans/IRANSans.ttf); */
+       
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
@@ -90,24 +89,17 @@
 
 *{
     font-family:Vazirmatn;
-    /* font-family: IRANSans; */
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     
-    /* direction: rtl; */
-    /* background: #f2f2f2;  */
-    /* -scroll-primary: #efefef; */
-/* --scroll-secondary: #ccc; */
+    
 } 
 
-/* body {
-    direction: rtl;
-} */
+
 body {
-    /* margin-bottom: 150px; */
-    /* background-color: blanchedalmond; */
-    font-family:v
+    
+    font-family:Vazirmatn;
     
   }
 .container {

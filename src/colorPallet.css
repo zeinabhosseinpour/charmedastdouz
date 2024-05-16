@@ -1,10 +1,19 @@
 :root {
 
+  /* ********************* */
+/*  COLOR BUTTON*/
+/* ********************* */
+
   --color-button-primary: #ef4056;
 
   --color-button-secondary:#ef394e;
   /* --color-button-secondary:rgb(239, 57, 78); */
 
+
+
+ /* ********************* */
+/*   COLOR TEXT*/
+/* ********************* */
   --color-text-button-primary:#fff;
   --color-text-button-primary-100:rgb(0, 0, 0);
 
@@ -35,6 +44,13 @@
   --color-text-neutral-300:#eb3a3a;
   /* --color-text-neutral-300:rgb(235, 58, 58); */
 
+
+
+
+  /* ********************* */
+/*   COLOR BORDER*/
+/* ********************* */
+
   --color-border-primary:rgb(228, 228, 228);
   --color-border-primary-100: #EDEDEE;
   --color-border-primary-200:#f2f2f2;
@@ -57,11 +73,19 @@
   
 
 
+  /* ********************* */
+/*   COLOR BOXSHADOW*/
+/* ********************* */
+
   --color-boxshadow-primary:rgb(29, 25, 25);
   --color-boxshadow-primary-100:rgba(0, 0, 0, 0.12);
 
+
+
+  /* ********************* */
+/* COLOR ICON*/
+/* ********************* */
   --color-icon-primary: rgb(239, 57, 78);
-  /* --color-icon-secondary: #ef394e;   */
   --color-icon-primary-100:#ef4056;
 
   --color-icon-secondary:rgb(66, 71, 80);
@@ -69,6 +93,12 @@
 
   --color-icon-neutral:gray;
 
+
+
+
+  /* ********************* */
+/*   BGCOLOR*/
+/* ********************* */
   --bgcolor:rgb(245, 245, 245);
   --bgcolor-100:rgb(211, 47, 47);
   --bgcolor-200: #f1f8ff;
@@ -82,6 +112,10 @@
   --bgcolor-900:rgb(254, 243, 243);
   --bgcolor-1000:rgba(24, 28, 50, 0.12);
 
+
+  /* ********************* */
+/* COLOR  HOVER*/
+/* ********************* */
 
   --color-text-hover-primary: #eb3a3a; 
   --color-text-hover-primary-100: #ef394e;
@@ -102,6 +136,10 @@
   --bgcolor-hover-primary-300:#ece9e9;
 
 
+
+  /* ********************* */
+/* COLOR FOOTER*/
+/* ********************* */
   --bgcolor-footer: rgb(229, 231, 235);
   --bgcolor-aboutfooter: rgba(24, 28, 50, 0.12);
 
@@ -109,68 +147,25 @@
   --color-linkfooter-100: #eb3a3a;
   --color-linkfooter-hover-100:#eb3a3a;
   --color-footer: #eb3a3a;   
-   /* color: rgb(235, 58, 58) ; */
-
-  /* color: rgb(119, 119, 119);  */
-
-
-
-
-
-
-
-
-
-
-
-    --color-body:rgb(243, 244, 246);
   
-    /* --color-visit-details : rgb(59, 130, 246); */
-    /* --color-login:rgb(59, 130, 246); */
-    --bgcolor-login: rgba(59, 130, 246, 0.1);
-    /* --color-sabad: #4A6DFF; */
-    --bgcolor-sbad: rgba(74, 109, 255, 0.1);
-    --bgcolor-lmenu: #f1f8ff;
-    --color-lmenu:rgb(118, 119, 144);
-    --bgcolor-rmenu: #fff;
-    --color-rmenu: rgb(8, 10, 56);
-    --color-footer: #eb3a3a;
-    /* --bgcolor-footer: rgb(229, 231, 235); */
+
+
+
+
+
+
+
+
+
+
    
-    --bgcolor-searchbar: #fff;
-    /* --color-producttitle:rgb(37 99 235); */
+   
+   
+   
+
+
+
     
-    
-    /* --bgcolor-visit-btn: rgb(74, 109, 255); */
-    /* --color-visit-btn: rgb(255, 255, 255); */
-    /* --bgcolor-visit-btn-hover : rgb(76, 110, 255); */
-   
-   
-   
-   
-
-
-
-    /* background-color: rgb(245, 245, 245) cart */
-    /* background-color: #f1f8ff; rgb(241, 248, 255) nav menu */
-    /* background-color: #f4f5f7;  background-color: rgb(244, 245, 247)hever nav menu link */
-
-
-    /* background-color: rgb(240, 240, 241) ant search bg */
-    /* background-color: rgb(211, 47, 47)  off % , login page ghanun
-
-    --color-footer: #eb3a3a;    color: rgb(235, 58, 58) filter hazf, phone ,ordering, login hover , switch ant, 
-    border rang mahsul input, navbar category right , footer link
-
-
-    color: #ef394e; color: rgb(239, 57, 78) menu nav hover , + - icon cart , price kol cart badg
-
-
-
-    --color-button-primary: #ef4056; : rgb(239, 64, 86) check colaps, badg sabad empty, btn , modal ant add btn, price off cart font
-    --color-button-text:
-
-    background: #ff4d4f; aant badg  count */
                 
     
 

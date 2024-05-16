@@ -1,22 +1,23 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-// style
+//  style
 import classes from "./style.module.css";
 
-// package
-import { Slider, InputNumber, ConfigProvider } from "antd";
-import { BsHandbag } from "react-icons/bs";
+//  package
+import { Slider, ConfigProvider } from "antd";
+
+//   component
 import useSearchParamsFilter from "../../../Hooks/useSearchParamsFilter";
 
-const PriceRangFilter = (props) => {
-  const [updateSearchParams, minPrice] = useSearchParamsFilter("minPrice");
-  const [_, maxPrice] = useSearchParamsFilter("maxPrice");
-
+const PriceRangFilter = () => {
   //  states
   const [sliderValues, setSliderValues] = useState({
     min: 0,
     max: 0,
   });
+
+  const [updateSearchParams, minPrice] = useSearchParamsFilter("minPrice");
+  const [_, maxPrice] = useSearchParamsFilter("maxPrice");
 
   //  side effect
   useEffect(() => {
@@ -25,23 +26,25 @@ const PriceRangFilter = (props) => {
     }
   }, [minPrice[0], maxPrice[0]]);
 
-  const onChange = (values) => {
-    setSliderValues({
-      min: values[0],
-      max: values[1],
-    });
-  };
-
+  //  functions
   const formattedValue = (value) => {
     const valueFormat = new Intl.NumberFormat("fa-IR");
     const x = valueFormat?.format(value);
     return x;
   };
 
-  const handlePriceReng = () => {
+  //   handlers
+  const handlePriceRang = () => {
     updateSearchParams({
       minPrice: sliderValues.min,
       maxPrice: sliderValues.max,
+    });
+  };
+
+  const onChange = (values) => {
+    setSliderValues({
+      min: values[0],
+      max: values[1],
     });
   };
 
@@ -51,7 +54,6 @@ const PriceRangFilter = (props) => {
         theme={{
           components: {
             Slider: {
-              /* here is your component tokens */
               dotActiveBorderColor: "red",
               trackBg: "green",
               railBg: "red",
@@ -62,20 +64,6 @@ const PriceRangFilter = (props) => {
         }}
       ></ConfigProvider>
 
-      {/* <div style={{ position: "relative" }}>
-        <input
-          // min={50000}
-          id="RangeMin"
-          type="range"
-          style={{ position: "absolute" }}
-        />
-        <input
-          // max={12000000}
-          id="RangeMin"
-          type="range"
-          style={{ zIndex: "50" }}
-        />
-      </div> */}
       <Slider
         range
         step={10}
@@ -84,7 +72,6 @@ const PriceRangFilter = (props) => {
         defaultValue={[50000, 12000000]}
         value={[sliderValues.min, sliderValues.max]}
         onChange={onChange}
-        //onChangeComplete={onChangeComplete}
         trackStyle={{ backgroundColor: "#ef4056" }}
         styles={{ trackBg: "yellow", handleColor: "pink", railBg: "red" }}
       />
@@ -96,7 +83,6 @@ const PriceRangFilter = (props) => {
             id="priceRangeMin"
             type="text"
             value={formattedValue(sliderValues.min)}
-            //defaultValue={formattedValue(inputMinValue)}
             defaultValue={formattedValue(50000)}
           />
           <span>تومان</span>
@@ -109,7 +95,6 @@ const PriceRangFilter = (props) => {
             id="priceRangeMax"
             type="text"
             value={formattedValue(sliderValues.max)}
-            // defaultValue={formattedValue(inputMaxValue)}
             defaultValue={formattedValue(12000000)}
           />
           <span>تومان</span>
@@ -117,7 +102,7 @@ const PriceRangFilter = (props) => {
       </div>
 
       <button
-        onClick={() => handlePriceReng()}
+        onClick={() => handlePriceRang()}
         className={classes["btn-filter_pricerange"]}
       >
         اعمال محدوده قیمت

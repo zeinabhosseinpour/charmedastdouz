@@ -1,30 +1,18 @@
-import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-import { useParams, Link, useSearchParams } from "react-router-dom";
+//  data
+import { color } from "../../../Components/Shop/Products/productsList2";
 
-//data
-import {
-  productslist2,
-  child1,
-  child2,
-  child3,
-  color,
-  size,
-  material,
-  productFilter,
-  category,
-} from "../../../Components/Shop/Products/productsList2";
+//  style
 
-// style
-import classes from "./style.module.css";
 import useSearchParamsFilter from "../../../Hooks/useSearchParamsFilter";
 
-const ColorsFilter = (props) => {
-  //state
+const ColorsFilter = () => {
+  //states
   const { slug } = useParams();
-
   const [updateSearchParams, checkedItems] = useSearchParamsFilter("color");
 
+  // handlers
   const handleColorChecked = (colorLabel) => {
     if (checkedItems.includes(colorLabel)) {
       const otherColors = checkedItems.filter((item) => item !== colorLabel);
@@ -45,7 +33,6 @@ const ColorsFilter = (props) => {
       }}
     >
       {color[slug].map((c) => {
-        console.log("cccc", c);
         return (
           <div key={c.id}>
             <li

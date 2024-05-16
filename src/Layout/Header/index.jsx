@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 // style
@@ -14,12 +13,10 @@ import NavBar from "./NavBar";
 // images
 import logo from "../../assets/image/gradient.png";
 
-// icon
-import { SlHandbag } from "react-icons/sl";
-import { Flex } from "antd";
+// icons
+
 import { RiHome2Line } from "react-icons/ri";
 import { BiCategoryAlt } from "react-icons/bi";
-import { FiShoppingCart } from "react-icons/fi";
 import { FaRegUser } from "react-icons/fa";
 
 const Header = () => {
@@ -63,7 +60,6 @@ const Header = () => {
               </li>
               <li className={classes["footer-mobile_li"]}>
                 <Link to={`/cart`} className={classes["footer-mobile_link"]}>
-                  {/* <FiShoppingCart className={classes["footer-mobile_icon"]} /> */}
                   <ShoppingLogo className={classes["footer-mobile_icon"]} />
                   <span>سبد خرید</span>
                 </Link>

@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 // package
@@ -9,66 +8,42 @@ import { cartaction } from "./../../Store/CartSlice";
 import classes from "./style.module.css";
 
 // icons
-import { FaMinus } from "react-icons/fa6";
-import { HiOutlinePlus } from "react-icons/hi";
-import { IoIosArrowBack } from "react-icons/io";
+
 import { IoClose } from "react-icons/io5";
-import productimg from "../../assets/image/photo_2019-12-11_16-39-53.jpg";
 
 // comonent
 import ProductQuantity from "../../Components/ProductQuantity";
+
+//  data
 import { child3 } from "../../Components/Shop/Products/productsList2";
 
 const ProductComponent = (props) => {
+  //   states
   const cartItem = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
 
-  // console.log("idprops", props.data);
-  console.log("idprops", props.data.id);
-  // console.log("title", props.data.title);
-  // console.log("data:", props.data.priceoff);
+  //  variables
+  const productSlug = child3.find((c3) => c3.id === props.data.id);
 
+  const slug = productSlug.slug;
+
+  //  functions
   const priceIntl = (price) => {
     const priceFormat = new Intl.NumberFormat("fa-IR");
-    const x = priceFormat?.format(price);
-    console.log("intl:", x);
-    return x;
+    const priceInt = priceFormat?.format(price);
+
+    return priceInt;
   };
   const getCartTatalPrice = (price) => {
     let totalPrice = 0;
     if (cartItem.length > 0) {
-      // cartItem.map((item) => (totalPrice += item.price * item.quantity));
-      totalPrice = props.data.price * props.data.quantity;
-      console.log("totalprice:", totalPrice);
-
       return priceIntl(totalPrice);
     }
   };
-  // const getCartTotalOff = () => {
-  //   let totalOff = 0;
-  //   if (cartItem.length > 0) {
-  //     cartItem.map((item) => {
-  //       if (item.off) {
-  //         totalOff += item.price * item.off * 0.01 * item.quantity;
-  //       }
-  //       //  else {
-  //       //   totalOff += item.price * item.quantity;
-  //       // }
-  //     });
-  //     return priceIntl(totalOff);
-  //   }
-  // };
+
   const getCartTatalPriceOff = () => {
     let totalPriceOff = 0;
     if (cartItem.length > 0) {
-      //   cartItem.map((item) => {
-      //     if (item.off) {
-      //       totalPriceOff +=
-      //         (item.price - item.price * item.off * 0.01) * item.quantity;
-      //     } else {
-      //       totalPriceOff += item.price * item.quantity;
-      //     }
-      //   });
       if (props.data.off) {
         totalPriceOff =
           (props.data.price - props.data.price * props.data.off * 0.01) *
@@ -77,7 +52,7 @@ const ProductComponent = (props) => {
         totalPriceOff = props.data.price * props.data.quantity;
       }
     }
-    console.log("totalpriceoff:", totalPriceOff);
+
     return priceIntl(totalPriceOff);
   };
 
@@ -86,41 +61,11 @@ const ProductComponent = (props) => {
     dispatch(
       cartaction.removeItemFromCart({
         productId: id,
-        // productColor: props.data.color,
         productColor: color,
       })
     );
   };
-  const handleIncrement = (id) => {
-    dispatch(cartaction.incrementQuantity({ productId: id }));
-  };
-  const handleDecrement = (id) => {
-    dispatch(cartaction.decrementQuantity({ productId: id }));
-  };
 
-  // const getSlug=()=> {
-  const productSlugfilter = child3.filter((c3) => c3.id === props.data.id);
-  console.log("productslugfilter:", productSlugfilter);
-  const slugfilter = productSlugfilter.map((p) => ({ slugp: p.slug }));
-  console.log("slugfilter:", slugfilter);
-
-  const pslug = productSlugfilter.filter(
-    (a) => a.attributes.color === props.data.color
-  );
-
-  console.log("pslug:", pslug);
-
-  const productSlug = child3.find((c3) => c3.id === props.data.id);
-  console.log("productslug:", productSlug);
-  const slug = productSlug.slug;
-  console.log("slugcom:", slug);
-  // }
-  useEffect(() => {
-    const productSlug = child3.find((c3) => c3.id === props.data.id);
-    console.log("psluguseefect:", productSlug);
-    const sluguseeffect = productSlug.slug;
-    console.log("slugcomuseeffect:", sluguseeffect);
-  }, [child3]);
   return (
     <div>
       <div className={classes["icon-product"]}>
@@ -182,19 +127,6 @@ const ProductComponent = (props) => {
             </div>
           </div>
           <ProductQuantity data={props.data} />
-          {/* <div className={classes["icon-count"]}>
-            <HiOutlinePlus
-              onClick={() => handleIncrement(props.data.id)}
-              className={classes.icon}
-            />
-            <span className={classes["product-quantity"]}>
-              {props.data.quantity}
-            </span>
-            <FaMinus
-              onClick={() => handleDecrement(props.data.id)}
-              className={classes.icon}
-            />
-          </div> */}
         </div>
       </div>
     </div>

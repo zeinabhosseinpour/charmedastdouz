@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 // style
 import classes from "./style.module.css";
 
 // icons
-import { PiSortAscendingBold } from "react-icons/pi";
+
 import { HiSortDescending } from "react-icons/hi";
 
 const Ordering = () => {
+  //   states
   const [activeOption, setActiveOption] = useState("mostvisited");
 
   // handlers

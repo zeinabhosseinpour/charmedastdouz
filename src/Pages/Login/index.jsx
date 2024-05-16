@@ -1,16 +1,16 @@
-import React from "react";
-// style
+//   style
 import classes from "./style.module.css";
 import "./global.css";
 
-//image
+//  image
 import logo from "../../assets/image/gradient.png";
 
-// package
-import { Button, Checkbox, Form, Input } from "antd";
+//  package
+import { Button, Form, Input } from "antd";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  //  functions
   const validateMobileNumber = (rule, value, callback) => {
     const mobileNumberPattern = /^(\+98|0)?9\d{9}$/;
     // if(/^\d+$/.test(input))
@@ -21,10 +21,9 @@ const Login = () => {
       callback();
     }
   };
-  const handleLogin = () => {};
-  const onFinish = (values) => {
-    console.log("Success:", values);
-  };
+
+  //   handlers
+  const onFinish = (values) => {};
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
@@ -39,59 +38,10 @@ const Login = () => {
         <div>
           <div className={classes.login}>ورود | ثبت نام</div>
         </div>
-        <form className={classes["login-form"]}>
-          <span>سلام!</span>
-          <div className={classes["login-textfeild"]}>
-            <label className={classes["login-label"]}>
-              لطفا شماره موبایل یا ایمیل خود را وارد کنید
-            </label>
-            <div className={classes["section-input"]}>
-              <input
-                type="text"
-                name="username"
-                id="username"
-                dir="ltr"
-                className={classes["login-input"]}
-              />
-            </div>
-          </div>
 
-          <button
-            type="submit"
-            id="login-register"
-            onClick={handleLogin}
-            className={classes["login-btn"]}
-          >
-            ورود
-          </button>
-
-          <div className={classes.privacy}>
-            <span>
-              <span> ورود شما به معنای پذیرش </span>
-
-              <Link to={`/`} className={classes["site-privacy"]}>
-                شرایط رز چرم
-              </Link>
-              <span> و </span>
-              <Link to={`/privacy`} className={classes["site-privacy"]}>
-                قوانین حریم‌خصوصی
-              </Link>
-              <span> است</span>
-            </span>
-          </div>
-        </form>
         <Form
           className={classes["login-form"]}
           name="mobileNumberForm"
-          // labelCol={{
-          //   span: 8,
-          // }}
-          // wrapperCol={{
-          //   span: 16,
-          // }}
-          // style={{
-          //   maxWidth: 600,
-          // }}
           initialValues={{
             remember: true,
           }}
@@ -106,8 +56,6 @@ const Login = () => {
             </label>
           </div>
           <Form.Item
-            // className={classes["section-input"]}
-            // label="شماره موبایل"
             name="mobileNumber"
             rules={[
               {
@@ -122,12 +70,7 @@ const Login = () => {
             <Input />
           </Form.Item>
 
-          <Form.Item
-          // wrapperCol={{
-          //   offset: 8,
-          //   span: 16,
-          // }}
-          >
+          <Form.Item>
             <Button type="primary" htmlType="submit">
               ورود
             </Button>

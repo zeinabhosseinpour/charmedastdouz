@@ -1,5 +1,4 @@
-import React from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 // components
 import Header from "./../../Layout/Header/index";
@@ -7,16 +6,14 @@ import Filter from "../../Components/Shop/Filter";
 import Ordering from "./../../Components/Shop/Ordering/index";
 import Products from "./../../Components/Shop/Products/index";
 import Footer from "./../../Layout/Footer/index";
+import Breadcrumbs from "./component/Breadcrumbs";
 
 //style
 import classes from "./style.module.css";
-import Breadcrumbs from "./component/Breadcrumbs";
 
 const Search = () => {
-  // const [searchParams, setSearchParams] = useSearchParams();
   const { productid, slug } = useParams();
-  console.log("shoppppproductId:", productid);
-  console.log("shop");
+
   return (
     <div>
       <Header />
@@ -24,20 +21,11 @@ const Search = () => {
       <main
         className={` ${classes.container} ${classes.grid} ${classes["grid--2--cols"]} ${classes.content} `}
       >
-        <Filter
-          slug={slug}
-          productId={productid}
-          // searchparams={searchParams}
-          // setsearchparams={setSearchParams}
-        />
+        <Filter slug={slug} productId={productid} />
         <div>
           <Ordering />
 
-          <Products
-            Slug={slug}
-            // searchparams={searchParams}
-            // setsearchparams={setSearchParams}
-          />
+          <Products Slug={slug} />
         </div>
       </main>
       <main

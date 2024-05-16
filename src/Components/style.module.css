@@ -14,18 +14,25 @@
     cursor: pointer;
 
 }
-
+.icon-btn {
+ 
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 0;
+  border: unset;
+  background: 0;
+  font-size: 16px;
+}
 @media screen and (max-width:320px) {
   
  
 }
 @media screen and (max-width:480px) {
   
-  /* .icon-count {
-display: none;
-border: none;
-background-color: green;
-  } */
+ 
 }
 
 @media screen and (max-width:576px) {

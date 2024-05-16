@@ -24,7 +24,7 @@
     /* height: 300px; */
     margin-left: auto;
     margin-right: auto;
-    background-color: purple;
+    /* background-color: purple; */
   }
   
   .swiper-slide {
@@ -68,21 +68,21 @@
   .mySwiper2 {
     height:100%;
     width: 100%;
-    background-color: pink;
+    /* background-color: pink; */
   }
   
   .mySwiper {
     height: 100%;
     box-sizing: border-box;
     padding: 10px 0;
-    /* background-color: greenyellow; */
+  
   }
   
   .mySwiper .swiper-slide {
     width: 25%;
     height: 100%;
     opacity: 0.4;
-    background-color: red;
+    /* background-color: red; */
   }
   
   .mySwiper .swiper-slide-thumb-active {

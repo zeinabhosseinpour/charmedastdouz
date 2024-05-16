@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 // style
 import classes from "./style.module.css";
@@ -9,13 +9,10 @@ import TechnicalCheck from "./TechnicalCheck ";
 import ProductInfo from "./ProductInfo";
 
 const ProductDetailTab = () => {
+  //   states
   const [activeItem, setActiveItem] = useState("technicalCheck");
 
-  // const header = {
-  //   headerTitle: "productInfo",
-  //   headerTitle: "TechnicalCheck",
-  //   headerTitle: "UserCommnets",
-  // };
+  //   vaariables
   const content = {
     productInfo: <ProductInfo />,
     technicalCheck: <TechnicalCheck />,
@@ -68,16 +65,7 @@ const ProductDetailTab = () => {
           </span>
         </li>
       </ul>
-      {/* <div
-            className={
-              activeItem === header.headerTitle
-                ? classes["detail-is_active"]
-                : classes["product-detail_byitem"]
-            }
-            onClick={() => handleItemClick(header.headerTitle)}
-          >
-            {header.headerTitle}
-          </div> */}
+
       <div>{content[activeItem]}</div>
     </section>
   );

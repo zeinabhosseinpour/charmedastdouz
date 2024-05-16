@@ -1,23 +1,16 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
-// pakage
-import { Space, Input, Button } from "antd";
-
-// style
+//  style
 import classes from "./style.module.css";
-// import "../../colorPallet.css";
 
-//image
+//  image
 import logo from "../../assets/image/gradient.png";
 
-// icons
+//  icons
 import { PiInstagramLogoLight } from "react-icons/pi";
-import { BiLogoInstagram } from "react-icons/bi";
 import { LiaTelegramPlane } from "react-icons/lia";
 
 const Footer = () => {
-  console.log("footer:");
   return (
     <footer className={classes.footer}>
       <div
@@ -109,7 +102,7 @@ const Footer = () => {
             </li>
           </ul>
         </nav>
-        <div ck2lassName={classes["logo-col"]}>
+        <div className={classes["logo-col"]}>
           <div className={classes["address-col"]}>
             <h4 className={classes["footer-heading"]}>آدرس و تلفن رز چرم</h4>
             <div className={classes.contacts}>
@@ -145,7 +138,7 @@ const Footer = () => {
           </div>
           <div className={classes["newsletter-section"]}>
             <h4>
-              شماره موبایل خود را وارد کنید تا از تخفیف‌های رزچرم باخبر شوید.{" "}
+              شماره موبایل خود را وارد کنید تا از تخفیف‌های رزچرم باخبر شوید.
             </h4>
             <div className={classes["newsletter_frm"]}>
               <input
@@ -156,15 +149,6 @@ const Footer = () => {
                 ارسال
               </button>
             </div>
-            {/* <Space.Compact
-              style={{
-                width: "100%",
-              }}
-            >
-              <Input defaultValue="enter email" />
-
-              <Button type="primary">ارسال</Button>
-            </Space.Compact> */}
           </div>
           <h4 className={`${classes["footer-heading"]} ${classes.social} `}>
             ما را در شبکه های اجتماعی دنبال کنید

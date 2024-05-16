@@ -1,15 +1,12 @@
-import React from "react";
-
 import { Link } from "react-router-dom";
 
 // style
 
 import classes from "./style.module.css";
 
-// image
+// images
 import img1 from "../../assets/image/0003081_Commodity-guarantee-removebg-preview.png";
 import img2 from "../../assets/image/0003071_fast-sending.png";
-import img3 from "../../assets/image/icons8-leather-64.png";
 import img4 from "../../assets/image/7days.png";
 
 const ProductAds = () => {

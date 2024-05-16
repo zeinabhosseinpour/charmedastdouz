@@ -6,7 +6,6 @@ import accesorie from "../../../assets/image/belt.png";
 import shoes from "../../../assets/image/52.png";
 import clothes from "../../../assets/image/icons8-jacket-100.png";
 import charm from "../../../assets/image/icons8-leather-64.png";
-import { BsHandbag } from "react-icons/bs";
 
 const listBreadcrumbs = [
   {
@@ -798,7 +797,7 @@ const productslist = [
       {
         id: 74,
         title: "چرم مار پیتون",
-        slug: "چرم__مار_پیتون",
+        slug: "چرم_مار_پیتون",
         category: "چرم",
         href: "./Content.js",
       },

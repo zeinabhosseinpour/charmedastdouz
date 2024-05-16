@@ -5,9 +5,7 @@
 
 
 
-/* .grid:not(:last-child) {
-margin-bottom: 30px;
-} */
+
 
 .grid {
     display: grid;
@@ -27,7 +25,6 @@ margin-bottom: 30px;
 .footer {
     padding: 30px 20px;
     border-radius: 16px;
-    /* background-color: rgb(229, 231, 235); */
     background-color: var(--bgcolor-footer);
     font-size: 14px;
    
@@ -48,15 +45,11 @@ margin-bottom: 30px;
         .logo-about {
             display: flex;
             flex-direction: column;
-            /* justify-content: start; */
-            /* align-items: center; */
+         
         }
     
         .about {
-            /* border:1px solid #777; */
-    
-         /* margin-top: 10px; */
-         /* background-color: rgba(24, 28, 50, 0.12); */
+           
          background-color: var(  --bgcolor-1000);
          border-radius: 16px;
          padding: 32px;
@@ -68,18 +61,14 @@ margin-bottom: 30px;
            
             
         }
-.nav-col {
 
-}
 
 
 .footer-heading {
     font-size: 16px;
     font-weight: bold;
     margin-bottom:40px ;
-    /* botostart milad sabad */
-    /* background-color: rgb(232, 234, 246);
-color: rgb(126, 87, 194); */
+    
     
 }
 .lit {
@@ -97,21 +86,15 @@ color: rgb(126, 87, 194); */
 
 .footer-link {
 text-decoration: none;
-
-/* font-size: 14px; */
-/* color: #777; */
 color: var( --color-linkfooter);
-
 transition: all 0.3s;
-/* background-color: transparent; */
-/* display: flex; */
+
 }
 
 
 .footer-link:hover,
 .footer-link:active {
-  /* color: #555; */
-  /* color: #eb3a3a; */
+
   color: var( --color-linkfooter-hover-100);
  
 }
@@ -122,7 +105,6 @@ transition: all 0.3s;
 
 .contacts {
     font-size: 14px;
-    /* line-height:4; */
     margin-bottom: 12px;
 }
 
@@ -141,7 +123,6 @@ transition: all 0.3s;
 .social-links {
     list-style: none;
     display:flex ;
-    /* justify-content: center; */
     align-items: center;
     gap:35px;
 }
@@ -152,7 +133,7 @@ height: 20px;
 }
 
 .social-icon:hover {
-    /* color:#eb3a3a; */
+   
     color: var( --color-linkfooter-hover-100);
 
 }
@@ -174,9 +155,7 @@ margin-top: 20px;
     align-items: stretch;
     width: 360px;
   height: 40px;
-  /* position: relative; */
   overflow: hidden;
-  /* background-color: #fff; */
   background-color: var(  --bgcolor-500);
   border-radius: 6px;
 
@@ -190,29 +169,19 @@ margin-top: 20px;
   height: 100%;
   width: 100%;
   font-size: 12px;
-  /* border: 1px solid #d9d9d9;  */
- /* border-radius: 6px; */
   overflow: hidden;
 
 }
 .newsletter_btn {
     width: 60px;
   height: 100%;
-  /* background-color: #EC1C24; */
-  /* background-color: #ef4056; */
   background-color: var( --color-button-primary);
-  /* color:#fff; */
   color: var(  --bgcolor-500);
   line-height: 40px;
   border: none;
-  /* position: absolute; */
-  /* left: 0; */
-  /* font-weight: bold; */
-  /* top: 0; */
   cursor: pointer;
   overflow: hidden;
-  /* border: 1px solid #d9d9d9; */
-  /* border-radius: 6px; */
+ 
 }
 
 @media screen and (max-width:320px) {
@@ -255,14 +224,10 @@ margin-top: 20px;
         grid-template-rows: 1fr 1fr 1fr 2fr ;
         row-gap: 20px;
     }
-    .about-p{
-        /* font-size: 12px; */
-    }
+   
   }
   @media screen and (max-width:1280px) {
-    .grid--5--cols {
-        /* grid-template-rows: 2.5fr 1fr 1fr 2fr ; */
-    }
+   
   }
    @media screen and (min-width:1536px) {
           

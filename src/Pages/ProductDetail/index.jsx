@@ -1,10 +1,10 @@
-//component
+//   component
 
 import Header from "../../Layout/Header";
 import Footer from "../../Layout/Footer";
 import SingleProductDetail from "./SingleProductDetail";
 
-//style
+//  style
 import classes from "./style.module.css";
 import "./global.css";
 

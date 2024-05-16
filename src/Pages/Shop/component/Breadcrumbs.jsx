@@ -1,9 +1,9 @@
-import React from "react";
-import { child3 } from "../../../Components/Shop/Products/productsList2";
-
-import { productslist } from "../../../Components/Shop/Products/productslist";
 import { Link } from "react-router-dom";
 
+//   data
+import { child3 } from "../../../Components/Shop/Products/productsList2";
+
+//   style
 import classes from "./style.module.css";
 
 const Breadcrumbs = (props) => {
@@ -13,8 +13,7 @@ const Breadcrumbs = (props) => {
       p.parent1Id?.toString() === props.productid ||
       p.parentId?.toString() === props.productid
   );
-  console.log("categoryid:", product.categoryId, product);
-  // const productParent=product.map( p1 => )
+
   const breadcrumbs = [
     { title: "خانه", url: "/" },
     {
@@ -34,7 +33,7 @@ const Breadcrumbs = (props) => {
     //   url: `/product-detail/${props.productid}/${props.slug}`,
     // },
   ];
-  console.log("breadcrumbs:", breadcrumbs);
+
   return (
     <div>
       <div className={classes["breadcrumbs"]}>
