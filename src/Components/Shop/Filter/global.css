@@ -8,7 +8,9 @@
 
     border-radius: 0px;
   }
-
+  :where(.css-dev-only-do-not-override-kmmaf).ant-collapse .ant-collapse-content>.ant-collapse-content-box {
+    padding:16px 16px 16px 0px;
+  }
   :where(.css-dev-only-do-not-override-kmmaf).ant-checkbox-checked .ant-checkbox-inner {
     background-color:#ef4056;
    

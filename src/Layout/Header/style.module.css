@@ -309,6 +309,7 @@ input:focus {
   justify-content: center; 
   align-items: center; 
   margin-top: 25px;
+/*position: sticky ;*/
 }
 .btn-sabt{
  

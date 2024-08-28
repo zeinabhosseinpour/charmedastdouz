@@ -72,10 +72,10 @@ import p71 from "../../../assets/image/a38c0691d2c9d278e760c3268693ee59.jpg";
 
 const banerImages = [
   { id: 1, img: p2 },
-  { id: 2, img: p3 },
-  { id: 3, img: p4 },
-  { id: 4, img: p7 },
-  { id: 5, img: p9 },
+  { id: 2, img: p22 },
+  { id: 3, img: p68 },
+  { id: 4, img: p10 },
+  { id: 5, img: p15 },
 ];
 
 const imageslider = {

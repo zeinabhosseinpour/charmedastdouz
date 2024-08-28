@@ -14,10 +14,10 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <div className={classes["section-imgg"]}>
+      <div className={classes["section-img"]}>
         <BanerSlider />
       </div>
-      <div
+      {/*<div
         style={{
           border: "1px solid gray",
           borderRadius: "100%",
@@ -26,7 +26,7 @@ const Home = () => {
         }}
       >
         <img src={img1} alt="productimg" className={classes.mainimg} />
-      </div>
+      </div>*/}
       <Footer />
     </div>
   );

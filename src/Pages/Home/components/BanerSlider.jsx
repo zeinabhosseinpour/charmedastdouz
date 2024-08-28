@@ -37,9 +37,11 @@ const BanerSlider = () => {
         className="mySwiper"
       >
         {banerImages.map((image) => (
-          <SwiperSlide key={image.id}>
-            <img src={image.img} />
-          </SwiperSlide>
+          <div key={image.id}>
+            <SwiperSlide key={image.id}>
+              <img src={image.img} />
+            </SwiperSlide>
+          </div>
         ))}
       </Swiper>
     </>

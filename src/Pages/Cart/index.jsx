@@ -124,8 +124,8 @@ const Cart = () => {
                           >
                             <h4>{item.title}</h4>
                           </Link>
-                          <span>رنگ : {item.color}</span>
-                          <span>سایز: {item.size}</span>
+                          <span>رنگ : {item.color} </span>
+                          <span>سایز : {item.size}</span>
                         </div>
                       </div>
                     </div>
@@ -135,21 +135,22 @@ const Cart = () => {
                           <div className={classes["price-off"]}>
                             <div className={classes["price-section"]}>
                               <div className={classes["product-orginal_price"]}>
-                                <span>{priceIntl(item.price)}</span>
+                                <span> {priceIntl(item.price)} </span>
                                 <span> تومان </span>
                               </div>
                             </div>
                             <span>
                               {priceIntl(
                                 item.price * (item.off * 0.01) * item.quantity
-                              )}
+                              )}{" "}
+                              {"        "}
                               تومان تخفیف
                             </span>
                           </div>
                         )}
                         <span className={classes["p-offprice"]}>
                           {getPriceOff(item.price, item.off, item.quantity)}
-                          تومان
+                          {"        "} تومان
                         </span>
                       </div>
                       <ProductQuantity key={item.id} data={item} />
@@ -180,23 +181,23 @@ const Cart = () => {
               >
                 <span> مبلغ تخفیف محصولات </span>
                 <div>
-                  <span>{getCartTotalOff()}</span>
+                  <span> {getCartTotalOff()} </span>
                   <span> تومان </span>
                 </div>
               </div>
               <div
                 className={` ${classes["product-total-section"]} ${classes["total-price"]} `}
               >
-                <span> هزینه ارسال: </span>
+                <span> هزینه ارسال : </span>
                 <span> وابسته به نوع ارسال </span>
               </div>
               <div
                 className={` ${classes["product-total-section"]} ${classes["total-priceoff"]} `}
               >
-                <span>مبلغ کل قابل پرداخت:</span>
+                <span> مبلغ کل قابل پرداخت :</span>
                 <div>
-                  <span>{getCartTatalPriceOff()}</span>
-                  <span>تومان</span>
+                  <span> {getCartTatalPriceOff()} </span>
+                  <span> تومان </span>
                 </div>
               </div>
               <Link to={`/login`} className={classes["btn-add_cart"]}>
@@ -211,10 +212,10 @@ const Cart = () => {
             <Link to={`/login`} className={classes["btn-addcart_mobile"]}>
               <span> ثبت سفارش و ادامه خرید</span>
             </Link>
-            <span>مبلغ کل قابل پرداخت:</span>
+            <span>مبلغ کل قابل پرداخت :</span>
             <div>
-              <span>{getCartTatalPriceOff()}</span>
-              <span>تومان</span>
+              <span> {getCartTatalPriceOff()} </span>
+              <span> تومان </span>
             </div>
           </div>
         </div>

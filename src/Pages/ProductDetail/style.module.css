@@ -6,6 +6,9 @@
   justify-content: space-between;
  gap: 30px;
  
+ 
+ 
+ 
 }
 .section-img {
  
@@ -201,6 +204,8 @@ gap: 30px;
  
    color: var( --color-text-secondary);
    font-weight: 700;
+ display: flex;
+ gap: 8px;
 }
 
 .off-section {
@@ -358,6 +363,7 @@ gap: 30px;
   align-items: center;
   gap: 40px;
   padding: 32px;
+  
 }
 .modal-body {
   color: var(--color-button-primary);

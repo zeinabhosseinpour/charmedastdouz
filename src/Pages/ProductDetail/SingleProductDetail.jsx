@@ -175,7 +175,7 @@ const SingleProductDetail = () => {
                   </div>
                   <div className={classes["product-information"]}>
                     <div className={classes["p-categoty"]}>
-                      <div>دسته بندی: {p.category}</div>
+                      <div>دسته بندی : {p.category}</div>
                       <h2 className={classes["product-title"]}>{p.title}</h2>
                     </div>
                     <div className={classes["product-attribute"]}>
@@ -280,9 +280,13 @@ const SingleProductDetail = () => {
                           </div>
                         </div>
                         <div className={classes["priceoff-section"]}>
-                          <span> تخفیف شما</span>
-                          <span>{priceIntl(p.price * p.off * 0.01)}</span>
-                          <span>تومان</span>
+                          <span>
+                            {"   "}تخفیف شما {"   "}
+                          </span>
+                          <span>
+                            {"   "} {priceIntl(p.price * p.off * 0.01)}{" "}
+                          </span>
+                          <span> تومان </span>
                         </div>
                       </div>
                     )}
@@ -346,7 +350,7 @@ const SingleProductDetail = () => {
                           }}
                           className={classes["modal"]}
                           autoFocusButton={null}
-                          mask={false}
+                          mask={true}
                           width={500}
                           height={500}
                           cancelText="ادامه خرید"
@@ -355,6 +359,11 @@ const SingleProductDetail = () => {
                             width: "50px",
                             height: "100px",
                             color: "green",
+                          }}
+                          styles={{
+                            mask: {
+                              backdropFilter: "blur(10px)",
+                            },
                           }}
                           open={isModalOpen}
                           onOk={handleOk}

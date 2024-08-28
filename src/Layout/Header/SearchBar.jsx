@@ -22,6 +22,7 @@ import { useLocalStorage } from "@uidotdev/usehooks";
 
 // images
 import productimg from "../../assets/image/photo_2019-12-11_16-39-53.jpg";
+import { MdHeight } from "react-icons/md";
 
 //
 const SearchBar = () => {
@@ -115,7 +116,7 @@ const SearchBar = () => {
     {
       key: "1",
       label: (
-        <div style={{ overflow: "scroll" }}>
+        <div style={{ overflow: "auto", height: "250px" }}>
           <div>
             {searchState.map((p) => (
               <Link
@@ -142,13 +143,16 @@ const SearchBar = () => {
                   <div className={classes["price-section"]}>
                     {p.off && (
                       <div className={classes["product-orginal_price"]}>
-                        <span>{priceIntl(p.price)}</span>
-                        <span>تومان</span>
+                        <span> {priceIntl(p.price)} </span>
+                        <span> تومان </span>
                       </div>
                     )}
                     <div className={classes["product-off_price"]}>
-                      <span>{priceIntl(p.price - p.price * p.off * 0.01)}</span>
-                      <span>تومان</span>
+                      <span>
+                        {" "}
+                        {priceIntl(p.price - p.price * p.off * 0.01)}{" "}
+                      </span>
+                      <span> تومان </span>
                     </div>
                   </div>
                 </div>

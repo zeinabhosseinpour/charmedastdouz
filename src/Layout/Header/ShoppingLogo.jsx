@@ -87,7 +87,11 @@ const ShoppingLogo = () => {
     {
       key: "1",
       label: (
-        <div style={{ height: "450px", overflow: "scroll", padding: "8px" }}>
+        <div
+          style={{
+            padding: "0px",
+          }}
+        >
           <div className={classes["shopping-header"]}>
             <div className={classes["cart-quantity"]}>
               <span className={classes["shopping-title"]}>سبد خرید شما</span>
@@ -105,11 +109,18 @@ const ShoppingLogo = () => {
           <div className={classes["price-sum_section"]}>
             <span>مبلغ کل خرید</span>
             <div className={classes["price-sum"]}>
-              <span>{getCartTatalPriceOff()}</span>
-              <span>تومان</span>
+              <span> {getCartTatalPriceOff()} </span>
+              <span> تومان </span>
             </div>
           </div>
-          <div>
+          <div
+            style={{
+              padding: "8px",
+              width: "450px",
+              overflow: "auto",
+              maxHeight: "360px",
+            }}
+          >
             {cartItem.map((item) => (
               <ProductComponent key={item.id} data={item} />
             ))}
@@ -142,11 +153,17 @@ const ShoppingLogo = () => {
             menu={{
               items: cartItem.length > 0 ? items : items1,
             }}
+            style={{
+              padding: "0px",
+              borderRadius: "12px",
+            }}
             overlayStyle={{
-              width: "450px",
               // overflow: "auto",
               // height: "450px",
 
+              // width: "450px",
+              padding: "0px",
+              borderRadius: 12,
               boxShadow:
                 "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.3) 0px 4px 8px 0px",
             }}

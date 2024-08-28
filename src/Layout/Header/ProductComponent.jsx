@@ -37,6 +37,7 @@ const ProductComponent = (props) => {
   const getCartTatalPrice = (price) => {
     let totalPrice = 0;
     if (cartItem.length > 0) {
+      totalPrice = props.data.price * props.data.quantity;
       return priceIntl(totalPrice);
     }
   };
@@ -99,7 +100,7 @@ const ProductComponent = (props) => {
                 <div className={classes["color-size-off"]}>
                   <div className={classes["product-color_size"]}>
                     <span>رنگ : {props.data.color}</span>
-                    <span>سایز: {props.data.size}</span>
+                    <span>سایز : {props.data.size}</span>
                   </div>
 
                   {props.data.off && (
@@ -117,12 +118,12 @@ const ProductComponent = (props) => {
               {props.data.off && (
                 <div className={classes["product-orginal_price"]}>
                   <span>{getCartTatalPrice()}</span>
-                  <span>تومان</span>
+                  <span> تومان </span>
                 </div>
               )}
               <div className={classes["product-off_price"]}>
-                <span>{getCartTatalPriceOff()}</span>
-                <span>تومان</span>
+                <span> {getCartTatalPriceOff()} </span>
+                <span> تومان </span>
               </div>
             </div>
           </div>

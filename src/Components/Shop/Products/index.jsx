@@ -74,9 +74,9 @@ const Products = () => {
 
   return (
     <section className={classes["product-section"]}>
-      <div className={classes["pagintion-shop"]}>
+      {/* <div className={classes["pagintion-shop"]}>
         <Pagination defaultCurrent={1} pageSize={18} total={180} size="small" />
-      </div>
+  </div>*/}
 
       <div className={`${classes["product-shop"]} ${classes["grid--3--cols"]}`}>
         {productsList.map((c3) => (
@@ -113,8 +113,8 @@ const Products = () => {
                   {c3.off && (
                     <div key="c3.id" className={classes["price-and_off"]}>
                       <div className={classes["product-orginal_price"]}>
-                        <span>{priceIntl(c3.price)}</span>
-                        <span>تومان</span>
+                        <span> {priceIntl(c3.price)} </span>
+                        <span> تومان </span>
                       </div>
                       <div className={classes["product-off_section"]}>
                         <div className={classes["product-off"]}>{c3.off}%</div>
@@ -126,7 +126,7 @@ const Products = () => {
                     <span>
                       {priceIntl(c3.price - c3.price * c3.off * 0.01)}
                     </span>
-                    <span>تومان</span>
+                    <span> تومان </span>
                   </div>
                 </div>
               </div>
