@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 // package
 
 import { ConfigProvider, Modal } from "antd";
-import { cartaction } from "../../store/cartSlice";
+import { cartaction } from "../../Store/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 // style

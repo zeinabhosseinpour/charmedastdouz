@@ -10,7 +10,7 @@ import "./global.css";
 
 //  components
 
-import SizeFilter from "./sizeFilter";
+import SizeFilter from "./SizeFilter";
 import ColorsFilter from "./ColorsFilter";
 import CategoryFilter from "./CategoryFilter";
 import MaterialFilter from "./MaterialFilter";
