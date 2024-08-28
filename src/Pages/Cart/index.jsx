@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { cartaction } from "../store/CartSlice";
+import { cartaction } from "../../Store/CartSlice";
 
 // component
 import Header from "../../Layout/Header";
