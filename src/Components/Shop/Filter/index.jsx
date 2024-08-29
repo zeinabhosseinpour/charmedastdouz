@@ -6,7 +6,7 @@ import { Collapse, Switch, ConfigProvider } from "antd";
 
 //  style
 import classes from "./style.module.css";
-import "./global.css";
+import "./filterglob.css";
 
 //  components
 
