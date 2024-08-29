@@ -126,7 +126,7 @@ const SearchBar = () => {
               >
                 <div>
                   <img
-                    src={productimg}
+                    src={p.img}
                     alt="productimg"
                     className={classes["product-img"]}
                   />
