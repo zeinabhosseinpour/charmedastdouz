@@ -410,6 +410,11 @@ gap: 30px;
 
 
 @media screen and (max-width:640px) {
+  .breadcrumbs 
+  {
+   font-size: 9px;
+   gap: 10px;
+  }
   .product-details {
     gap: 20px;
   }
