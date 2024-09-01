@@ -686,7 +686,15 @@ gap: 10px;
  font-size: 9px;
  
   }
-
+ .product-off-section {
+    gap: 5px;
+    
+     }
+     .price-section
+     {
+      gap: 8px;
+      
+       }
 }
 
 @media screen and (max-width:640px) {
