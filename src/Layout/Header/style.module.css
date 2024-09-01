@@ -662,6 +662,33 @@ gap: 10px;
 
 }
 
+
+@media screen and (max-width:480px) {
+
+  .product-title {
+    font-size: 9px;
+  }   
+ .product-search 
+ {
+ gap: 10px;
+  
+   }
+   .product-orginal_price{
+    font-size: 9px;
+  }   
+  .off-section 
+  {
+ font-size: 9px;
+ 
+  }
+  .product-off_price
+  {
+ font-size: 9px;
+ 
+  }
+
+}
+
 @media screen and (max-width:640px) {
   .main-header {
     display: none;
