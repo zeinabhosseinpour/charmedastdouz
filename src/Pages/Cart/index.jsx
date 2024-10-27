@@ -223,8 +223,9 @@ const Cart = () => {
         <div className={classes["shopping-empty"]}>
           <img
             src={img1}
-            alt="productimg"
-            className={classes["product-color-img"]}
+            alt="shoppingimg"
+            // className={classes["product-color-img"]}
+            className={classes["shopping-img"]}
           />
           <div>سبد خرید شما خالی است</div>
         </div>

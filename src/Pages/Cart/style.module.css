@@ -200,7 +200,7 @@
 .shopping-empty {
   font-size: 40px;
   padding: 30px;
-  margin: 50px;
+  /*margin: 50px;*/
   text-align: center;
   
   color:var(--color-text-primary-100);
@@ -239,7 +239,19 @@
   .single-cart_product {
     font-size: 11px;
   }
- 
+  .shopping-empty {
+    font-size: 14px;
+    /*padding: 30px;
+    //margin: 50px;
+    text-align: center;*/
+    
+    color:var(--color-text-primary-100);
+  
+  }
+  .shopping-img {
+    width: 45px;
+    height: 45px;
+  }
    
   }
   @media screen and (max-width:768px) {

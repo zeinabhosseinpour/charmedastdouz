@@ -5,8 +5,8 @@ import { useSearchParams } from "react-router-dom";
 import { Collapse, Switch, ConfigProvider } from "antd";
 
 //  style
-import classes from "./style.module.css";
 import "./global.css";
+import classes from "./style.module.css";
 
 //  components
 

@@ -410,6 +410,12 @@ gap: 30px;
 
 
 @media screen and (max-width:640px) {
+  .breadcrumbs 
+  {
+   
+   flex-wrap: wrap;
+  
+  }
   .product-details {
     gap: 20px;
   }
