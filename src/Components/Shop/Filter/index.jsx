@@ -1,3 +1,4 @@
+import "./global.css";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
@@ -5,8 +6,14 @@ import { useSearchParams } from "react-router-dom";
 import { Collapse, Switch, ConfigProvider } from "antd";
 
 //  style
+<<<<<<< HEAD
 import "./global.css";
 import classes from "./style.module.css";
+=======
+
+import classes from "./style.module.css";
+
+>>>>>>> a906a55826bb5dc814d8ec6d4912443be72093df
 
 //  components
 
