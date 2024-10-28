@@ -412,14 +412,9 @@ gap: 30px;
 @media screen and (max-width:640px) {
   .breadcrumbs 
   {
-<<<<<<< HEAD
    
    flex-wrap: wrap;
   
-=======
-
-   flex-wrap: wrap;
->>>>>>> a906a55826bb5dc814d8ec6d4912443be72093df
   }
   .product-details {
     gap: 20px;

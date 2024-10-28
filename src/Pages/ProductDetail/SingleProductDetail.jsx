@@ -185,7 +185,7 @@ const SingleProductDetail = () => {
                     <hr className={classes["hr-div"]} />
 
                     <div className={classes["product-color"]}>
-                      <span> :رنگ محصول ( {activeColor} ) </span>
+                      <span> رنگ محصول : ( {activeColor} ) </span>
                       <div className={classes["color-section"]}>
                         {p.attributes.map((item) => (
                           <div key={item.id}>
