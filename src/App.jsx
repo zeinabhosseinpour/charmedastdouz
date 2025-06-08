@@ -13,6 +13,7 @@ import DiscountsOffers from "./Pages/discountsOffers";
 // style
 import "./Layout/Header/global.css";
 import "./App.css";
+import Category from "./Pages/Category";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/category" element={<Category />} />
           <Route index element={<Home />} />
           <Route path="/search" element={<Search />} />
           <Route path="/product-category/:productid/:slug" element={<Shop />} />

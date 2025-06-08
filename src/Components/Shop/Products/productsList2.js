@@ -69,6 +69,14 @@ import p68 from "../../../assets/image/94708749522b8ef72cae096942d5c8c6.jpg";
 import p69 from "../../../assets/image/cb438b69ac058006b41478e1d98c4bbf.jpg";
 import p70 from "../../../assets/image/f86d0d8157893977129bdc074c74a081.jpg";
 import p71 from "../../../assets/image/a38c0691d2c9d278e760c3268693ee59.jpg";
+import pp1 from "../../../assets/image/photo_2019-12-11_16-39-53.jpg";
+import pp2 from "../../../assets/image/20211216_125938.jpg";
+import pp3 from "../../../assets/image/20211231_133356.jpg";
+import bag from "../../../assets/image/icons8-bag-100.png";
+import accesorie from "../../../assets/image/belt.png";
+import shoes from "../../../assets/image/52.png";
+import clothes from "../../../assets/image/icons8-jacket-100.png";
+import charm from "../../../assets/image/icons8-leather-64.png";
 
 const banerImages = [
   { id: 1, img: p2 },
@@ -465,6 +473,8 @@ const category1 = [
     title: "کیف های چرمی",
     // childId: [11, 12, 13, 14, 15, 16, 17],
     hasChild: 0,
+    pic: bag,
+
     child: [
       {
         id: 11,
@@ -516,6 +526,7 @@ const category1 = [
     title: "اکسسوری چرمی",
     // childId: [11, 12, 13, 14, 15, 16, 17],
     hasChild: 0,
+    pic: accesorie,
     child: [
       {
         id: 21,
@@ -538,7 +549,7 @@ const category1 = [
       {
         id: 24,
         slug: "پیش_بند_چرمی",
-        title: "پیش_بند چرمی",
+        title: "پیش بند چرمی",
         category: "اکسسوری_چرمی",
       },
       {
@@ -567,6 +578,7 @@ const category1 = [
     title: "کفش چرمی",
     // childId: [11, 12, 13, 14, 15, 16, 17],
     hasChild: 1,
+    pic: shoes,
     child: [
       {
         id: 31,
@@ -612,6 +624,7 @@ const category1 = [
     title: "پوشاک چرمی",
     slug: "پوشاک_چرمی",
     hasChild: 0,
+    pic: clothes,
     child: [
       {
         id: 41,
@@ -639,6 +652,7 @@ const category1 = [
     title: "دکوراسیون و منزل",
     slug: "دکوراسیون_و_منزل",
     hasChild: 0,
+    pic: bag,
     child: [
       {
         id: 51,
@@ -665,6 +679,7 @@ const category1 = [
     title: "محصولات بچگانه",
     slug: "محصولات_بچگانه",
     hasChild: 0,
+    pic: bag,
     child: [
       {
         id: 61,
@@ -680,6 +695,7 @@ const category1 = [
     title: "چرم",
     slug: "چرم",
     hasChild: 1,
+    pic: charm,
     child: [
       {
         id: 71,

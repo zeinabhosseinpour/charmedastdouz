@@ -1,0 +1,127 @@
+.category-mobile {
+  display: none;
+}
+.category-list {
+  width: 90px;
+  background-color: #3f4064;
+
+  list-style-type: none;
+  color: #3f4064;
+}
+
+.category-item {
+  text-decoration: none;
+
+  padding: 12px 8px;
+  border-left: 1px solid #e0e0e2;
+  border-bottom: 1px solid #e0e0e2;
+  text-decoration: none;
+  list-style-type: none;
+  font-size: 9px;
+
+  background-color: var(--bgcolor-hover-primary-200);
+  color: #3f4064;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+}
+
+.category-item-active {
+  border-left: 1px solid #fff;
+  background-color: #fff;
+  color: var(--color-hover-primary-100);
+}
+
+.nav-menu_rightdropdown-linkitem {
+  text-align: center;
+}
+
+.left-submenu {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 5px;
+  flex-grow: 1;
+}
+
+.cat-item_link {
+  color: var(--color-hover-primary-100);
+  font-size: 9px;
+  font-weight: 700;
+  padding: 12px 8px;
+  text-decoration: none;
+}
+
+.left-menu-item {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+
+  align-items: stretch;
+  font-size: 9px;
+  padding: 12px 8px;
+  border-bottom: 1px solid #f0f0f1;
+  color: rgb(12, 12, 12);
+
+  overflow-wrap: break-word;
+  overflow-y: auto;
+}
+
+.icon-category_expanded {
+  transition: transform 0.3s;
+  transform: rotate(90deg);
+  font-size: 20px;
+}
+
+.icon-category {
+  color: black;
+  font-size: 20px;
+}
+
+.list-submenu {
+}
+
+.left-menu-link {
+  text-decoration: none;
+  list-style: none;
+  color: rgb(12, 12, 12);
+  font-size: 10px;
+  margin-right: 15px;
+}
+.left-submenu-item {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+
+  align-items: stretch;
+  font-size: 9px;
+  padding: 12px 8px;
+  border-bottom: 1px solid #f0f0f1;
+  color: rgb(12, 12, 12);
+
+  overflow-wrap: break-word;
+  overflow-y: auto;
+}
+.left-submenu-link {
+  margin-right: 30px;
+  text-decoration: none;
+  list-style: none;
+  color: rgb(74, 95, 115);
+  font-size: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .category-mobile {
+    display: flex;
+
+    background-color: var(--bgcolor-500);
+
+    color: var(--color-text-secondary-500);
+
+    /* padding: 16px 0;*/
+  }
+}

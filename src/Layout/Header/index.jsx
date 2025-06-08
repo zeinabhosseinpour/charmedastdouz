@@ -53,7 +53,10 @@ const Header = () => {
                 </Link>
               </li>
               <li className={classes["footer-mobile_li"]}>
-                <Link className={classes["footer-mobile_link"]}>
+                <Link
+                  to={`/category`}
+                  className={classes["footer-mobile_link"]}
+                >
                   <BiCategoryAlt className={classes["footer-mobile_icon"]} />
                   <span>دسته بندی</span>
                 </Link>

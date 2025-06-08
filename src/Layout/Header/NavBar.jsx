@@ -13,6 +13,7 @@ import classes from "./style.module.css";
 import { productslist } from "../../Components/Shop/Products/productslist";
 
 const NavBar = () => {
+  console.log("navbar");
   // variables
   const plist = productslist;
 
