@@ -29,7 +29,8 @@ const Category = () => {
   useEffect(() => {
     if (category1.length > 0) {
       setMenuItem(category1[0].title);
-      setActiveItem(category1[0].id), setMenuItemSlug(category1[0].slug);
+      setActiveItem(category1[0].id);
+      setMenuItemSlug(category1[0].slug);
     }
   }, []);
 
